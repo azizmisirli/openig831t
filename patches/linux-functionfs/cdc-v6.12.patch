@@ -1,0 +1,265 @@
+--- a/drivers/usb/gadget/function/f_fs.c
++++ b/drivers/usb/gadget/function/f_fs.c
+@@ -31,6 +31,7 @@
+ #include <linux/unaligned.h>
+ 
+ #include <linux/usb/ccid.h>
++#include <linux/usb/cdc.h>
+ #include <linux/usb/composite.h>
+ #include <linux/usb/functionfs.h>
+ #include <linux/usb/func_utils.h>
+@@ -268,6 +269,8 @@
+ 	struct ffs_data *ffs;
+ 	unsigned interfaces_count;
+ 	unsigned eps_count;
++	bool interface_declared[256];
++	bool interface_referenced[256];
+ };
+ 
+ static int  __must_check ffs_epfiles_create(struct ffs_data *ffs);
+@@ -2458,7 +2461,8 @@
+  */
+ 
+ enum ffs_entity_type {
+-	FFS_DESCRIPTOR, FFS_INTERFACE, FFS_STRING, FFS_ENDPOINT
++	FFS_DESCRIPTOR, FFS_INTERFACE, FFS_STRING, FFS_ENDPOINT,
++	FFS_INTERFACE_REF
+ };
+ 
+ enum ffs_os_desc_type {
+@@ -2476,7 +2480,8 @@
+ 
+ static int __must_check ffs_do_single_desc(char *data, unsigned len,
+ 					   ffs_entity_callback entity,
+-					   void *priv, int *current_class, int *current_subclass)
++					   void *priv, int *current_class, int *current_subclass,
++					   unsigned flags)
+ {
+ 	struct usb_descriptor_header *_ds = (void *)data;
+ 	u8 length;
+@@ -2496,6 +2501,7 @@
+ 	}
+ 
+ #define __entity_check_INTERFACE(val)  1
++#define __entity_check_INTERFACE_REF(val) 1
+ #define __entity_check_STRING(val)     (val)
+ #define __entity_check_ENDPOINT(val)   ((val) & USB_ENDPOINT_NUMBER_MASK)
+ #define __entity(type, val) do {					\
+@@ -2546,6 +2552,47 @@
+ 		__entity(ENDPOINT, ds->bEndpointAddress);
+ 	}
+ 		break;
++
++	case USB_DT_CS_INTERFACE: {
++		u8 *d = (void *)_ds;
++		unsigned i;
++
++		/* Private opt-in: never reinterpret vendor descriptors by default. */
++		if (!(flags & FUNCTIONFS_EXPERIMENTAL_CDC_FUNCS))
++			return -EINVAL;
++		if (!((*current_class == USB_CLASS_COMM &&
++		       *current_subclass == USB_CDC_SUBCLASS_ACM) ||
++		      (*current_class == USB_CLASS_VENDOR_SPEC &&
++		       *current_subclass == 0)))
++			return -EINVAL;
++		if (length < 3)
++			goto inv_length;
++
++		switch (d[2]) {
++		case USB_CDC_HEADER_TYPE:
++			if (length != 5)
++				goto inv_length;
++			break;
++		case USB_CDC_CALL_MANAGEMENT_TYPE:
++			if (length != 5)
++				goto inv_length;
++			__entity(INTERFACE_REF, d[4]);
++			break;
++		case USB_CDC_ACM_TYPE:
++			if (length != 4)
++				goto inv_length;
++			break;
++		case USB_CDC_UNION_TYPE:
++			if (length < 5)
++				goto inv_length;
++			for (i = 3; i < length; ++i)
++				__entity(INTERFACE_REF, d[i]);
++			break;
++		default:
++			return -EINVAL;
++		}
++		break;
++	}
+ 
+ 	case USB_TYPE_CLASS | 0x01:
+ 		if (*current_class == USB_INTERFACE_CLASS_HID) {
+@@ -2614,6 +2661,7 @@
+ #undef __entity
+ #undef __entity_check_DESCRIPTOR
+ #undef __entity_check_INTERFACE
++#undef __entity_check_INTERFACE_REF
+ #undef __entity_check_STRING
+ #undef __entity_check_ENDPOINT
+ 
+@@ -2621,7 +2669,8 @@
+ }
+ 
+ static int __must_check ffs_do_descs(unsigned count, char *data, unsigned len,
+-				     ffs_entity_callback entity, void *priv)
++				     ffs_entity_callback entity, void *priv,
++				     unsigned flags)
+ {
+ 	const unsigned _len = len;
+ 	unsigned long num = 0;
+@@ -2646,7 +2695,7 @@
+ 			return _len - len;
+ 
+ 		ret = ffs_do_single_desc(data, len, entity, priv,
+-			&current_class, &current_subclass);
++			&current_class, &current_subclass, flags);
+ 		if (ret < 0) {
+ 			pr_debug("%s returns %d\n", __func__, ret);
+ 			return ret;
+@@ -2664,12 +2713,24 @@
+ {
+ 	struct ffs_desc_helper *helper = priv;
+ 	struct usb_endpoint_descriptor *d;
++	unsigned i;
+ 
+ 	switch (type) {
+ 	case FFS_DESCRIPTOR:
++		/* End of this speed: refs cannot invent an interface. */
++		if (!desc)
++			for (i = 0; i < 256; ++i)
++				if (helper->interface_referenced[i] &&
++				    !helper->interface_declared[i])
++					return -EINVAL;
++		break;
++
++	case FFS_INTERFACE_REF:
++		helper->interface_referenced[*valuep] = true;
+ 		break;
+ 
+ 	case FFS_INTERFACE:
++		helper->interface_declared[*valuep] = true;
+ 		/*
+ 		 * Interfaces are indexed from zero so if we
+ 		 * encountered interface "n" then there are at least
+@@ -2926,7 +2987,8 @@
+ 			      FUNCTIONFS_VIRTUAL_ADDR |
+ 			      FUNCTIONFS_EVENTFD |
+ 			      FUNCTIONFS_ALL_CTRL_RECIP |
+-			      FUNCTIONFS_CONFIG0_SETUP)) {
++			      FUNCTIONFS_CONFIG0_SETUP |
++			      FUNCTIONFS_EXPERIMENTAL_CDC_FUNCS)) {
+ 			ret = -ENOSYS;
+ 			goto error;
+ 		}
+@@ -2980,8 +3042,10 @@
+ 			continue;
+ 		helper.interfaces_count = 0;
+ 		helper.eps_count = 0;
++		memset(helper.interface_declared, 0, sizeof(helper.interface_declared));
++		memset(helper.interface_referenced, 0, sizeof(helper.interface_referenced));
+ 		ret = ffs_do_descs(counts[i], data, len,
+-				   __ffs_data_do_entity, &helper);
++				   __ffs_data_do_entity, &helper, flags);
+ 		if (ret < 0)
+ 			goto error;
+ 		if (!ffs->eps_count && !ffs->interfaces_count) {
+@@ -3366,8 +3430,13 @@
+ 		/* Handled in previous pass by __ffs_func_bind_do_descs() */
+ 		return 0;
+ 
++	case FFS_INTERFACE_REF:
+ 	case FFS_INTERFACE:
+ 		idx = *valuep;
++		if (idx >= func->ffs->interfaces_count)
++			return -EINVAL;
++		if (type == FFS_INTERFACE_REF && func->interfaces_nums[idx] < 0)
++			return -EINVAL;
+ 		if (func->interfaces_nums[idx] < 0) {
+ 			int id = usb_interface_id(func->conf, &func->function);
+ 			if (id < 0)
+@@ -3405,6 +3474,19 @@
+ 	pr_vdebug("%02x -> %02x\n", *valuep, newValue);
+ 	*valuep = newValue;
+ 	return 0;
++}
++
++/* Allocate IDs without mutating bytes, including valid forward references. */
++static int __ffs_func_bind_do_interface_ids(enum ffs_entity_type type, u8 *valuep,
++					 struct usb_descriptor_header *desc,
++					 void *priv)
++{
++	u8 value;
++
++	if (type != FFS_INTERFACE)
++		return 0;
++	value = *valuep;
++	return __ffs_func_bind_do_nums(type, &value, desc, priv);
+ }
+ 
+ static int __ffs_func_bind_do_os_desc(enum ffs_os_desc_type type,
+@@ -3610,7 +3692,7 @@
+ 		fs_len = ffs_do_descs(ffs->fs_descs_count,
+ 				      vla_ptr(vlabuf, d, raw_descs),
+ 				      d_raw_descs__sz,
+-				      __ffs_func_bind_do_descs, func);
++				      __ffs_func_bind_do_descs, func, ffs->user_flags);
+ 		if (fs_len < 0) {
+ 			ret = fs_len;
+ 			goto error;
+@@ -3624,7 +3706,7 @@
+ 		hs_len = ffs_do_descs(ffs->hs_descs_count,
+ 				      vla_ptr(vlabuf, d, raw_descs) + fs_len,
+ 				      d_raw_descs__sz - fs_len,
+-				      __ffs_func_bind_do_descs, func);
++				      __ffs_func_bind_do_descs, func, ffs->user_flags);
+ 		if (hs_len < 0) {
+ 			ret = hs_len;
+ 			goto error;
+@@ -3639,7 +3721,7 @@
+ 		ss_len = ffs_do_descs(ffs->ss_descs_count,
+ 				vla_ptr(vlabuf, d, raw_descs) + fs_len + hs_len,
+ 				d_raw_descs__sz - fs_len - hs_len,
+-				__ffs_func_bind_do_descs, func);
++				__ffs_func_bind_do_descs, func, ffs->user_flags);
+ 		if (ss_len < 0) {
+ 			ret = ss_len;
+ 			goto error;
+@@ -3653,11 +3735,22 @@
+ 	 * endpoint numbers rewriting.  We can do that in one go
+ 	 * now.
+ 	 */
++	if (ffs->user_flags & FUNCTIONFS_EXPERIMENTAL_CDC_FUNCS) {
++		ret = ffs_do_descs(ffs->fs_descs_count +
++				   (high ? ffs->hs_descs_count : 0) +
++				   (super ? ffs->ss_descs_count : 0),
++				   vla_ptr(vlabuf, d, raw_descs), d_raw_descs__sz,
++				   __ffs_func_bind_do_interface_ids, func,
++				   ffs->user_flags);
++		if (ret < 0)
++			goto error;
++	}
++
+ 	ret = ffs_do_descs(ffs->fs_descs_count +
+ 			   (high ? ffs->hs_descs_count : 0) +
+ 			   (super ? ffs->ss_descs_count : 0),
+ 			   vla_ptr(vlabuf, d, raw_descs), d_raw_descs__sz,
+-			   __ffs_func_bind_do_nums, func);
++			   __ffs_func_bind_do_nums, func, ffs->user_flags);
+ 	if (ret < 0)
+ 		goto error;
+ 
+--- a/include/uapi/linux/usb/functionfs.h
++++ b/include/uapi/linux/usb/functionfs.h
+@@ -25,6 +25,8 @@
+ 	FUNCTIONFS_EVENTFD = 32,
+ 	FUNCTIONFS_ALL_CTRL_RECIP = 64,
+ 	FUNCTIONFS_CONFIG0_SETUP = 128,
++	/* PRIVATE EXPERIMENT: not an upstream or stable userspace ABI. */
++	FUNCTIONFS_EXPERIMENTAL_CDC_FUNCS = 1U << 30,
+ };
+ 
+ /* Descriptor of an non-audio endpoint */

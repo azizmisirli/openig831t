@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "evidence_level": "CONFIRMED_TARGET_DEVICE",
+  "measurement_scope": "One IG831T specimen; successful CTL Get Version Info response",
+  "service_count": 29,
+  "entries": [
+    {
+      "id": 0,
+      "id_hex": "0x00",
+      "name": "CTL",
+      "major": 1,
+      "minor": 5
+    },
+    {
+      "id": 1,
+      "id_hex": "0x01",
+      "name": "WDS",
+      "major": 1,
+      "minor": 67
+    },
+    {
+      "id": 2,
+      "id_hex": "0x02",
+      "name": "DMS",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 3,
+      "id_hex": "0x03",
+      "name": "NAS",
+      "major": 1,
+      "minor": 25
+    },
+    {
+      "id": 4,
+      "id_hex": "0x04",
+      "name": "QOS",
+      "major": 1,
+      "minor": 12
+    },
+    {
+      "id": 5,
+      "id_hex": "0x05",
+      "name": "WMS",
+      "major": 1,
+      "minor": 10
+    },
+    {
+      "id": 7,
+      "id_hex": "0x07",
+      "name": "AUTH",
+      "major": 1,
+      "minor": 3
+    },
+    {
+      "id": 8,
+      "id_hex": "0x08",
+      "name": "AT",
+      "major": 1,
+      "minor": 4
+    },
+    {
+      "id": 9,
+      "id_hex": "0x09",
+      "name": "VOICE",
+      "major": 2,
+      "minor": 1
+    },
+    {
+      "id": 10,
+      "id_hex": "0x0a",
+      "name": "CAT2",
+      "major": 2,
+      "minor": 24
+    },
+    {
+      "id": 11,
+      "id_hex": "0x0b",
+      "name": "UIM",
+      "major": 1,
+      "minor": 87
+    },
+    {
+      "id": 12,
+      "id_hex": "0x0c",
+      "name": "PBM",
+      "major": 1,
+      "minor": 4
+    },
+    {
+      "id": 15,
+      "id_hex": "0x0f",
+      "name": "TEST",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 16,
+      "id_hex": "0x10",
+      "name": "LOC",
+      "major": 2,
+      "minor": 0
+    },
+    {
+      "id": 17,
+      "id_hex": "0x11",
+      "name": "SAR",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 18,
+      "id_hex": "0x12",
+      "name": "IMS",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 23,
+      "id_hex": "0x17",
+      "name": "TS",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 24,
+      "id_hex": "0x18",
+      "name": "TMD",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 26,
+      "id_hex": "0x1a",
+      "name": "WDA",
+      "major": 1,
+      "minor": 16
+    },
+    {
+      "id": 29,
+      "id_hex": "0x1d",
+      "name": "CSVT",
+      "major": 1,
+      "minor": 1
+    },
+    {
+      "id": 31,
+      "id_hex": "0x1f",
+      "name": "IMSP",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 33,
+      "id_hex": "0x21",
+      "name": "IMSA",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 34,
+      "id_hex": "0x22",
+      "name": "COEX",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 36,
+      "id_hex": "0x24",
+      "name": "PDC",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 41,
+      "id_hex": "0x29",
+      "name": "RFRPE",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 42,
+      "id_hex": "0x2a",
+      "name": "DSD",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 45,
+      "id_hex": "0x2d",
+      "name": "UNKNOWN_NUMERIC",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 48,
+      "id_hex": "0x30",
+      "name": "UNKNOWN_NUMERIC",
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "id": 54,
+      "id_hex": "0x36",
+      "name": "UNKNOWN_NUMERIC",
+      "major": 1,
+      "minor": 0
+    }
+  ],
+  "name_mapping_evidence_level": "SOURCE_SUPPORTED",
+  "name_mapping_source": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/src/libqmi-glib/qmi-enums.h",
+  "unknown_names_preserved": true,
+  "correction": "OMA is 0xE2 in the pinned enum and is not present in this list. No entry is relabeled OMA.",
+  "capability_limit": "A service/version advertisement is not proof that every service command is supported or that a 5G radio exists.",
+  "provenance": [
+    {
+      "artifact_id": "target-qmi-version-export",
+      "source_sha256": "6e5632a1c02db5955e182b1a18ad6f9b8a9b8b2e825e3566b3123f9cbd0f8db6",
+      "public_raw_source_included": false,
+      "note": "Hash identifies a withheld research artifact; it does not make the source publicly replayable."
+    },
+    {
+      "artifact_id": "target-qmi-service-name-correction",
+      "source_sha256": "60e049147550b345fb6689e584e1540ea62d5606716ae0d41fd958cf9d89add2",
+      "public_raw_source_included": false,
+      "note": "Hash identifies a withheld research artifact; it does not make the source publicly replayable."
+    }
+  ]
+}

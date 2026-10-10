@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "evidence_level": "CONFIRMED_TARGET_DEVICE",
+  "product": "DJI Cellular Dongle 2",
+  "model": "IG831T",
+  "manufacturer": "Fibocom Wireless Inc.",
+  "at_model": "NL668T-GL",
+  "qmi_dms_model": "NL668T-GL-00-00",
+  "firmware": "19906.5090.00.02.00.23",
+  "hardware_revision": "V1.0.0",
+  "scope": "Reported identity of the measured specimen; not an independent silicon identification or a replacement compatibility guarantee.",
+  "excluded": [
+    "USB serial",
+    "IMEI",
+    "IMSI",
+    "ICCID",
+    "EID",
+    "account and network identifiers"
+  ],
+  "provenance": [
+    {
+      "artifact_id": "private-research-synthesis",
+      "source_sha256": "a506b530aaffcb12d3eaf13e03965d9faa89a13080edeb745d33015c8a842fc2",
+      "public_raw_source_included": false,
+      "note": "Hash identifies a withheld research artifact; it does not make the source publicly replayable."
+    }
+  ]
+}

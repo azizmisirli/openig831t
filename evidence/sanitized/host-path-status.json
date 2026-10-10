@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "evidence_level": "SOURCE_SUPPORTED",
+  "artifact_scope": "DJI Mobile SDK 5.18.0 native implementation; static analysis only",
+  "observers": [
+    {
+      "name": "OLD",
+      "key": "0x40180040",
+      "format": "Legacy WlmDongleInfo; type-zero/nonzero classification"
+    },
+    {
+      "name": "NEW",
+      "key": "0x4018004A",
+      "format": "Separate 159-byte WlmNewDongleInfoMsg path",
+      "typed_bytes": 137,
+      "unresolved_bytes": 22,
+      "isDjiDevice_in_reviewed_schema": false
+    },
+    {
+      "name": "MULTI",
+      "key": "0x40180050",
+      "format": "TLV path; basic-info types 6, 7 and 10 set the typed isDjiDevice field"
+    }
+  ],
+  "static_active_path_gate": "C_PARTIALLY_RELATED",
+  "active_runtime_path": {
+    "evidence_level": "UNKNOWN",
+    "value": null,
+    "observed_hit_count": null
+  },
+  "superseded_claim": {
+    "evidence_level": "SUPERSEDED",
+    "claim": "NEW observer 0x4018004A applies the type set 6/7/10",
+    "correction": "The type-set predicate belongs to MULTI basic-info parsing."
+  },
+  "limits": [
+    "All three registrations can coexist; registration does not select a runtime family.",
+    "False/default/partial-decode state is not by itself a modem rejection.",
+    "Mix characteristics publication filtering is real in the reviewed path; no global identity-allowlist conclusion follows.",
+    "No target runtime acceptance or rejection was observed."
+  ],
+  "provenance": [
+    {
+      "artifact_id": "private-static-host-closure",
+      "source_sha256": "825cff328c6a6f006b0cb4241fbb7728e273c597498ec82d7073d1786500e095",
+      "public_raw_source_included": false,
+      "note": "Hash identifies a withheld research artifact; it does not make the source publicly replayable."
+    },
+    {
+      "artifact_id": "private-research-synthesis",
+      "source_sha256": "a506b530aaffcb12d3eaf13e03965d9faa89a13080edeb745d33015c8a842fc2",
+      "public_raw_source_included": false,
+      "note": "Hash identifies a withheld research artifact; it does not make the source publicly replayable."
+    }
+  ]
+}

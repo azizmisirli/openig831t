@@ -1,0 +1,10 @@
+name: Documentation correction
+description: Improve technical accuracy, provenance or clarity.
+body:
+  - type: textarea
+    id: issue
+    attributes: {label: Page, current claim and proposed correction}
+    validations: {required: true}
+  - type: textarea
+    id: source
+    attributes: {label: Primary source and evidence level}

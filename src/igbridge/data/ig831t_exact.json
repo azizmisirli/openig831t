@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "name": "ig831t_sanitized_composition",
+  "evidence_level": "CONFIRMED_TARGET_DEVICE",
+  "device_hex": "1201000200000040a32c0940180301020301",
+  "qualifier_hex": "0a060002000000400100",
+  "high_speed_hex": "0902d100050100a0fa0904000002ffffff0007058102000200070501020002000904010003ff00000005240010010524010000042402020524060000070583030a000907058202000200070502020002000904020003ff00000005240010010524010000042402020524060000070585030a000907058402000200070503020002000904030003ff00000005240010010524010000042402020524060000070587030a000907058602000200070504020002000904040003ffffff00070589030800090705880200020007050502000200",
+  "full_speed_hex": "0907d100050100a0fa0904000002ffffff0007058102400000070501024000000904010003ff00000005240010010524010000042402020524060000070583030a002007058202400000070502024000000904020003ff00000005240010010524010000042402020524060000070585030a002007058402400000070503024000000904030003ff00000005240010010524010000042402020524060000070587030a002007058602400000070504024000000904040003ffffff00070589030800200705880240000007050502400000",
+  "language_ids": [
+    1033
+  ],
+  "strings": {
+    "1033": {
+      "1": "1003420041004900570041004e004700",
+      "2": "1003420061006900770061006e006700",
+      "3": "2803520045004400410043005400450044005f005500530042005f00530045005200490041004c00"
+    }
+  },
+  "provenance": [
+    {
+      "path": "raw/device_descriptor.bin",
+      "sha256": "a249404df7382647a7d9c3232a25635b245f0cba38e00b2ee50266d0342e68d2"
+    },
+    {
+      "path": "raw/device_qualifier.bin",
+      "sha256": "a2c7c77e007c0ed8bdaacee02ab869ccc017874e57ac94fcacfa4d3c7d7c698d"
+    },
+    {
+      "path": "raw/string_languages.bin",
+      "sha256": "2bf9e7166f6dce93c04c256e2163f634ee0e7d8e5b8efb029df785baa7e4c2f2"
+    },
+    {
+      "path": "raw/string_1_lang_0409.bin",
+      "sha256": "17945365c21767ac87a857c2e20d94c8a21057a68c5fd9c9eae6bc9bbeadadbe"
+    },
+    {
+      "path": "raw/string_2_lang_0409.bin",
+      "sha256": "f2cc4ab5a3bdd9086ffb9798d3b5b449e839e7ed203d55829b01600107fe7afd"
+    },
+    {
+      "path": "raw/configuration_0.bin",
+      "sha256": "70baf66dc2a4589bb145baa69e2035de99b3993d146d1f9cfbeba6d7bad86e1f"
+    },
+    {
+      "path": "raw/other_speed_configuration_0.bin",
+      "sha256": "a4ee3584b06e3a084769d2d052f0b421e91733fa74fec70217310afd5e896f7b"
+    },
+    {
+      "path": "descriptors.json",
+      "sha256": "98c19459e1b487358fccaf9c065a882c71be909006c610bbb4f6a054930c1f6f"
+    }
+  ],
+  "limitations": [
+    "USB composition and non-identifying descriptor fields derive from target measurements; the serial has been replaced.",
+    "This sanitized profile is not a byte-identical identity clone. Physical gadget operation and DJI host acceptance remain unverified.",
+    "Stock Linux v6.12 FunctionFS rejects class-specific descriptor type 0x24; experimental patches still require a verified local kernel build and physical endpoint checks.",
+    "The minimum profile accepted by a DJI host remains UNKNOWN."
+  ],
+  "publication_license": "Apache-2.0",
+  "redaction": {
+    "usb_serial": "REDACTED_USB_SERIAL",
+    "byte_identical_identity_clone": false
+  }
+}

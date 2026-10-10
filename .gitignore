@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+artifacts/
+.cache/
+.ruff_cache/
+.DS_Store
+AUTH_REQUIRED.md
+*.pcap
+*.pcapng
+*.qcn
+*.nv
+*.dmg
+*.exe
+*.aar
+*.jar
+*.dll
+*.so
+*.sys
+*.cat
+*.pem
+*.key

@@ -1,0 +1,145 @@
+[
+  {
+    "service": 2,
+    "message": 32,
+    "name": "Get Capabilities",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-dms.json",
+    "source_sha256": "196e2da7c006bd3a021857134473217fd7f11a4515b86390c78dd9966b17e438",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 2,
+    "message": 33,
+    "name": "Get Manufacturer",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-dms.json",
+    "source_sha256": "196e2da7c006bd3a021857134473217fd7f11a4515b86390c78dd9966b17e438",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 2,
+    "message": 34,
+    "name": "Get Model",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-dms.json",
+    "source_sha256": "196e2da7c006bd3a021857134473217fd7f11a4515b86390c78dd9966b17e438",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 2,
+    "message": 35,
+    "name": "Get Revision",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-dms.json",
+    "source_sha256": "196e2da7c006bd3a021857134473217fd7f11a4515b86390c78dd9966b17e438",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 2,
+    "message": 44,
+    "name": "Get Hardware Revision",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-dms.json",
+    "source_sha256": "196e2da7c006bd3a021857134473217fd7f11a4515b86390c78dd9966b17e438",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 2,
+    "message": 45,
+    "name": "Get Operating Mode",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-dms.json",
+    "source_sha256": "196e2da7c006bd3a021857134473217fd7f11a4515b86390c78dd9966b17e438",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 2,
+    "message": 69,
+    "name": "Get Band Capabilities",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-dms.json",
+    "source_sha256": "196e2da7c006bd3a021857134473217fd7f11a4515b86390c78dd9966b17e438",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 3,
+    "message": 36,
+    "name": "Get Serving System",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-nas.json",
+    "source_sha256": "55e9a39dd9c9c3341dad47ccd60b0e0da1728908dddd6b472adbec4f634740e0",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 3,
+    "message": 49,
+    "name": "Get RF Band Information",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-nas.json",
+    "source_sha256": "55e9a39dd9c9c3341dad47ccd60b0e0da1728908dddd6b472adbec4f634740e0",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 3,
+    "message": 79,
+    "name": "Get Signal Info",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-nas.json",
+    "source_sha256": "55e9a39dd9c9c3341dad47ccd60b0e0da1728908dddd6b472adbec4f634740e0",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 26,
+    "message": 33,
+    "name": "Get Data Format",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-wda.json",
+    "source_sha256": "dc549c159f0267a7fda6f0f8e65a2b16630e80a4cf8cc71ed63b644a36349666",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 11,
+    "message": 47,
+    "name": "Get Card Status",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-uim.json",
+    "source_sha256": "4808b1f724165d724410088e8ab9c70da394594ead221dbe886c212ea1a60dfe",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  },
+  {
+    "service": 1,
+    "message": 34,
+    "name": "Get Packet Service Status",
+    "input_tlvs": [],
+    "evidence_level": "SOURCE_SUPPORTED",
+    "source_url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-wds.json",
+    "source_sha256": "e976d1897cd7ab4188326990158c0c6aa000099f73ac75e5e4f16ab2c7899cf4",
+    "publication_license": "Apache-2.0",
+    "origin": "Original factual request table; upstream schema is not reproduced."
+  }
+]

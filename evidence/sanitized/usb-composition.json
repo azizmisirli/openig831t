@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "evidence_level": "CONFIRMED_TARGET_DEVICE",
+  "vid": "0x2ca3",
+  "pid": "0x4009",
+  "configuration": 1,
+  "observed_speed": "USB 2.0 high-speed",
+  "interface_count": 5,
+  "non_control_endpoints": {
+    "IN": 9,
+    "OUT": 5,
+    "EP0_excluded": true
+  },
+  "usb_serial": "REDACTED_USB_SERIAL",
+  "interfaces": [
+    {
+      "interface": 0,
+      "alternate": 0,
+      "class": "ff",
+      "subclass": "ff",
+      "protocol": "ff",
+      "endpoints": [
+        {
+          "address": "0x81",
+          "direction": "IN",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        },
+        {
+          "address": "0x01",
+          "direction": "OUT",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        }
+      ],
+      "descriptor_evidence_level": "CONFIRMED_TARGET_DEVICE",
+      "role": "UNKNOWN",
+      "role_evidence_level": "UNKNOWN"
+    },
+    {
+      "interface": 1,
+      "alternate": 0,
+      "class": "ff",
+      "subclass": "00",
+      "protocol": "00",
+      "endpoints": [
+        {
+          "address": "0x83",
+          "direction": "IN",
+          "transfer": "interrupt",
+          "max_packet_bytes": 10,
+          "interval": 9
+        },
+        {
+          "address": "0x82",
+          "direction": "IN",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        },
+        {
+          "address": "0x02",
+          "direction": "OUT",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        }
+      ],
+      "descriptor_evidence_level": "CONFIRMED_TARGET_DEVICE",
+      "role": "UNKNOWN",
+      "role_evidence_level": "UNKNOWN"
+    },
+    {
+      "interface": 2,
+      "alternate": 0,
+      "class": "ff",
+      "subclass": "00",
+      "protocol": "00",
+      "endpoints": [
+        {
+          "address": "0x85",
+          "direction": "IN",
+          "transfer": "interrupt",
+          "max_packet_bytes": 10,
+          "interval": 9
+        },
+        {
+          "address": "0x84",
+          "direction": "IN",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        },
+        {
+          "address": "0x03",
+          "direction": "OUT",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        }
+      ],
+      "descriptor_evidence_level": "CONFIRMED_TARGET_DEVICE",
+      "role": "AT transport",
+      "role_evidence_level": "CONFIRMED_TARGET_DEVICE"
+    },
+    {
+      "interface": 3,
+      "alternate": 0,
+      "class": "ff",
+      "subclass": "00",
+      "protocol": "00",
+      "endpoints": [
+        {
+          "address": "0x87",
+          "direction": "IN",
+          "transfer": "interrupt",
+          "max_packet_bytes": 10,
+          "interval": 9
+        },
+        {
+          "address": "0x86",
+          "direction": "IN",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        },
+        {
+          "address": "0x04",
+          "direction": "OUT",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        }
+      ],
+      "descriptor_evidence_level": "CONFIRMED_TARGET_DEVICE",
+      "role": "UNKNOWN",
+      "role_evidence_level": "UNKNOWN"
+    },
+    {
+      "interface": 4,
+      "alternate": 0,
+      "class": "ff",
+      "subclass": "ff",
+      "protocol": "ff",
+      "endpoints": [
+        {
+          "address": "0x89",
+          "direction": "IN",
+          "transfer": "interrupt",
+          "max_packet_bytes": 8,
+          "interval": 9
+        },
+        {
+          "address": "0x88",
+          "direction": "IN",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        },
+        {
+          "address": "0x05",
+          "direction": "OUT",
+          "transfer": "bulk",
+          "max_packet_bytes": 512,
+          "interval": 0
+        }
+      ],
+      "descriptor_evidence_level": "CONFIRMED_TARGET_DEVICE",
+      "role": "QMI control transport",
+      "role_evidence_level": "CONFIRMED_TARGET_DEVICE"
+    }
+  ],
+  "functional_descriptors": "Vendor-class MI_01, MI_02 and MI_03 contain CDC Header/Call Management/ACM/Union descriptors. Their presence does not assign every interface a confirmed role.",
+  "data_limit": "No physical MI_04 IP/QMAP/Ethernet frame was captured. Control transport confirmation does not establish packet framing.",
+  "provenance": [
+    {
+      "artifact_id": "target-usb-descriptor-export",
+      "source_sha256": "98c19459e1b487358fccaf9c065a882c71be909006c610bbb4f6a054930c1f6f",
+      "public_raw_source_included": false,
+      "note": "Hash identifies a withheld research artifact; it does not make the source publicly replayable."
+    }
+  ]
+}

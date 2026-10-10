@@ -1,0 +1,24 @@
+name: Software bug
+description: Report an implementation or offline test failure with sanitized evidence.
+body:
+  - type: input
+    id: version
+    attributes: {label: Software version or commit}
+    validations: {required: true}
+  - type: dropdown
+    id: mode
+    attributes: {label: Execution mode, options: [Offline or dry run, Explicit laboratory hardware run]}
+    validations: {required: true}
+  - type: textarea
+    id: environment
+    attributes: {label: Operating system, kernel, Python and reproduction steps}
+    validations: {required: true}
+  - type: textarea
+    id: logs
+    attributes: {label: Sanitized logs and expected behavior}
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - {label: I removed credentials and all personal or device-specific identifiers., required: true}

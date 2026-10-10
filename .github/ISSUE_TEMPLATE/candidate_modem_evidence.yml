@@ -1,0 +1,22 @@
+name: Candidate modem evidence
+description: Add firmware-specific primary-source or measured candidate evidence.
+body:
+  - type: input
+    id: model
+    attributes: {label: Exact model/SKU and firmware}
+    validations: {required: true}
+  - type: textarea
+    id: source
+    attributes: {label: Source type, primary source URL and evidence level}
+    validations: {required: true}
+  - type: textarea
+    id: reproduction
+    attributes: {label: Ownership, reproduction steps and sanitized raw evidence}
+    validations: {required: true}
+  - type: checkboxes
+    id: publication
+    attributes:
+      label: Publication checks
+      options:
+        - {label: I may share this evidence and have removed identifiers and proprietary artifacts., required: true}
+        - {label: Firmware-specific observations are not presented as family-wide guarantees., required: true}

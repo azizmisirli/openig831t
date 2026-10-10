@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "project": "OpenIG831T",
+  "stage": "research-preview",
+  "version": "0.1.0-research-preview",
+  "experimental": true,
+  "end_to_end_5g_demonstrated": false,
+  "direct_replacement_established": false,
+  "bridge_required_established": false,
+  "physical_gadget_validated": false,
+  "candidate_5g_modem_measured": false,
+  "dji_host_acceptance_demonstrated": false,
+  "full_kernel_build_verified": false,
+  "physical_bulk_frame_format_observed": false,
+  "active_old_new_multi_runtime_path": "UNKNOWN",
+  "identity_or_authorization_requirements": "UNKNOWN",
+  "final_verdict": null,
+  "confirmed_target_device": [
+    "USB composition",
+    "Fibocom NL668T-GL AT identity",
+    "MI_02 AT transport",
+    "MI_04 QMI control transport",
+    "QMI initialization and service discovery",
+    "WDA reported RAW_IP with uplink/downlink aggregation disabled"
+  ],
+  "software_evidence_level": "SOURCE_SUPPORTED",
+  "offline_components_exist": true,
+  "publication_validation": {
+    "status": "PASS_LOCAL_CURATED_SUITE",
+    "test_count": 241,
+    "failures": 0,
+    "errors": 0,
+    "skips_with_verified_optional_sources": 0,
+    "offline_smokes": 3,
+    "clean_clone_optional_source_skips_expected": 2,
+    "note": "Source-pinned optional header and patch application checks passed locally. A fresh clone skips those two checks unless the optional source cache is explicitly fetched. CI status is verified separately on each exact commit."
+  },
+  "evidence_levels": [
+    "CONFIRMED_TARGET_DEVICE",
+    "CONFIRMED_TARGET_HOST",
+    "MEASURED_CANDIDATE_HARDWARE",
+    "FAMILY_LEVEL_SOURCE_EVIDENCE",
+    "SOURCE_SUPPORTED",
+    "STRONG_INFERENCE",
+    "WEAK_INFERENCE",
+    "UNKNOWN",
+    "CONTRADICTED",
+    "SUPERSEDED"
+  ],
+  "privacy": {
+    "usb_serial": "REDACTED_USB_SERIAL",
+    "personal_identifiers_included": false,
+    "private_raw_captures_included": false
+  },
+  "disclaimer": "Independent interoperability research; no vendor affiliation, endorsement or sponsorship."
+}

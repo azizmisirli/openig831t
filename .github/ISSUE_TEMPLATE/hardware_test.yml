@@ -1,0 +1,25 @@
+name: Hardware test
+description: Submit reproducible measurements without private identifiers.
+body:
+  - type: textarea
+    id: hardware
+    attributes: {label: Exact modem SKU, firmware, board revision, operating system and kernel}
+    validations: {required: true}
+  - type: textarea
+    id: usb
+    attributes: {label: VID/PID and sanitized descriptor dump, description: Replace the USB serial with REDACTED_USB_SERIAL.}
+    validations: {required: true}
+  - type: textarea
+    id: protocols
+    attributes: {label: AT identity, QMI service versions, WDA data format and DTR/Sync behavior}
+  - type: textarea
+    id: evidence
+    attributes: {label: Commands, timestamps, results, evidence level and limitations}
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Ownership and redaction
+      options:
+        - {label: I own or have permission to test this hardware., required: true}
+        - {label: I removed IMEI/IMSI/ICCID, serial numbers, credentials and private paths., required: true}
+        - {label: I distinguish actual measurements from inference and offline simulation., required: true}

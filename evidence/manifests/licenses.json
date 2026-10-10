@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "scope": "Complete license-text, schema and Linux-derived package; original repository files are individually inventoried by PUBLICATION_INVENTORY.json. This manifest excludes its own recursive digest.",
+  "self_license": "CC-BY-4.0",
+  "original_scope_rules": {
+    "src/**,tests/**,scripts/**,tools/**,build configuration,schemas/**": "Apache-2.0; original independently written code and technical metadata",
+    "docs/**,original Markdown,original SVG diagrams and evidence summaries": "CC-BY-4.0 unless a per-file notice says otherwise",
+    "examples synthetic technical vectors": "Apache-2.0",
+    "Linux patches and C harnesses": "GPL-2.0-only; upstream UAPI exceptions retained"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "license": "Apache-2.0",
+      "origin": "Standard license text from its official publisher",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Verbatim legal text; Linux files omit SPDX catalogue metadata preceding License-Text.",
+      "primary_license_url": "https://raw.githubusercontent.com/apache/.github/main/LICENSE"
+    },
+    {
+      "path": "LICENSES/Apache-2.0.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "license": "Apache-2.0",
+      "origin": "Standard license text from its official publisher",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Verbatim legal text; Linux files omit SPDX catalogue metadata preceding License-Text.",
+      "primary_license_url": "https://raw.githubusercontent.com/apache/.github/main/LICENSE"
+    },
+    {
+      "path": "LICENSES/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "license": "CC-BY-4.0",
+      "origin": "Standard license text from its official publisher",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Verbatim legal text; Linux files omit SPDX catalogue metadata preceding License-Text.",
+      "primary_license_url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt"
+    },
+    {
+      "path": "LICENSES/GPL-2.0-only.txt",
+      "sha256": "0d5bf346df9e635a29dcdddf832dc5b002ca6cdc1c5c9c6c567d2a61bb0c5c15",
+      "license": "GPL-2.0-only",
+      "origin": "Standard license text from its official publisher",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Verbatim legal text; Linux files omit SPDX catalogue metadata preceding License-Text.",
+      "primary_license_url": "https://raw.githubusercontent.com/torvalds/linux/v6.12/LICENSES/preferred/GPL-2.0"
+    },
+    {
+      "path": "LICENSES/LGPL-2.1-or-later.txt",
+      "sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+      "license": "LGPL-2.1-or-later",
+      "origin": "Standard license text from its official publisher",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Verbatim legal text; Linux files omit SPDX catalogue metadata preceding License-Text.",
+      "primary_license_url": "https://raw.githubusercontent.com/libusb/libusb/v1.0.29/COPYING"
+    },
+    {
+      "path": "LICENSES/Linux-syscall-note.txt",
+      "sha256": "3e8377acfcd02819b7022474fe6498407f4dcdf3f55f06779094e1787f1b16aa",
+      "license": "Linux-syscall-note",
+      "origin": "Standard license text from its official publisher",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Verbatim legal text; Linux files omit SPDX catalogue metadata preceding License-Text.",
+      "primary_license_url": "https://raw.githubusercontent.com/torvalds/linux/v6.12/LICENSES/exceptions/Linux-syscall-note"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "defdb95279fcec7544beb2f48912f35fd27cce13e3817cbd65caf7d35726897c",
+      "license": "CC-BY-4.0",
+      "origin": "Original OpenIG831T prose or source provenance metadata",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Original English public publication artifact."
+    },
+    {
+      "path": "patches/linux-functionfs/README.md",
+      "sha256": "c9eb52554600fc4170bc047dac0398e10c215832ad081189cf7ff7d000fac2b0",
+      "license": "CC-BY-4.0",
+      "origin": "Original OpenIG831T prose or source provenance metadata",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Original English public publication artifact."
+    },
+    {
+      "path": "patches/linux-functionfs/cdc-exact-combined-v6.12.patch",
+      "sha256": "2908856977ce6a0fbb2b3c1da9ef803364c9000235a5f5b11a633e64712b1b68",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing.",
+      "upstream_provenance": "patches/linux-functionfs/upstream.json"
+    },
+    {
+      "path": "patches/linux-functionfs/cdc-exact-combined-v6.12.patch.license",
+      "sha256": "1ceb2ff5dd0ef04e7b60bd2aba7403feadb6ff497fad515ffe35fe227f634113",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing."
+    },
+    {
+      "path": "patches/linux-functionfs/cdc-v6.12.patch",
+      "sha256": "915eff0d6eef9cf3e4aa2b421e7bdf2206f8961b07023ff456ba2e03cce9a278",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing.",
+      "upstream_provenance": "patches/linux-functionfs/upstream.json"
+    },
+    {
+      "path": "patches/linux-functionfs/cdc-v6.12.patch.license",
+      "sha256": "1ceb2ff5dd0ef04e7b60bd2aba7403feadb6ff497fad515ffe35fe227f634113",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing."
+    },
+    {
+      "path": "patches/linux-functionfs/exact-address-stacked-v6.12.patch",
+      "sha256": "25efddf9c2318f4581df9c205571a1021539b9b2031768b60b1eb004910730e4",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing.",
+      "upstream_provenance": "patches/linux-functionfs/upstream.json"
+    },
+    {
+      "path": "patches/linux-functionfs/exact-address-stacked-v6.12.patch.license",
+      "sha256": "1ceb2ff5dd0ef04e7b60bd2aba7403feadb6ff497fad515ffe35fe227f634113",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing."
+    },
+    {
+      "path": "patches/linux-functionfs/fetch_upstream.py",
+      "sha256": "6ad9aed7205f9dadbf9fdb9ba72cd340379e735d53497fbeaa21e72a583ad0ce",
+      "license": "Apache-2.0",
+      "origin": "Original OpenIG831T publication code or validation schema",
+      "category": "PUBLIC_ORIGINAL_CODE",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Original public implementation; no third-party schema object copied."
+    },
+    {
+      "path": "patches/linux-functionfs/harnesses/cdc.c",
+      "sha256": "5663230c35bdaa7276decd6e5469ca2fee4dcf5c6d77fba0cc1ef47f55bfc02c",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing.",
+      "upstream_provenance": "patches/linux-functionfs/upstream.json"
+    },
+    {
+      "path": "patches/linux-functionfs/harnesses/exact-address.c",
+      "sha256": "9627a716f0d1423263362d74865a685278adf7195d8651de1636439d4d1897d0",
+      "license": "GPL-2.0-only",
+      "origin": "Linux-derived experimental patch or extracted offline harness with original project modifications",
+      "category": "PUBLIC_PATCH",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Patch bytes unchanged; standalone harness leading notice corrected to GPL-2.0-only; C bodies unchanged; sidecars identify licensing.",
+      "upstream_provenance": "patches/linux-functionfs/upstream.json"
+    },
+    {
+      "path": "patches/linux-functionfs/upstream.json",
+      "sha256": "8a9dd8656137d367a2200536629430105dfb8a28454dee48ef2bf05af0a4fb22",
+      "license": "CC-BY-4.0",
+      "origin": "Original OpenIG831T prose or source provenance metadata",
+      "category": "PUBLIC_DOCUMENTATION",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Original English public publication artifact."
+    },
+    {
+      "path": "schemas/research-status.schema.json",
+      "sha256": "b5311076b99f8862a8c5075b3dd6ee15393b2c2e720019cb3b5d089b771c4c67",
+      "license": "Apache-2.0",
+      "origin": "Original OpenIG831T publication code or validation schema",
+      "category": "PUBLIC_ORIGINAL_CODE",
+      "redistribution_status": "INCLUDE_REVIEWED",
+      "redaction_status": "No private path, device identity or proprietary content",
+      "modifications": "Original public implementation; no third-party schema object copied."
+    }
+  ],
+  "reference_only": [
+    {
+      "project": "Linux",
+      "source_manifest": "patches/linux-functionfs/upstream.json",
+      "reason": "Full source omitted; explicit optional hash-verified fetch only."
+    },
+    {
+      "project": "libusb",
+      "source_manifest": "patches/linux-functionfs/upstream.json",
+      "reason": "Header and binaries omitted; optional LGPL-2.1-or-later header fetch only."
+    },
+    {
+      "project": "libqmi",
+      "commit": "1c972b8ab901565f26b9f95e1705269277bbfa1b",
+      "url": "https://github.com/linux-mobile-broadband/libqmi/tree/1c972b8ab901565f26b9f95e1705269277bbfa1b",
+      "reason": "Full schema JSON/generated code excluded; independently written minimal protocol facts only."
+    }
+  ],
+  "excluded_categories": [
+    "Proprietary vendor binaries, installers, firmware and manuals",
+    "Private captures and identifiers",
+    "Full proprietary disassembly and reverse-engineering databases",
+    "Unknown-license artifacts"
+  ],
+  "legal_scope": "Declared-license and provenance review only; not legal advice or proof of patent, trademark, contractual or regulatory clearance."
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "status": "NOT_READY",
+  "duration_seconds": 30,
+  "gadget_name": "ig831t_lab",
+  "mount_path": "/run/ig831t-ffs-lab",
+  "udc": "UNKNOWN_MANUAL_UDC_REQUIRED",
+  "frontend_serial": "LAB_ONLY",
+  "build_manifest": {
+    "path": "UNKNOWN",
+    "sha256": "UNKNOWN"
+  },
+  "endpoint_resource_evidence": {
+    "path": "UNKNOWN",
+    "sha256": "UNKNOWN"
+  },
+  "endpoint_resource_plan_verified": false,
+  "exact_address_allocation_verified": false,
+  "backend": {
+    "vid": 11427,
+    "pid": 16393,
+    "bus": null,
+    "address": null,
+    "configuration": 1,
+    "qmi": {
+      "interface": 4,
+      "alternate": 0,
+      "interface_class": [
+        255,
+        255,
+        255
+      ],
+      "endpoints": [
+        [
+          137,
+          3,
+          8
+        ],
+        [
+          136,
+          2,
+          512
+        ],
+        [
+          5,
+          2,
+          512
+        ]
+      ]
+    },
+    "at": {
+      "interface": 2,
+      "alternate": 0,
+      "interface_class": [
+        255,
+        0,
+        0
+      ],
+      "endpoints": [
+        [
+          133,
+          3,
+          10
+        ],
+        [
+          132,
+          2,
+          512
+        ],
+        [
+          3,
+          2,
+          512
+        ]
+      ]
+    }
+  },
+  "limitations": [
+    "template is not ready for execution",
+    "no verified running kernel build supplied",
+    "backend serial/whole-device identity not proven by this contract",
+    "MI0/1/3 and active data are unsupported; full protocol clone NOT_READY"
+  ],
+  "publication_license": "Apache-2.0",
+  "example_classification": "SYNTHETIC_CONFIGURATION_TEMPLATE"
+}

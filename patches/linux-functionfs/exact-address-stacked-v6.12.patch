@@ -1,0 +1,182 @@
+--- a/drivers/usb/gadget/function/f_fs.c
++++ b/drivers/usb/gadget/function/f_fs.c
+@@ -2988,10 +2988,15 @@
+ 			      FUNCTIONFS_EVENTFD |
+ 			      FUNCTIONFS_ALL_CTRL_RECIP |
+ 			      FUNCTIONFS_CONFIG0_SETUP |
+-			      FUNCTIONFS_EXPERIMENTAL_CDC_FUNCS)) {
++			      FUNCTIONFS_EXPERIMENTAL_CDC_FUNCS |
++			      FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR)) {
+ 			ret = -ENOSYS;
+ 			goto error;
+ 		}
++		/* This private allocator currently covers FS/HS, no virtual mode. */
++		if ((flags & FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR) &&
++		    (flags & (FUNCTIONFS_HAS_SS_DESC | FUNCTIONFS_VIRTUAL_ADDR)))
++			goto error;
+ 		data += 12;
+ 		len  -= 12;
+ 		break;
+@@ -3316,6 +3321,86 @@
+ 	return -ENOENT;
+ }
+ 
++/*
++ * PRIVATE EXPERIMENT: fixed-address UDCs with canonical epNin/epNout names.
++ * MUSB and DWC3 use this naming for immutable hardware endpoint numbers.
++ * Other naming schemes fail closed; no first-fit or virtual-address fallback.
++ */
++static bool ffs_ep_matches_exact(struct usb_gadget *gadget, struct usb_ep *ep,
++				 const struct usb_endpoint_descriptor *desc)
++{
++	struct usb_ep candidate;
++	struct usb_endpoint_descriptor wanted = { };
++	char name[16];
++	u8 address = desc->bEndpointAddress;
++
++	if (!ep->name || !(address & USB_ENDPOINT_NUMBER_MASK) ||
++	    (address & ~(USB_DIR_IN | USB_ENDPOINT_NUMBER_MASK)) ||
++	    desc->bLength != USB_DT_ENDPOINT_SIZE ||
++	    !usb_endpoint_maxp(desc))
++		return false;
++	/* The wire descriptor is 7 bytes; the C struct also has audio fields. */
++	memcpy(&wanted, desc, USB_DT_ENDPOINT_SIZE);
++	snprintf(name, sizeof(name), "ep%u%s", address & USB_ENDPOINT_NUMBER_MASK,
++		 address & USB_DIR_IN ? "in" : "out");
++	if (strcmp(ep->name, name))
++		return false;
++	/* Match capabilities without temporarily unclaiming the real endpoint. */
++	candidate = *ep;
++	candidate.claimed = false;
++	return usb_gadget_ep_match_desc(gadget, &candidate, &wanted, NULL);
++}
++
++static struct usb_ep *ffs_ep_autoconfig_exact(struct usb_gadget *gadget,
++					    struct usb_endpoint_descriptor *desc)
++{
++	struct usb_ep *ep, *match = NULL;
++
++	list_for_each_entry(ep, &gadget->ep_list, ep_list) {
++		if (!ffs_ep_matches_exact(gadget, ep, desc))
++			continue;
++		/* Ambiguous aliases and existing claims never trigger fallback. */
++		if (match || ep->claimed)
++			return NULL;
++		match = ep;
++	}
++	if (!match)
++		return NULL;
++	match->address = desc->bEndpointAddress;
++	match->desc = NULL;
++	match->comp_desc = NULL;
++	match->claimed = true;
++	return match;
++}
++
++/* Bind has not enabled endpoints: release only this function's allocations. */
++static void ffs_exact_bind_rollback(struct ffs_function *func)
++{
++	unsigned i;
++
++	for (i = 0; func->eps && i < func->ffs->eps_count; ++i) {
++		struct ffs_ep *ep = &func->eps[i];
++
++		if (!ep->ep)
++			continue;
++		if (ep->req)
++			usb_ep_free_request(ep->ep, ep->req);
++		usb_ep_autoconfig_release(ep->ep);
++		ep->ep = NULL;
++		ep->req = NULL;
++	}
++	kfree(func->eps);
++	func->eps = NULL;
++	func->interfaces_nums = NULL;
++	func->function.fs_descriptors = NULL;
++	func->function.hs_descriptors = NULL;
++	func->function.ss_descriptors = NULL;
++	func->function.ssp_descriptors = NULL;
++	func->function.os_desc_table = NULL;
++	func->function.os_desc_n = 0;
++	memset(func->eps_revmap, 0, sizeof(func->eps_revmap));
++}
++
+ static int __ffs_func_bind_do_descs(enum ffs_entity_type type, u8 *valuep,
+ 				    struct usb_descriptor_header *desc,
+ 				    void *priv)
+@@ -3365,7 +3450,13 @@
+ 	ffs_ep->descs[ep_desc_id] = ds;
+ 
+ 	ffs_dump_mem(": Original  ep desc", ds, ds->bLength);
+-	if (ffs_ep->ep) {
++	if (ffs_ep->ep &&
++	    (func->ffs->user_flags & FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR)) {
++		/* Every advertised speed must fit the same fixed physical EP. */
++		if (ds->bEndpointAddress != ffs_ep->ep->address ||
++		    !ffs_ep_matches_exact(func->gadget, ffs_ep->ep, ds))
++			return -ENOTSUPP;
++	} else if (ffs_ep->ep) {
+ 		ds->bEndpointAddress = ffs_ep->descs[0]->bEndpointAddress;
+ 		if (!ds->wMaxPacketSize)
+ 			ds->wMaxPacketSize = ffs_ep->descs[0]->wMaxPacketSize;
+@@ -3386,14 +3477,20 @@
+ 		 */
+ 		wMaxPacketSize = ds->wMaxPacketSize;
+ 		pr_vdebug("autoconfig\n");
+-		ep = usb_ep_autoconfig(func->gadget, ds);
++		if (func->ffs->user_flags & FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR)
++			ep = ffs_ep_autoconfig_exact(func->gadget, ds);
++		else
++			ep = usb_ep_autoconfig(func->gadget, ds);
+ 		if (!ep)
+ 			return -ENOTSUPP;
+ 		ep->driver_data = func->eps + idx;
+ 
+ 		req = usb_ep_alloc_request(ep, GFP_KERNEL);
+-		if (!req)
++		if (!req) {
++			if (func->ffs->user_flags & FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR)
++				usb_ep_autoconfig_release(ep);
+ 			return -ENOMEM;
++		}
+ 
+ 		ffs_ep->ep  = ep;
+ 		ffs_ep->req = req;
+@@ -3783,7 +3880,9 @@
+ 	return 0;
+ 
+ error:
+-	/* XXX Do we need to release all claimed endpoints here? */
++	if (ffs->user_flags & FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR)
++		ffs_exact_bind_rollback(func);
++	/* Default autoconfig lifecycle is unchanged. */
+ 	return ret;
+ }
+ 
+@@ -4164,10 +4263,14 @@
+ 
+ 	/* cleanup after autoconfig */
+ 	spin_lock_irqsave(&func->ffs->eps_lock, flags);
+-	while (count--) {
++	while (ep && count--) {
+ 		if (ep->ep && ep->req)
+ 			usb_ep_free_request(ep->ep, ep->req);
+ 		ep->req = NULL;
++		if ((ffs->user_flags & FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR) && ep->ep) {
++			usb_ep_autoconfig_release(ep->ep);
++			ep->ep = NULL;
++		}
+ 		++ep;
+ 	}
+ 	spin_unlock_irqrestore(&func->ffs->eps_lock, flags);
+--- a/include/uapi/linux/usb/functionfs.h
++++ b/include/uapi/linux/usb/functionfs.h
+@@ -27,6 +27,8 @@
+ 	FUNCTIONFS_CONFIG0_SETUP = 128,
+ 	/* PRIVATE EXPERIMENT: not an upstream or stable userspace ABI. */
+ 	FUNCTIONFS_EXPERIMENTAL_CDC_FUNCS = 1U << 30,
++	/* PRIVATE FS/HS fixed epNin/out allocation; not an upstream ABI. */
++	FUNCTIONFS_EXPERIMENTAL_EXACT_ADDR = 1U << 29,
+ };
+ 
+ /* Descriptor of an non-audio endpoint */

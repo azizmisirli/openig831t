@@ -1,0 +1,5 @@
+SPDX-License-Identifier: GPL-2.0-only
+SPDX-FileCopyrightText: 2026 OpenIG831T contributors
+
+Patch context retains upstream Linux copyright and applicable UAPI
+Linux-syscall-note terms. See THIRD_PARTY_NOTICES.md and upstream.json.

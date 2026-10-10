@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "evidence_level": "CONFIRMED_TARGET_DEVICE",
+  "service": "WDA",
+  "message_id": "0x0021",
+  "request_input_tlvs": [],
+  "result": "SUCCESS",
+  "reported_link_layer": {
+    "value": 2,
+    "name": "RAW_IP"
+  },
+  "uplink_aggregation": {
+    "value": 0,
+    "name": "DISABLED"
+  },
+  "downlink_aggregation": {
+    "value": 0,
+    "name": "DISABLED"
+  },
+  "interpretation": {
+    "evidence_level": "STRONG_INFERENCE",
+    "description": "The reported default-channel state is consistent with non-QMAP raw IP."
+  },
+  "physical_frame_capture": {
+    "evidence_level": "UNKNOWN",
+    "observed": false
+  },
+  "scope": "Inputless Get Data Format reports the associated default data channel. A later explicit endpoint-selector query failed; it did not invalidate this response.",
+  "provenance": [
+    {
+      "artifact_id": "target-wda-format-export",
+      "source_sha256": "235a78e00d52cf4c652654cffbff528acd9218a4eeadfd1aa16416327fa6276d",
+      "public_raw_source_included": false,
+      "note": "Hash identifies a withheld research artifact; it does not make the source publicly replayable."
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "license": "Apache-2.0",
+  "fixture_classification": "SYNTHETIC_DERIVED_METADATA",
+  "source_sha256": "c0de7c22538150eb5c7c3425d274cf606d537bf49d1f0f1161e08587082ad2a2",
+  "raw_capture_included": false,
+  "services": [
+    {
+      "service": 0,
+      "major": 1,
+      "minor": 5
+    },
+    {
+      "service": 1,
+      "major": 1,
+      "minor": 67
+    },
+    {
+      "service": 2,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 3,
+      "major": 1,
+      "minor": 25
+    },
+    {
+      "service": 4,
+      "major": 1,
+      "minor": 12
+    },
+    {
+      "service": 5,
+      "major": 1,
+      "minor": 10
+    },
+    {
+      "service": 7,
+      "major": 1,
+      "minor": 3
+    },
+    {
+      "service": 8,
+      "major": 1,
+      "minor": 4
+    },
+    {
+      "service": 9,
+      "major": 2,
+      "minor": 1
+    },
+    {
+      "service": 10,
+      "major": 2,
+      "minor": 24
+    },
+    {
+      "service": 11,
+      "major": 1,
+      "minor": 87
+    },
+    {
+      "service": 12,
+      "major": 1,
+      "minor": 4
+    },
+    {
+      "service": 15,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 16,
+      "major": 2,
+      "minor": 0
+    },
+    {
+      "service": 17,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 18,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 23,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 24,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 26,
+      "major": 1,
+      "minor": 16
+    },
+    {
+      "service": 29,
+      "major": 1,
+      "minor": 1
+    },
+    {
+      "service": 31,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 33,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 34,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 36,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 41,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 42,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 45,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 48,
+      "major": 1,
+      "minor": 0
+    },
+    {
+      "service": 54,
+      "major": 1,
+      "minor": 0
+    }
+  ]
+}

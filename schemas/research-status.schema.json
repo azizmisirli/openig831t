@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenIG831T research-preview status",
+  "type": "object",
+  "required": ["project", "stage", "end_to_end_5g_demonstrated", "direct_replacement_established", "bridge_required_established", "physical_gadget_validated", "candidate_5g_modem_measured", "final_verdict"],
+  "properties": {
+    "project": {"const": "OpenIG831T"},
+    "stage": {"const": "research-preview"},
+    "end_to_end_5g_demonstrated": {"const": false},
+    "direct_replacement_established": {"const": false},
+    "bridge_required_established": {"const": false},
+    "physical_gadget_validated": {"const": false},
+    "candidate_5g_modem_measured": {"const": false},
+    "final_verdict": {"type": "null"}
+  }
+}

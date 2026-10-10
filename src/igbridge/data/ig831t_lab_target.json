@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "vid": 11427,
+  "pid": 16393,
+  "configuration": 1,
+  "interface": 4,
+  "alternate": 0,
+  "interrupt_endpoint": 137,
+  "endpoints": [
+    [
+      137,
+      3
+    ],
+    [
+      136,
+      2
+    ],
+    [
+      5,
+      2
+    ]
+  ],
+  "provenance": "Sanitized target composition metadata; revalidate exact hardware before any explicit live probe.",
+  "publication_license": "Apache-2.0"
+}

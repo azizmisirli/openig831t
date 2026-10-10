@@ -1,0 +1,281 @@
+{
+  "format_version": 1,
+  "license": "CC-BY-4.0",
+  "linux_commit": "adc218676eef25575469234709c2d87185ca223a",
+  "sources": [
+    {
+      "project": "Linux",
+      "ref": "adc218676eef25575469234709c2d87185ca223a",
+      "tag": "v6.12",
+      "path": "drivers/usb/gadget/function/f_fs.c",
+      "cache_path": "linux-v6.12/drivers/usb/gadget/function/f_fs.c",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/adc218676eef25575469234709c2d87185ca223a/drivers/usb/gadget/function/f_fs.c",
+      "sha256": "42dd5eb95e78fe0161b028ad3f0dd8ed10a60966a06e7d8e63d59ad633cfea43",
+      "size": 105309,
+      "license": "GPL-2.0-or-later",
+      "publication": "REFERENCE_ONLY; optional explicit verified fetch"
+    },
+    {
+      "project": "Linux",
+      "ref": "adc218676eef25575469234709c2d87185ca223a",
+      "tag": "v6.12",
+      "path": "include/uapi/linux/usb/functionfs.h",
+      "cache_path": "linux-v6.12/include/uapi/linux/usb/functionfs.h",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/adc218676eef25575469234709c2d87185ca223a/include/uapi/linux/usb/functionfs.h",
+      "sha256": "f8d9ef99ef750e6208a3294d26e3b140316134256f632c2d7c18df75c46f6dd6",
+      "size": 16696,
+      "license": "GPL-2.0-only WITH Linux-syscall-note",
+      "publication": "REFERENCE_ONLY; optional explicit verified fetch"
+    },
+    {
+      "project": "Linux",
+      "ref": "adc218676eef25575469234709c2d87185ca223a",
+      "tag": "v6.12",
+      "path": "include/uapi/linux/usb/cdc.h",
+      "cache_path": "linux-v6.12/include/uapi/linux/usb/cdc.h",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/adc218676eef25575469234709c2d87185ca223a/include/uapi/linux/usb/cdc.h",
+      "sha256": "922bd199d3d8163be1027d3b7a8ab679fd8a7fba98f1f67f4f597d5e36adce81",
+      "size": 13475,
+      "license": "GPL-2.0-only WITH Linux-syscall-note",
+      "publication": "REFERENCE_ONLY; optional explicit verified fetch"
+    },
+    {
+      "project": "Linux",
+      "ref": "adc218676eef25575469234709c2d87185ca223a",
+      "tag": "v6.12",
+      "path": "drivers/usb/gadget/function/u_fs.h",
+      "cache_path": "linux-v6.12/drivers/usb/gadget/function/u_fs.h",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/adc218676eef25575469234709c2d87185ca223a/drivers/usb/gadget/function/u_fs.h",
+      "sha256": "2205f575fc420ca10c7b6b6dea88b7957e9fc193ba9e0126db2d7d036d9769d4",
+      "size": 8358,
+      "license": "GPL-2.0-only",
+      "publication": "REFERENCE_ONLY; optional explicit verified fetch"
+    },
+    {
+      "project": "Linux",
+      "ref": "adc218676eef25575469234709c2d87185ca223a",
+      "tag": "v6.12",
+      "path": "drivers/usb/gadget/epautoconf.c",
+      "cache_path": "linux-v6.12/drivers/usb/gadget/epautoconf.c",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/adc218676eef25575469234709c2d87185ca223a/drivers/usb/gadget/epautoconf.c",
+      "sha256": "a9136c72e145f6fa405b5db8518dd8b2964f6b713492857f2d1b0f535627d0dc",
+      "size": 7327,
+      "license": "GPL-2.0-or-later",
+      "publication": "REFERENCE_ONLY; optional explicit verified fetch"
+    },
+    {
+      "project": "Linux",
+      "ref": "adc218676eef25575469234709c2d87185ca223a",
+      "tag": "v6.12",
+      "path": "drivers/usb/gadget/udc/core.c",
+      "cache_path": "linux-v6.12/drivers/usb/gadget/udc/core.c",
+      "url": "https://raw.githubusercontent.com/torvalds/linux/adc218676eef25575469234709c2d87185ca223a/drivers/usb/gadget/udc/core.c",
+      "sha256": "8133bdfe76adbf931f1be284f951481411669d98a9f076c3e1d8c73acfd26254",
+      "size": 54741,
+      "license": "GPL-2.0-only",
+      "publication": "REFERENCE_ONLY; optional explicit verified fetch"
+    },
+    {
+      "project": "libusb",
+      "ref": "v1.0.29",
+      "path": "libusb/libusb.h",
+      "cache_path": "libusb-1.0.29/libusb.h",
+      "url": "https://raw.githubusercontent.com/libusb/libusb/v1.0.29/libusb/libusb.h",
+      "sha256": "8c77e192d53960966c42d5f6ef204e3be88c9ff3ca431acdd5c6039689b3fe0b",
+      "size": 86294,
+      "license": "LGPL-2.1-or-later",
+      "publication": "REFERENCE_ONLY; optional explicit verified fetch"
+    }
+  ],
+  "patches": [
+    {
+      "path": "cdc-v6.12.patch",
+      "sha256": "915eff0d6eef9cf3e4aa2b421e7bdf2206f8961b07023ff456ba2e03cce9a278",
+      "license": "GPL-2.0-only",
+      "modification": "Unchanged experimental patch against pinned Linux v6.12; not applied by default."
+    },
+    {
+      "path": "exact-address-stacked-v6.12.patch",
+      "sha256": "25efddf9c2318f4581df9c205571a1021539b9b2031768b60b1eb004910730e4",
+      "license": "GPL-2.0-only",
+      "modification": "Unchanged experimental patch against pinned Linux v6.12; not applied by default."
+    },
+    {
+      "path": "cdc-exact-combined-v6.12.patch",
+      "sha256": "2908856977ce6a0fbb2b3c1da9ef803364c9000235a5f5b11a633e64712b1b68",
+      "license": "GPL-2.0-only",
+      "modification": "Unchanged experimental patch against pinned Linux v6.12; not applied by default."
+    }
+  ],
+  "harnesses": [
+    {
+      "path": "harnesses/cdc.c",
+      "sha256": "5663230c35bdaa7276decd6e5469ca2fee4dcf5c6d77fba0cc1ef47f55bfc02c",
+      "license": "GPL-2.0-only",
+      "body_sha256": "82f82deac27329d4ab9889425eff084f5e66bff19767bfad07db66de1f444baf",
+      "original_harness_sha256": "3b66df978f98a0d208ebdeaad1ef1bb651af3b47847d56ac1697c06f681bce7d",
+      "modification": "Public license/provenance header replaces generated header; C body unchanged."
+    },
+    {
+      "path": "harnesses/exact-address.c",
+      "sha256": "9627a716f0d1423263362d74865a685278adf7195d8651de1636439d4d1897d0",
+      "license": "GPL-2.0-only",
+      "body_sha256": "04ab8843e9f9db663042ecf18517d819432ae12983b266316f390f123a922805",
+      "original_harness_sha256": "46210decc85c4f56d001aa28df5ae73a408c975b9c12b0437c0879645e9385cb",
+      "modification": "Public license/provenance header replaces generated header; C body unchanged."
+    }
+  ],
+  "exact_harness_extracted_function_sha256": {
+    "ffs_ep_addr2idx": "f3d888ddb60b1f92b5531f53cb2bbbdaf4d27cbddebb3080efd13a67ff932c4b",
+    "ffs_ep_matches_exact": "15ed956fc761e5ce995334fef9751cb6d861a5ddf60655f469968a35f6e3489d",
+    "ffs_ep_autoconfig_exact": "c95b93ec6b85a168df6b24f33e48f5eaf3c699fd05275cdbbaa4c9866dcee7d3",
+    "ffs_exact_bind_rollback": "bd68882e54e33926062b17e6ac1d8c769571c3d58c464c9ba528e6a56e1ba789",
+    "__ffs_func_bind_do_descs": "b356df1a8ed1bc2edb214087d221df8428fb8b45d912e191ecfdaaca7f4203d5",
+    "normal_unbind_cleanup_statements": "40e24f90ee0485734a2d39f7215ded5e3d3f21c2051f127a9fc347ae2e465747"
+  },
+  "patched_source_sha256": {
+    "cdc": {
+      "drivers/usb/gadget/function/f_fs.c": "54fab581753942f7a7b8422e9fd6a61e01a8b26c69b1a68a0bd868e7ad7e5021",
+      "include/uapi/linux/usb/functionfs.h": "15c85b5fbead01e72008e1cfd2f290e85647dc39976495643a8e33f9d219ac19"
+    },
+    "combined": {
+      "drivers/usb/gadget/function/f_fs.c": "69c05bd84cebdaa3ed5fd483e1c7fec4332b793e35a38012aab6e035127813f3",
+      "include/uapi/linux/usb/functionfs.h": "51dc655b2c12bf53524d82208a605640ad0cc411b832060a5d5f5739395620e7"
+    }
+  },
+  "limits": {
+    "full_kernel_build": "UNVERIFIED",
+    "physical_hardware": "NOT_TESTED",
+    "default_network": false,
+    "full_upstream_source_included": false
+  },
+  "extracted_source_functions": [
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "stock",
+      "function": "ffs_do_single_desc",
+      "start_line": 2477,
+      "end_line": 2621,
+      "fragment_sha256": "5227c4beeb1be8006c7b90800f938ed89d1c7ad54eac6f15db3e0ff7cdc4f2f8",
+      "file_sha256": "42dd5eb95e78fe0161b028ad3f0dd8ed10a60966a06e7d8e63d59ad633cfea43"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "cdc",
+      "function": "ffs_do_single_desc",
+      "start_line": 2481,
+      "end_line": 2669,
+      "fragment_sha256": "899d71cf07fc0af8b4df4feee36bbe7a0a249315c000275db99faad8b6c6ff09",
+      "file_sha256": "54fab581753942f7a7b8422e9fd6a61e01a8b26c69b1a68a0bd868e7ad7e5021"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "cdc",
+      "function": "ffs_do_descs",
+      "start_line": 2671,
+      "end_line": 2708,
+      "fragment_sha256": "5cbac8d863e537f1f3bb86d7564b57b33f98d2616a72b7001dbef46c62dbc71c",
+      "file_sha256": "54fab581753942f7a7b8422e9fd6a61e01a8b26c69b1a68a0bd868e7ad7e5021"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "cdc",
+      "function": "__ffs_data_do_entity",
+      "start_line": 2710,
+      "end_line": 2768,
+      "fragment_sha256": "b52a20bee4f36a4ba2b7b8bc5fce451cf137ca6b6c7943f39e4ec135c484cc91",
+      "file_sha256": "54fab581753942f7a7b8422e9fd6a61e01a8b26c69b1a68a0bd868e7ad7e5021"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "cdc",
+      "function": "__ffs_func_bind_do_nums",
+      "start_line": 3419,
+      "end_line": 3477,
+      "fragment_sha256": "c298b9c42c8f539792eb8008a0183a74f8d967ee4e8b1120ad5918b9f2ed60a2",
+      "file_sha256": "54fab581753942f7a7b8422e9fd6a61e01a8b26c69b1a68a0bd868e7ad7e5021"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "cdc",
+      "function": "__ffs_func_bind_do_interface_ids",
+      "start_line": 3480,
+      "end_line": 3490,
+      "fragment_sha256": "95a39dd7b9eef92b38048fcb7655086e4917fc28c2f5488201aab83349d1852f",
+      "file_sha256": "54fab581753942f7a7b8422e9fd6a61e01a8b26c69b1a68a0bd868e7ad7e5021"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "combined",
+      "function": "ffs_ep_addr2idx",
+      "start_line": 3314,
+      "end_line": 3322,
+      "fragment_sha256": "f3d888ddb60b1f92b5531f53cb2bbbdaf4d27cbddebb3080efd13a67ff932c4b",
+      "file_sha256": "69c05bd84cebdaa3ed5fd483e1c7fec4332b793e35a38012aab6e035127813f3"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "combined",
+      "function": "ffs_ep_matches_exact",
+      "start_line": 3329,
+      "end_line": 3352,
+      "fragment_sha256": "15ed956fc761e5ce995334fef9751cb6d861a5ddf60655f469968a35f6e3489d",
+      "file_sha256": "69c05bd84cebdaa3ed5fd483e1c7fec4332b793e35a38012aab6e035127813f3"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "combined",
+      "function": "ffs_ep_autoconfig_exact",
+      "start_line": 3354,
+      "end_line": 3374,
+      "fragment_sha256": "c95b93ec6b85a168df6b24f33e48f5eaf3c699fd05275cdbbaa4c9866dcee7d3",
+      "file_sha256": "69c05bd84cebdaa3ed5fd483e1c7fec4332b793e35a38012aab6e035127813f3"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "combined",
+      "function": "ffs_exact_bind_rollback",
+      "start_line": 3377,
+      "end_line": 3402,
+      "fragment_sha256": "bd68882e54e33926062b17e6ac1d8c769571c3d58c464c9ba528e6a56e1ba789",
+      "file_sha256": "69c05bd84cebdaa3ed5fd483e1c7fec4332b793e35a38012aab6e035127813f3"
+    },
+    {
+      "file": "drivers/usb/gadget/function/f_fs.c",
+      "variant": "combined",
+      "function": "__ffs_func_bind_do_descs",
+      "start_line": 3404,
+      "end_line": 3514,
+      "fragment_sha256": "b356df1a8ed1bc2edb214087d221df8428fb8b45d912e191ecfdaaca7f4203d5",
+      "file_sha256": "69c05bd84cebdaa3ed5fd483e1c7fec4332b793e35a38012aab6e035127813f3"
+    },
+    {
+      "file": "drivers/usb/gadget/udc/core.c",
+      "variant": "stock",
+      "function": "usb_gadget_ep_match_desc",
+      "start_line": 1026,
+      "end_line": 1090,
+      "fragment_sha256": "e1a4eabfa3f404755f9032d39d637dd65b8c19d425a9e6aaea336129a7bf9c26",
+      "file_sha256": "8133bdfe76adbf931f1be284f951481411669d98a9f076c3e1d8c73acfd26254"
+    },
+    {
+      "file": "drivers/usb/gadget/epautoconf.c",
+      "variant": "stock",
+      "function": "usb_ep_autoconfig_ss",
+      "start_line": 20,
+      "end_line": 114,
+      "fragment_sha256": "e19a4f46dcf6064355b122dbe846d1c0b21c6e68cd785e593df531b703c194be",
+      "file_sha256": "a9136c72e145f6fa405b5db8518dd8b2964f6b713492857f2d1b0f535627d0dc"
+    },
+    {
+      "file": "drivers/usb/gadget/epautoconf.c",
+      "variant": "stock",
+      "function": "usb_ep_autoconfig",
+      "start_line": 118,
+      "end_line": 174,
+      "fragment_sha256": "25993a2cfc261c74d7452d4aa66fd9726a71c671ca6d3a039fa462909dea2e30",
+      "file_sha256": "a9136c72e145f6fa405b5db8518dd8b2964f6b713492857f2d1b0f535627d0dc"
+    }
+  ],
+  "extraction_note": "Line numbers refer to the stated stock or patched file, not the standalone host-shim C file. Function fragments include one trailing LF. The stock parser is renamed in the CDC harness. Shims replace kernel types and resource operations; this is not full-kernel execution."
+}
