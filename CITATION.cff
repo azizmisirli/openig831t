@@ -1,16 +1,22 @@
 cff-version: 1.2.0
-message: "Cite the exact research-preview release and commit; end-to-end 5G replacement is not demonstrated."
-title: "OpenIG831T: USB, AT, QMI and Experimental Bridge Interoperability Research"
+message: Cite the exact research-preview release and commit; end-to-end 5G replacement
+  is not demonstrated.
+title: 'OpenIG831T: USB, AT, QMI and Experimental Bridge Interoperability Research'
 type: software
 version: 0.1.0-research-preview
-date-released: 2026-10-10
+date-released: '2026-10-10'
 authors:
-  - name: "OpenIG831T contributors"
+- name: OpenIG831T contributors
 license: Apache-2.0
-abstract: "Independent research on the DJI Cellular Dongle 2 IG831T, sanitized original-device evidence, and experimental offline bridge components. No physical bridge, DJI host acceptance or end-to-end 5G replacement is claimed. Documentation and kernel-derived materials have separately scoped licenses."
+abstract: Independent research on the DJI Cellular Dongle 2 IG831T, sanitized original-device
+  evidence, and experimental offline bridge components. No physical bridge, DJI host
+  acceptance or end-to-end 5G replacement is claimed. Documentation and kernel-derived
+  materials have separately scoped licenses.
 keywords:
-  - interoperability
-  - USB
-  - QMI
-  - FunctionFS
-  - research-preview
+- interoperability
+- USB
+- QMI
+- FunctionFS
+- research-preview
+repository-code: https://github.com/azizmisirli/openig831t
+url: https://github.com/azizmisirli/openig831t

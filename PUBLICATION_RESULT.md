@@ -1,16 +1,6 @@
 <!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Publication result
 
-- State: LOCAL_VALIDATION; authenticated remote publication is pending.
-- GitHub owner: `azizmisirli`, verified through GitHub CLI.
-- Planned repository name: `openig831t`, with `openig831t-research` as the approved fallback.
-- Public repository URL: unavailable; no repository created.
-- Release URL: unavailable; no release created.
-- Default local branch: `main`.
-- Version/tag: `v0.1.0-research-preview`; Python distribution version `0.1.0a0`.
-- Remote CI: NOT_RUN.
-- Public access / remote clone verification: NOT_RUN.
+State: PRIVATE_PREPARATION. Local gates precede this commit. Exact-commit remote CI, private clone, release assets, public visibility and anonymous checks are pending.
 
-The resume publisher defaults to an offline plan. Explicit `--execute` requires GitHub authentication and reruns local gates before private-first remote publication. It never opens a USB device or starts a cellular data session.
-
-Research status: experimental research preview. End-to-end DJI 5G replacement, candidate modem compatibility, physical gadget operation and DJI host acceptance remain unverified. Final direct-versus-bridge verdict is null.
+Intended repository: [azizmisirli/openig831t](https://github.com/azizmisirli/openig831t). Intended prerelease: `v0.1.0-research-preview`. No candidate hardware or end-to-end 5G replacement has been validated. Final verdict: null.
