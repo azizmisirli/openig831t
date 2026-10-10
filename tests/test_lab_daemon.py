@@ -14,8 +14,7 @@ import unittest
 from unittest.mock import patch
 
 from igbridge.configfs import ConfigfsTransaction, DirectoryFS
-from igbridge.control import ControlBridge
-from igbridge.descriptors import load_profile, split_descriptors, HS
+from igbridge.descriptors import load_profile, split_descriptors
 from igbridge.errors import BridgeError, PolicyDenied, ProtocolError
 from igbridge.functionfs import Event, BIND, ENABLE, DISABLE, SETUP
 from igbridge.lab_daemon import (LaboratoryDaemon, launch_template, validate_launch,

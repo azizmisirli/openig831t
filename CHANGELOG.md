@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Update all GitHub Actions to SHA-pinned Node.js 24 releases; keep read-only workflow permissions.
+- Add a development-dependency vulnerability audit and weekly dependency update proposals.
+- Enable the complete Ruff Pyflakes `F` rule family and remove unused imports.
+- Document the Python/package release naming policy and open-source community support.
+- Add original project artwork and a diagram separating measured results from the proposed bridge.
+- Preserve collective attribution, research-preview limits and all unverified hardware gates.
+
 ## 0.1.0-research-preview
 
 Initial research-preview preparation. **UNKNOWN:** end-to-end 5G replacement, physical gadget operation and DJI acceptance remain unverified.

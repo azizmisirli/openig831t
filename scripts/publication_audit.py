@@ -2,9 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Scan working files and all Git objects; findings never echo matched values."""
 import argparse
-import hashlib
 import json
-import os
 from pathlib import Path
 import re
 import subprocess

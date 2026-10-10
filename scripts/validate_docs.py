@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 """Validate local links, JSON and research status without network access."""
 import json
-from pathlib import Path
 import re
 from urllib.parse import unquote
 from publication_audit import ROOT, public_files

@@ -5,7 +5,6 @@ import argparse
 import copy
 import hashlib
 import json
-from pathlib import Path
 try:
     from publication_audit import ROOT, public_files
 except ImportError:

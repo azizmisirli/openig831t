@@ -1,5 +1,7 @@
 # OpenIG831T
 
+![OpenIG831T original project logo](docs/assets/openig831t-logo.svg)
+
 **RESEARCH PREVIEW · EXPERIMENTAL · END-TO-END 5G REPLACEMENT NOT YET DEMONSTRATED**
 
 OpenIG831T is an independent interoperability research project for the DJI Cellular Dongle 2 (IG831T). It documents measured USB, AT and QMI behavior, the reported Fibocom NL668T-GL modem identity, and an experimental Linux FunctionFS bridge architecture.
@@ -44,6 +46,8 @@ The badges identify workflows and project status; they do not assert that remote
 ## 5. Architecture
 
 **SOURCE_SUPPORTED** components and **UNKNOWN** physical outcomes are deliberately separate:
+
+![Measured USB and AT/QMI behavior; proposed bridge and untested 5G candidate](docs/assets/bridge-overview.svg)
 
 ```mermaid
 flowchart LR
@@ -124,6 +128,8 @@ PYTHONPATH=src python3 -m igbridge.candidate_inventory
 
 Activate `.venv` in every new shell before the Make targets so they use the intended interpreter and development tools. `make setup` is a one-time environment setup step, not part of each test replay. These commands do not open a device. `make setup` may install optional development dependencies; sanitizer checks need a suitable C toolchain. Hardware entry points require separate explicit `--execute-live` or `--execute-lab` flags and validated targets. No live command is required for CI. Output directories must be fresh: `make bundle` uses `dist/source` and fails if that output already exists; use a new output name for another archive. [Direct tool equivalents](REPRODUCIBILITY.md#direct-tool-equivalents) describe the scripts.
 
+The lint gate currently enables `E9` and the full Pyflakes `F` family. Formatting, import ordering, `B`, and `UP` adoption remain incremental.
+
 ## 13. Reproducibility
 
 [REPRODUCIBILITY.md](REPRODUCIBILITY.md) separates public code/test replay from withheld private measurements. Use the final public validation report for test counts; pre-curation private results are not substituted for public release testing. CI does not establish physical compatibility.
@@ -146,11 +152,11 @@ This is an independent interoperability research project. It is not affiliated w
 
 ## 18. Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md). Submit exact firmware/composition evidence, reproduction steps, provenance and redaction confirmation. Do not upload proprietary packages, raw personal data or unsupported “working 5G” claims.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) and the community [support guide](SUPPORT.md). Submit exact firmware/composition evidence, reproduction steps, provenance and redaction confirmation. Do not upload proprietary packages, raw personal data or unsupported “working 5G” claims.
 
 ## 19. Citation
 
-Use [CITATION.cff](CITATION.cff). Cite the release and exact commit you evaluated; retain the research-preview qualification. The collective project author is used until a public maintainer identity is confirmed.
+Use [CITATION.cff](CITATION.cff). Cite the release and exact commit you evaluated; retain the research-preview qualification. The citation deliberately uses the collective project author to preserve contributor privacy.
 
 ## 20. Roadmap
 

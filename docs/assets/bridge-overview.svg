@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="240" viewBox="0 0 1280 240" role="img" aria-labelledby="title"><title id="title">Measured USB and AT/QMI behavior; experimental bridge and untested 5G candidate</title><!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<rect width="1280" height="240" fill="#101b24"/>
+<rect x="64" y="32" width="240" height="108" fill="#192934" stroke="#536d7c" stroke-width="2"/>
+<text x="84" y="76" fill="#64dfc0" font-family="Arial, sans-serif" font-size="27" font-weight="700">USB</text>
+<text x="84" y="110" fill="#b2c3ca" font-family="Arial, sans-serif" font-size="18" font-weight="400">IG831T composition</text>
+<rect x="352" y="32" width="240" height="108" fill="#192934" stroke="#536d7c" stroke-width="2"/>
+<text x="372" y="76" fill="#64dfc0" font-family="Arial, sans-serif" font-size="27" font-weight="700">AT / QMI</text>
+<text x="372" y="110" fill="#b2c3ca" font-family="Arial, sans-serif" font-size="18" font-weight="400">Measured control</text>
+<rect x="640" y="32" width="240" height="108" fill="#192934" stroke="#536d7c" stroke-width="2"/>
+<text x="660" y="76" fill="#f7ce82" font-family="Arial, sans-serif" font-size="27" font-weight="700">BRIDGE</text>
+<text x="660" y="110" fill="#b2c3ca" font-family="Arial, sans-serif" font-size="18" font-weight="400">Experimental design</text>
+<rect x="928" y="32" width="240" height="108" fill="#192934" stroke="#536d7c" stroke-width="2"/>
+<text x="948" y="76" fill="#f7ce82" font-family="Arial, sans-serif" font-size="27" font-weight="700">5G MODEM</text>
+<text x="948" y="110" fill="#b2c3ca" font-family="Arial, sans-serif" font-size="18" font-weight="400">Candidate untested</text>
+<line x1="304" y1="86" x2="352" y2="86" stroke="#64dfc0" stroke-width="3"/>
+<line x1="592" y1="86" x2="640" y2="86" stroke="#f7ce82" stroke-width="3" stroke-dasharray="8 7"/>
+<line x1="880" y1="86" x2="928" y2="86" stroke="#f7ce82" stroke-width="3" stroke-dasharray="8 7"/>
+<text x="64" y="177" fill="#64dfc0" font-family="Arial, sans-serif" font-size="16" font-weight="700">MEASURED SPECIMEN</text>
+<text x="640" y="177" fill="#f7ce82" font-family="Arial, sans-serif" font-size="16" font-weight="700">PROPOSED PATH / PHYSICAL VALIDATION PENDING</text>
+</svg>

@@ -82,6 +82,17 @@
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
+      "source_path": "publication-original/.github/dependabot.yml",
+      "destination_path": ".github/dependabot.yml",
+      "purpose": "Reviewed dependency update proposals",
+      "origin": "Original GitHub dependency update configuration",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "Apache-2.0",
+      "redaction": "Reviewed English public content; no private identifiers, paths, vendor images or commercial offerings",
+      "sha256": "5824c0544a88c8e857bf8cf77b6b83139f2f6fc6237682e1935e34d6268dffe1",
+      "publication_decision": "PUBLIC_ORIGINAL_CODE"
+    },
+    {
       "source_path": "publication-original/.github/pull_request_template.md",
       "destination_path": ".github/pull_request_template.md",
       "purpose": "Publication, reproducibility and review support",
@@ -100,7 +111,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "cf5319e6b09cd91e847f9322070f39be5ff90385eb622fc307a81a4eda12450c",
+      "sha256": "8e2a55f76ee5c27b0ef4dd462b1eb9445858c77d019dafa3474f362e8aab24fd",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -111,7 +122,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "7a06802c4e7c6de276e9cd582f8ee5b4d6b581beebe07bd1b80849f114d2ba4a",
+      "sha256": "3d65e94c9f92109c6a0c3fcb204c5580ad2d3c9193a33c238dc310eef1798a21",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -122,7 +133,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "bb499428ec1028555ae4c6212f3ec88cff912eaab27b5f5e535d7809a39571b5",
+      "sha256": "fc60bb3e866fab41bca3670440ecdf56f7e40ad0dc24d521634763a0f6b11f69",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -155,7 +166,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "ff5bfbe5c9480d13551f1bb1a07fe8db024cd9a94bf05ec2740a0dd824c86353",
+      "sha256": "bd179dd7815033b8c966024d60e8a90f45f4021420f0f27853cfa55cc5e9e17e",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -298,7 +309,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "3d1aa30880440f8d78039ba0caa76466308ef15195228cec04d51651f1cf988b",
+      "sha256": "c72dd5094a0a0fc47702f35f7bc3c54b10264c5e34700e1ea353a91c812c0196",
       "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
     },
     {
@@ -331,7 +342,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "61ff049f733525300c87b00ebeec5a420844176173bf23350192ef39b136e103",
+      "sha256": "26f8f98f1eaf45c5c64980b6720a92056ae82bb91aee9c8f4b098d291a8cb97a",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -408,8 +419,19 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "aebf11b2e535b67809074d21a9eb00cd1f4338512f22ef1ce43014ded1eff475",
+      "sha256": "f84bccccf01bbfecb27c8d29af0b07718fec572383e3553dffaa6a76c942842a",
       "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "publication-original/SUPPORT.md",
+      "destination_path": "SUPPORT.md",
+      "purpose": "Open-source community support and original project visuals",
+      "origin": "Original project prose and vector geometry",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "Reviewed English public content; no private identifiers, paths, vendor images or commercial offerings",
+      "sha256": "1bc2dba7e604f84c2f88a22ef7b9f6c027006b6297b7d191c5b3b487cddb041a",
+      "publication_decision": "PUBLIC_ORIGINAL_DOCUMENTATION"
     },
     {
       "source_path": "upstream-provenance/THIRD_PARTY_NOTICES.md",
@@ -421,6 +443,17 @@
       "redaction": "No private path, device identity or proprietary content",
       "sha256": "defdb95279fcec7544beb2f48912f35fd27cce13e3817cbd65caf7d35726897c",
       "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "publication-original/docs/assets/bridge-overview.svg",
+      "destination_path": "docs/assets/bridge-overview.svg",
+      "purpose": "Open-source community support and original project visuals",
+      "origin": "Original project prose and vector geometry",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "Reviewed English public content; no private identifiers, paths, vendor images or commercial offerings",
+      "sha256": "5064366e3d14748986abe63c32d8c86e93d85a42f761fb0fbfe64783dc0d1d20",
+      "publication_decision": "PUBLIC_ORIGINAL_DOCUMENTATION"
     },
     {
       "source_path": "research-summary/",
@@ -456,6 +489,17 @@
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
+      "source_path": "publication-original/docs/assets/openig831t-logo.svg",
+      "destination_path": "docs/assets/openig831t-logo.svg",
+      "purpose": "Open-source community support and original project visuals",
+      "origin": "Original project prose and vector geometry",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "Reviewed English public content; no private identifiers, paths, vendor images or commercial offerings",
+      "sha256": "ea565e93bb3833e2932666197ab759c4b660c233f2e8d8facf1b5f26b28b5918",
+      "publication_decision": "PUBLIC_ORIGINAL_DOCUMENTATION"
+    },
+    {
       "source_path": "research-summary/",
       "destination_path": "docs/assets/research-preview.svg",
       "purpose": "Original English publication documentation or sanitized metadata summary",
@@ -465,6 +509,17 @@
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
       "sha256": "fa951ac69efdf90158884799aaa04eb39da54648ab835d247ef67cc89229ddfa",
       "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "publication-original/docs/assets/social-preview.svg",
+      "destination_path": "docs/assets/social-preview.svg",
+      "purpose": "Open-source community support and original project visuals",
+      "origin": "Original project prose and vector geometry",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "Reviewed English public content; no private identifiers, paths, vendor images or commercial offerings",
+      "sha256": "11798bb2d953def1730bf4b02c06b9bca12f3be22f18d350963b19c1e9777371",
+      "publication_decision": "PUBLIC_ORIGINAL_DOCUMENTATION"
     },
     {
       "source_path": "research-summary/private-research-synthesis",
@@ -903,7 +958,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "cc31073d959c6e2d2e4ce1feedf728ec0f8491b1f08e54817f3e7e761b0b7341",
+      "sha256": "0f796083304a517b327be9eb8edfce5e73e49059afadeb796f310e98cb4a1bbe",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -947,7 +1002,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "3727ccbf61233f802524b6e5702ab09e874a9e974b6d6baea362aea2bc3610aa",
+      "sha256": "f2a6d8c409c7ddd7c6010d0cdb284710bdf99d383cbf66845988968aff8659df",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -958,7 +1013,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "386d20751feb00885114f3e1c8685c00bfb25c370d90d09b782360c188c6bdb6",
+      "sha256": "4db838bec332895445f13b2ae29723c3ac6e3df243f9e6ecdcced66456884250",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -969,7 +1024,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "6a48c73ef0d4aa303c760719ea4a5371297f51e733284c879e90e42993ff339a",
+      "sha256": "36f3212afcb77783d8319e4f2e085a70d37cabe1d485c11df25cd64767c54108",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -1002,7 +1057,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "a041b3ab2ffe175c7415511e845c60041a67dad814508c14747c60455adf262e",
+      "sha256": "f506c9c873435b433ad3c1e3e64ae8efdc58773c2ba261abfd341e3226c25a90",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -1013,7 +1068,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "1d49978e76b077beeef97fb233fb7755110d9b9c874f4b55e2a2aed36494864f",
+      "sha256": "db83f4b0de9a091392784efe93186bf0c0cd3487e8cdeee02754ef55715416b8",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -1101,7 +1156,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Curated resources and explicit synthetic vectors; private paths/serial removed",
-      "sha256": "83b02184fcdfd005a7f77301dc975fa7218b2b1a8f391394197f211e04af86aa",
+      "sha256": "dc91cf6304df31bafb9d1d795642e64cffaacf8b7a0cfc3e074973936761174c",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -1178,7 +1233,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Curated resources and explicit synthetic vectors; private paths/serial removed",
-      "sha256": "7eab375ea7cac32e163f5d2cb68c376029251f7f0c916e2746adbdf8b29e2ac5",
+      "sha256": "274623ac4337dae092bc187a6e8ed91931e3edfadb5f3b3b2ba814ba8b076754",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -1420,7 +1475,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Curated resources and explicit synthetic vectors; private paths/serial removed",
-      "sha256": "84de6c429fc41c0ae25634fbf878866ce43878848b18986cbc0b8d49a26b98aa",
+      "sha256": "fd25f831eafb3c7facd932757297a1eaaab418f38ad5f780548b43ea09f15e2a",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {

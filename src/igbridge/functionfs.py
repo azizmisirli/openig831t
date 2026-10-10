@@ -8,7 +8,6 @@ import errno
 import fcntl
 import os
 import select
-import struct
 import sys
 from dataclasses import dataclass
 from pathlib import Path

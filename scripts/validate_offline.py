@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 """Run hardware-free tests and offline entry points; do not discover devices."""
 import argparse
-import contextlib
 import io
 import json
 import os

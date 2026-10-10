@@ -32,4 +32,6 @@ target-version = "py310"
 line-length = 120
 
 [tool.ruff.lint]
-select = ["E9", "F63", "F7", "F82"]
+# First incremental lint expansion: all Pyflakes correctness checks.
+# Formatting/import-order and broader B/UP migrations are deliberately separate.
+select = ["E9", "F"]

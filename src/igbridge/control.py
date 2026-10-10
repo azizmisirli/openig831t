@@ -7,7 +7,7 @@ already validated frame. Indications and responses remain separate messages.
 from collections import deque
 import threading
 from .errors import ConfigurationError, ProtocolError
-from .usb import Setup, Notification, send_setup, get_setup, dtr_setup, response_available
+from .usb import Notification, send_setup, get_setup, dtr_setup, response_available
 from .qmi import parse_message
 from .qmi_session import QmiSession
 from .policy import LaboratoryPolicy

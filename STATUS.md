@@ -2,6 +2,8 @@
 
 **RESEARCH PREVIEW · EXPERIMENTAL**
 
+The Python package uses the PEP 440 version 0.1.0a0; the corresponding public research release is labeled v0.1.0-research-preview.
+
 **UNKNOWN — end-to-end 5G replacement has not been demonstrated.** The measured original dongle has not been converted to 5G. There is no confirmed drop-in candidate, validated physical bridge, or demonstrated DJI host acceptance. The final direct-versus-bridge verdict remains `null`.
 
 | Claim | Evidence level | Scope |
