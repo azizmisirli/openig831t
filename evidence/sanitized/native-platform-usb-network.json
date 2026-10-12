@@ -1,0 +1,1547 @@
+{
+  "schema_version": 1,
+  "license": "CC-BY-4.0",
+  "artifact_type": "ORIGINAL_SANITIZED_RESEARCH_SUMMARY",
+  "title": "RC520 native IG831T platform, USB and network reference",
+  "scope": {
+    "controller": "DJI RC Pro 2 (RC520)",
+    "modem": "Original DJI Cellular Dongle 2 (IG831T)",
+    "classification": "CONFIRMED_NATIVE_HOST with per-field source and uncertainty boundaries",
+    "candidate_modem_measured": false,
+    "public_raw_sources_included": false,
+    "raw_source_replay_possible_from_this_summary": false
+  },
+  "context": {
+    "controller_firmware": "01.00.07.00",
+    "android_build": "V55.31.01.39 release-keys",
+    "android_version": "11",
+    "android_api_level": 30,
+    "board": "lahaina",
+    "platform": "lahaina",
+    "reported_soc": "QCS5430",
+    "kernel_version": "5.4.210",
+    "installed_packages": [
+      {
+        "package": "dji.go.v5",
+        "version_name": "1.21.2",
+        "version_code": 3114825
+      },
+      {
+        "package": "dji.go.v9",
+        "version_name": "1.19.4",
+        "version_code": 3113157
+      }
+    ],
+    "package_presence_does_not_prove_execution": true,
+    "unresolved": [
+      "MSDK version",
+      "Selected AirLink abstraction",
+      "FC/RC/Camera enum context",
+      "ProductCategory/InternalProductType",
+      "Dock capability",
+      "Active WLM callback family",
+      "Runtime dongle generation or identity decision"
+    ]
+  },
+  "usb": {
+    "evidence_level": "CONFIRMED_NATIVE_HOST",
+    "vid": "0x2ca3",
+    "pid": "0x4009",
+    "usb_version": "2.00",
+    "speed_mbps": 480,
+    "device_release_bcd": "0x0318",
+    "device_release_is_not_assumed_firmware_revision": true,
+    "device_class_subclass_protocol": [
+      0,
+      0,
+      0
+    ],
+    "endpoint_zero_max_packet_size": 64,
+    "configuration_count": 1,
+    "active_configuration": 1,
+    "configuration_total_length": 209,
+    "configuration_attributes": "0xa0",
+    "remote_wakeup_advertised": true,
+    "self_powered_advertised": false,
+    "advertised_max_power_ma": 500,
+    "advertised_power_is_not_measured_current": true,
+    "device_plus_configuration_bytes": 227,
+    "manufacturer_string": "BAIWANG",
+    "product_string": "Baiwang",
+    "unique_string_values": "OMITTED",
+    "interface_count": 5,
+    "non_control_endpoint_counts": {
+      "in": 9,
+      "out": 5,
+      "bulk_in": 5,
+      "interrupt_in": 4,
+      "bulk_out": 5
+    },
+    "interfaces": [
+      {
+        "number": 0,
+        "alternate_setting": 0,
+        "class_subclass_protocol": [
+          255,
+          255,
+          255
+        ],
+        "endpoint_count": 2,
+        "endpoints": [
+          {
+            "address": "0x81",
+            "type": "BULK",
+            "direction": "IN",
+            "max_packet_size": 512,
+            "interval": 0
+          },
+          {
+            "address": "0x1",
+            "type": "BULK",
+            "direction": "OUT",
+            "max_packet_size": 512,
+            "interval": 0
+          }
+        ],
+        "driver": "option",
+        "node": "ttyUSB0",
+        "network_device": null,
+        "role": "Unresolved serial function"
+      },
+      {
+        "number": 1,
+        "alternate_setting": 0,
+        "class_subclass_protocol": [
+          255,
+          0,
+          0
+        ],
+        "endpoint_count": 3,
+        "endpoints": [
+          {
+            "address": "0x83",
+            "type": "INTERRUPT",
+            "direction": "IN",
+            "max_packet_size": 10,
+            "interval": 9
+          },
+          {
+            "address": "0x82",
+            "type": "BULK",
+            "direction": "IN",
+            "max_packet_size": 512,
+            "interval": 0
+          },
+          {
+            "address": "0x2",
+            "type": "BULK",
+            "direction": "OUT",
+            "max_packet_size": 512,
+            "interval": 0
+          }
+        ],
+        "driver": "option",
+        "node": "ttyUSB1",
+        "network_device": null,
+        "role": "Unresolved serial function"
+      },
+      {
+        "number": 2,
+        "alternate_setting": 0,
+        "class_subclass_protocol": [
+          255,
+          0,
+          0
+        ],
+        "endpoint_count": 3,
+        "endpoints": [
+          {
+            "address": "0x85",
+            "type": "INTERRUPT",
+            "direction": "IN",
+            "max_packet_size": 10,
+            "interval": 9
+          },
+          {
+            "address": "0x84",
+            "type": "BULK",
+            "direction": "IN",
+            "max_packet_size": 512,
+            "interval": 0
+          },
+          {
+            "address": "0x3",
+            "type": "BULK",
+            "direction": "OUT",
+            "max_packet_size": 512,
+            "interval": 0
+          }
+        ],
+        "driver": "option",
+        "node": "ttyUSB2",
+        "network_device": null,
+        "role": "Serial binding observed; selected native RIL AT role is interface 3"
+      },
+      {
+        "number": 3,
+        "alternate_setting": 0,
+        "class_subclass_protocol": [
+          255,
+          0,
+          0
+        ],
+        "endpoint_count": 3,
+        "endpoints": [
+          {
+            "address": "0x87",
+            "type": "INTERRUPT",
+            "direction": "IN",
+            "max_packet_size": 10,
+            "interval": 9
+          },
+          {
+            "address": "0x86",
+            "type": "BULK",
+            "direction": "IN",
+            "max_packet_size": 512,
+            "interval": 0
+          },
+          {
+            "address": "0x4",
+            "type": "BULK",
+            "direction": "OUT",
+            "max_packet_size": 512,
+            "interval": 0
+          }
+        ],
+        "driver": "option",
+        "node": "ttyUSB3",
+        "network_device": null,
+        "role": "Native RIL AT selection supported by source and boot exchanges"
+      },
+      {
+        "number": 4,
+        "alternate_setting": 0,
+        "class_subclass_protocol": [
+          255,
+          255,
+          255
+        ],
+        "endpoint_count": 3,
+        "endpoints": [
+          {
+            "address": "0x89",
+            "type": "INTERRUPT",
+            "direction": "IN",
+            "max_packet_size": 8,
+            "interval": 9
+          },
+          {
+            "address": "0x88",
+            "type": "BULK",
+            "direction": "IN",
+            "max_packet_size": 512,
+            "interval": 0
+          },
+          {
+            "address": "0x5",
+            "type": "BULK",
+            "direction": "OUT",
+            "max_packet_size": 512,
+            "interval": 0
+          }
+        ],
+        "driver": "qmi_wwan_f",
+        "node": "cdc-wdm0",
+        "network_device": "dji_mini_net",
+        "role": "Native QMI control and network association"
+      }
+    ],
+    "functional_descriptors": {
+      "interfaces": [
+        1,
+        2,
+        3
+      ],
+      "descriptor_type": "0x24",
+      "records": [
+        {
+          "subtype": "HEADER",
+          "length": 5,
+          "cdc_version_bcd": "0x0110"
+        },
+        {
+          "subtype": "CALL_MANAGEMENT",
+          "length": 5,
+          "capabilities": 0,
+          "data_interface_reference": 0
+        },
+        {
+          "subtype": "ABSTRACT_CONTROL_MANAGEMENT",
+          "length": 4,
+          "capabilities": 2
+        },
+        {
+          "subtype": "UNION",
+          "length": 5,
+          "control_interface_reference": 0,
+          "subordinate_interface_reference": 0
+        }
+      ],
+      "interpretation": "Original references are reported without repairing them. Vendor interface class plus CDC functional descriptors does not by itself assign every port a role."
+    },
+    "host_topology": "Internal DWC3/xHCI USB host path through a hub; bus/device numbers and physical path instance are omitted.",
+    "external_controller_usb_mode": "The controller-to-computer MTP/bulk/ADB function is separate from the internal modem.",
+    "source_artifact_ids": [
+      "rc520-cached-usb-descriptors",
+      "rc520-sysfs-driver-node-association"
+    ]
+  },
+  "kernel": {
+    "bound_serial_driver": "option",
+    "bound_qmi_network_driver": "qmi_wwan_f",
+    "vendor_driver_version": "Fibocom_QMI_WWAN_Driver_V1.0.5",
+    "selected_configuration": {
+      "CONFIG_USB_USBNET": "y",
+      "CONFIG_USB_NET_QMI_WWAN": "y",
+      "CONFIG_USB_SERIAL": "y",
+      "CONFIG_USB_SERIAL_GENERIC": "y",
+      "CONFIG_USB_SERIAL_WWAN": "y",
+      "CONFIG_USB_SERIAL_OPTION": "y"
+    },
+    "load_form_limit": "These selected y configuration symbols are built-in. Presence under sys/module alone does not prove dynamic module loading; the exact vendor qmi_wwan_f symbol-to-object mapping is unknown.",
+    "new_id_file_is_not_proof_of_use": true,
+    "parameters": {
+      "qmap_mode": 0,
+      "rx_qmap": 0,
+      "bridge_mode": 0,
+      "agg_bypass_time": 10000000,
+      "agg_time_limit": 1000000,
+      "aggregation_parameter_units": "UNKNOWN"
+    },
+    "netdev": {
+      "name": "dji_mini_net",
+      "type": 1,
+      "mtu": 1500,
+      "carrier": 1
+    },
+    "type_one_does_not_prove_usb_ethernet": true,
+    "usb_monitor_configuration": "CONFIG_USB_MON not set",
+    "native_physical_usb_frame_capture": false
+  },
+  "nodes": {
+    "records": [
+      {
+        "node": "/dev/ttyUSB0",
+        "interface": 0,
+        "mode_symbolic": "crw-rw----",
+        "owner": "bluetooth",
+        "group": "bluetooth",
+        "selinux_context": "u:object_r:radio_device:s0",
+        "major": 188,
+        "minor": 0
+      },
+      {
+        "node": "/dev/ttyUSB1",
+        "interface": 1,
+        "mode_symbolic": "crw-rw----",
+        "owner": "radio",
+        "group": "radio",
+        "selinux_context": "u:object_r:radio_device:s0",
+        "major": 188,
+        "minor": 1
+      },
+      {
+        "node": "/dev/ttyUSB2",
+        "interface": 2,
+        "mode_symbolic": "crw-rw----",
+        "owner": "radio",
+        "group": "radio",
+        "selinux_context": "u:object_r:radio_device:s0",
+        "major": 188,
+        "minor": 2
+      },
+      {
+        "node": "/dev/ttyUSB3",
+        "interface": 3,
+        "mode_symbolic": "crw-rw----",
+        "owner": "radio",
+        "group": "radio",
+        "selinux_context": "u:object_r:radio_device:s0",
+        "major": 188,
+        "minor": 3
+      },
+      {
+        "node": "/dev/cdc-wdm0",
+        "interface": 4,
+        "mode_symbolic": "crw-rw----",
+        "owner": "radio",
+        "group": "radio",
+        "selinux_context": "u:object_r:radio_device:s0",
+        "major": 180,
+        "minor": 176
+      }
+    ],
+    "major_minor_and_node_order_are_snapshot_specific": true,
+    "actual_fd_owner": "UNKNOWN; protected descriptors/maps were not bypassed",
+    "access_limit": "The observed node path requires suitable DAC and security permissions. Ordinary app membership in radio/bluetooth groups is not assumed."
+  },
+  "processes": [
+    {
+      "name": "dji_link",
+      "instances": 1,
+      "uid_role": "root",
+      "selinux_domain": "dji_link",
+      "runtime_observed": true
+    },
+    {
+      "name": "dji_lte",
+      "instances": 1,
+      "uid_role": "root",
+      "selinux_domain": "dji_lte",
+      "runtime_observed": true
+    },
+    {
+      "name": "dji_wlm",
+      "instances": 1,
+      "uid_role": "root",
+      "selinux_domain": "dji_wlm",
+      "runtime_observed": true
+    },
+    {
+      "name": "rild",
+      "instances": 2,
+      "uid_role": "radio",
+      "selinux_domain": "rild",
+      "selected_library": "libreference-ril-dual.so",
+      "instance_arguments": [
+        "-c 1",
+        "-c 2"
+      ],
+      "effective_capabilities": [
+        "NET_ADMIN",
+        "NET_RAW",
+        "BLOCK_SUSPEND"
+      ],
+      "runtime_observed": true
+    },
+    {
+      "name": "fibocom-dial",
+      "instances": 1,
+      "uid_role": "radio",
+      "selinux_domain": "rild",
+      "effective_capabilities": [
+        "NET_ADMIN",
+        "NET_RAW",
+        "BLOCK_SUSPEND"
+      ],
+      "runtime_observed": true
+    }
+  ],
+  "init": {
+    "evidence_level": "SOURCE_SUPPORTED",
+    "declarations": [
+      {
+        "service": "dji_link",
+        "class": "main",
+        "user_group": "root",
+        "declared_stream_sockets": 4
+      },
+      {
+        "service": "dji_lte",
+        "class": "main",
+        "user_group": "root"
+      },
+      {
+        "service": "dji_start_system",
+        "disabled": true,
+        "oneshot": true,
+        "trigger": "Boot completion"
+      },
+      {
+        "service": "vendor.ril-daemon1",
+        "class": "main",
+        "user_group": "radio"
+      },
+      {
+        "service": "vendor.ril-daemon2",
+        "class": "main",
+        "user_group": "radio"
+      },
+      {
+        "service": "dji_wlm",
+        "class": "main",
+        "user_group": "root",
+        "declaration_conflict": "System declaration adds disabled; vendor declaration does not. Import/override precedence unresolved."
+      },
+      {
+        "service": "dji_wlm_slave",
+        "class": "main",
+        "user_group": "root",
+        "disabled": true
+      }
+    ],
+    "runtime_start_order": "UNKNOWN from declarations alone",
+    "dialer_parentage_limit": "A parent of init does not establish direct init launch; reparenting is possible.",
+    "route_trigger": "sys.dji.route can restart link, WLM slave, LTE and configuration-store services; not exercised by the collector."
+  },
+  "property_inventory": {
+    "count": 23,
+    "complete_system_inventory": false,
+    "values_exported": false,
+    "records": [
+      {
+        "name": "dji.lte.pcellid",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Status parser reads a decimal field group; writer and active branch not established."
+      },
+      {
+        "name": "lte.service.dongle_temp",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Status parser reads unsigned-byte fields; writer and physical units not established."
+      },
+      {
+        "name": "dji.lte.scellid",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Status parser reads a decimal field; writer not established."
+      },
+      {
+        "name": "dji.lte.rsrp",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Status parser reads a decimal field group; units and writer not established."
+      },
+      {
+        "name": "dji.lte.fw.version",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "STATIC_CLEAR_ONLY",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Status parser reads a dotted decimal format; exit code clears it. Not a demonstrated identity allowlist."
+      },
+      {
+        "name": "dji.lte.simcard",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Status parser and dialing code read it; no observed native producer."
+      },
+      {
+        "name": "dji.lte.cereg",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Status parser reads registration-related metadata; no observed native producer."
+      },
+      {
+        "name": "dji.lte.imei_sn",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Identity-related property name referenced by the status parser; all values withheld."
+      },
+      {
+        "name": "dji.lte.apn",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Profile-related property name referenced by the status parser; all values withheld."
+      },
+      {
+        "name": "dji.lte.iccid",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_parse"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Subscriber-related property name referenced by the status parser; all values withheld."
+      },
+      {
+        "name": "lte.dev.apn",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "ril_get_apn"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Profile getter references this name; all values withheld."
+      },
+      {
+        "name": "lte.service.cmd",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "SOURCE_SUPPORTED",
+        "reader_functions": [],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "A dji_lte command sender writes this name; selected native RIL consumer unresolved."
+      },
+      {
+        "name": "lte.service.cmd_res",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "Producer unknown; sender clear is source-supported",
+        "reader_functions": [
+          "ril_send"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "The sender reads and clears a result slot; selected native producer unresolved."
+      },
+      {
+        "name": "lte.service.cmd.ext",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "SOURCE_SUPPORTED",
+        "reader_functions": [],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "The command sender writes an extension slot; selected native consumer unresolved."
+      },
+      {
+        "name": "dji.lte_dongle_status",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "SOURCE_SUPPORTED",
+        "reader_functions": [
+          "lte_dev_control_task_entry",
+          "lte_modem_external_exception_check"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Lifecycle writers and reset-related readers exist. This is not a harmless query channel."
+      },
+      {
+        "name": "ril.fibocom.NetifName",
+        "context_from_captured_rules": "u:object_r:radio_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "SOURCE_SUPPORTED",
+        "reader_functions": [],
+        "snapshot_present": true,
+        "runtime_reader_evidence": "MEASURED_READER_BRANCH",
+        "description": "Two source-supported writers and a dialer reader; the reader branch is observed. Last writer unknown."
+      },
+      {
+        "name": "lte.upgrading_netcard",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "SOURCE_SUPPORTED",
+        "reader_functions": [
+          "need_reset_modem"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Upgrade/deinitialization writers and reset-exclusion reader; active use not observed."
+      },
+      {
+        "name": "lte.dev.test",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "lte_dev_control_task_entry",
+          "lte_modem_mgr_task_entry"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Test/configuration readers exist; no experiment or active branch established."
+      },
+      {
+        "name": "dji.lte.slow_show",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "SOURCE_SUPPORTED",
+        "reader_functions": [],
+        "snapshot_present": true,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Video-start code writes this property; snapshot presence does not identify a writer or acceptance result."
+      },
+      {
+        "name": "dji.lte.slow_show_frm",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "SOURCE_SUPPORTED",
+        "reader_functions": [],
+        "snapshot_present": true,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Video-start initialization writes this property; snapshot presence is not LTE acceptance."
+      },
+      {
+        "name": "dji.wlm_service",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "init declaration"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Init start/stop trigger; duplicated service declarations have unresolved precedence."
+      },
+      {
+        "name": "dji.wlm_slave_service",
+        "context_from_captured_rules": "u:object_r:default_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "init declaration"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Init start/stop trigger for a separate service; no observed trigger operation."
+      },
+      {
+        "name": "sys.dji.route",
+        "context_from_captured_rules": "u:object_r:system_prop:s0",
+        "context_evidence": "SOURCE_SUPPORTED; per-property runtime context not captured",
+        "writer_evidence": "UNKNOWN",
+        "reader_functions": [
+          "init declaration"
+        ],
+        "snapshot_present": false,
+        "runtime_reader_evidence": "UNKNOWN",
+        "description": "Init trigger can restart several services; no observer write or active route selection inferred."
+      }
+    ],
+    "network_name_edge": {
+      "property": "ril.fibocom.NetifName",
+      "fixed_generic_value": "dji_mini_net",
+      "source_writers": [
+        "Native RIL exact IG831T discovery branch",
+        "Conditional dji_lte modem_mini_init branch"
+      ],
+      "source_consumer": "fibocom-dial main reads the property, takes its nonempty branch and stores the adapter name",
+      "runtime_consumer_branch_observed": true,
+      "last_writer": "UNKNOWN",
+      "proves_proprietary_wlm_or_fly_acceptance": false
+    },
+    "mailbox_boundary": "A command/status provider remains in dji_lte, but the selected native RIL has no exact literal occurrence of the 14 examined mailbox/status names. Dynamic names or other producers remain possible; runtime provider selection is unknown.",
+    "lifetime_boundary": "No generic owner, transaction freshness or automatic process-death cleanup was established. A property name is not a safe temporary IPC contract.",
+    "writes_performed_by_collector": false,
+    "value_export_exception": "Only the fixed generic adapter name dji_mini_net is included in network_name_edge."
+  },
+  "security": {
+    "observed_selinux_mode": "Permissive",
+    "privilege_escalation_performed": false,
+    "scope": "Current implementation properties, not universal requirements for every replacement",
+    "offline_policy_method": "Local libsepol 3.6 type-enforcement queries against separately saved active and precompiled policy files. No property or node operation executed.",
+    "queries_per_policy": 100,
+    "allowed_per_policy": 43,
+    "policy_files_byte_identical": false,
+    "all_selected_decisions_equal": true,
+    "domain_decisions": [
+      {
+        "domain": "shell",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "untrusted_app",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "untrusted_app_27",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "platform_app",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "priv_app",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "rild",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": true
+          }
+        ]
+      },
+      {
+        "domain": "dji_lte",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "dji_link",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "dji_wlm",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      },
+      {
+        "domain": "system_server",
+        "decisions": [
+          {
+            "target_type": "default_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "default_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "property_service",
+            "permission": "set",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "read",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_prop",
+            "object_class": "file",
+            "permission": "map",
+            "allowed_by_type_enforcement": true
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "open",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "read",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "write",
+            "allowed_by_type_enforcement": false
+          },
+          {
+            "target_type": "radio_device",
+            "object_class": "chr_file",
+            "permission": "ioctl",
+            "allowed_by_type_enforcement": false
+          }
+        ]
+      }
+    ],
+    "sys_dji_route_system_prop_set_permission": "NOT_QUERIED in the selected matrix",
+    "runtime_per_property_contexts": "NOT_CAPTURED; inventory context labels come from captured rules",
+    "limits": [
+      "Type-enforcement results do not cover all DAC, Android, service-level or extended ioctl checks.",
+      "Permissive mode can change enforcement behavior; it does not grant arbitrary operations or prove a write succeeded.",
+      "Root processes and radio-group nodes do not prove that a replacement must use root or permissive SELinux."
+    ]
+  },
+  "binder": {
+    "evidence_level": "MEASURED_RUNTIME_METADATA_ONLY",
+    "observation_seconds": 15,
+    "method": "Existing Binder/process tracepoints; no app hooks",
+    "complete_top_level_trace_packets": 644,
+    "parse_error_statistics": 0,
+    "flows": {
+      "transaction_to_reply": 8266,
+      "async_to_receive": 2676,
+      "total": 10942,
+      "assigned_to_process_pairs_by_selected_join": 10936,
+      "not_assigned_by_that_join": 6
+    },
+    "selected_process_edges": [
+      {
+        "from": "rild",
+        "to": "com.android.phone",
+        "count": 1
+      },
+      {
+        "from": "com.android.phone",
+        "to": "system_server",
+        "count": 70
+      },
+      {
+        "from": "dji.go.v5",
+        "to": "system_server",
+        "count": 103
+      }
+    ],
+    "payload_semantics": "UNKNOWN",
+    "wlm_callback_parser_publication_cache_control_chain": "NOT_ESTABLISHED",
+    "capture_left_active": false
+  },
+  "android_network": {
+    "evidence_level": "MEASURED_RUNTIME",
+    "network_device": "dji_mini_net",
+    "framework_network_type": "Cellular LTE",
+    "boot_snapshots": {
+      "count": 8,
+      "without_native_network_agent": 1,
+      "connected_validated_lte": 7,
+      "roaming_false": 7,
+      "mtu_1500": 7,
+      "ip_and_dns_present": 7,
+      "addresses_exported": false
+    },
+    "boot_counter_samples": 24,
+    "native_traffic_observed": true,
+    "application_payload_attribution": "UNKNOWN",
+    "prior_same_controller_passive_window": {
+      "duration_seconds": 600,
+      "state_samples": 60,
+      "sampling_interval_seconds": 10,
+      "network_snapshots": 10,
+      "bindings_stable": true,
+      "all_network_snapshots_connected_validated_lte": true,
+      "counter_span_approximately_seconds": 590,
+      "rx_byte_delta": 276769,
+      "tx_byte_delta": 232570,
+      "rx_packet_delta": 2311,
+      "tx_packet_delta": 2953
+    },
+    "middle_chain_limit": "RIL, phone process, system services and a cellular NetworkAgent are supported by separate records; no complete method/parcel sequence was decoded.",
+    "enhanced_transmission_acceptance": "UNKNOWN"
+  },
+  "observation_limits": {
+    "authorized_controller_reboots": 1,
+    "collector_modem_interface_claims": 0,
+    "collector_at_qmi_dtr_commands": 0,
+    "collector_network_probes": 0,
+    "collector_service_restart_commands": 0,
+    "native_services_owned_modem": true,
+    "native_boot_generated_modem_state_changes": true,
+    "boot_log_scope": "Finite early-boot protocol window; collector duration is not continuous log coverage.",
+    "selected_persistent_route_contents": "UNKNOWN; protected file not bypassed",
+    "physical_native_framing": "UNKNOWN; network state, driver parameters and netdev type are not USB packet headers",
+    "replacement_acceptance": "UNKNOWN",
+    "five_g_candidate_result": "NOT_TESTED"
+  },
+  "provenance": {
+    "publication_form": "Independently written English synthesis of withheld RC520 platform, descriptor, sysfs, process, policy, boot and passive trace evidence.",
+    "source_artifact_ids": [
+      "rc520-platform-package-inventory",
+      "rc520-cached-usb-descriptors",
+      "rc520-kernel-node-map",
+      "rc520-process-init-map",
+      "rc520-property-source-map",
+      "rc520-offline-policy-query-summary",
+      "rc520-passive-binder-summary",
+      "rc520-boot-network-summary",
+      "rc520-same-controller-passive-network-window"
+    ],
+    "source_paths_exported": false,
+    "raw_captures_exported": false,
+    "proprietary_binaries_exported": false,
+    "unit_identifiers_or_identifier_hashes_exported": false,
+    "wall_clock_times_exported": false
+  }
+}

@@ -1,0 +1,3413 @@
+{
+  "schema_version": 1,
+  "license": "CC-BY-4.0",
+  "title": "RC520 native IG831T AT/QMI startup evidence",
+  "evidence_levels": [
+    "MEASURED_RUNTIME",
+    "SOURCE_SUPPORTED",
+    "UNKNOWN"
+  ],
+  "context": {
+    "controller": "DJI RC Pro 2",
+    "internal_model": "RC520",
+    "controller_firmware": "01.00.07.00",
+    "android_build": "V55.31.01.39",
+    "android_version": "11",
+    "fly_version": "1.21.2",
+    "modem": "DJI Cellular Dongle 2 / IG831T",
+    "usb_vid_pid": "2ca3:4009",
+    "candidate_modem_tested": false
+  },
+  "scope": {
+    "collection": "Passive observation of stock services following one explicitly authorized controller reboot",
+    "observer_modem_commands": 0,
+    "observer_custom_usb_claims": 0,
+    "observer_generated_network_probes": 0,
+    "target_binary_execution_by_analysis": false,
+    "timing_origin": "First logged native AT command; all published timings are elapsed milliseconds in the same stable-clock segment",
+    "last_retained_log_elapsed_ms": 4962,
+    "continuous_full_capture_duration_proven": false,
+    "clock_limit": "The full boot file includes pre-clock-correction records. Collector lifetime exceeds retained protocol log coverage; no continuous multi-minute protocol claim.",
+    "source_visibility": "Underlying captures and proprietary artifacts remain private; this curated evidence does not include raw frames, payload hashes, file paths or response identities."
+  },
+  "at": {
+    "interface": 3,
+    "node": "ttyUSB3",
+    "selection_evidence": "Native RIL table/helper plus explicit logged AT-port selection and subsequent same-process exchanges",
+    "separate_open_syscall_trace": false,
+    "command_units": 180,
+    "families": 30,
+    "terminal_counts": {
+      "OK": 145,
+      "ERROR": 35
+    },
+    "first_to_last_command_ms": 1899,
+    "last_terminal_ms": 1904,
+    "correlation": "Same process, nearest outstanding logged request; no overlap or unmatched terminal in the scoped AT log. Reader and sender may use different threads. Unsolicited response-body lines are not treated as independent solicited successes.",
+    "counting_rule": "One logged command line is one unit. Combined COPS format/query lines are not expanded into multiple catalog events.",
+    "templates_are_replayable_raw_capture": false,
+    "catalog": [
+      {
+        "family": "ATE",
+        "template": "ATE0",
+        "count": 2,
+        "ok": 2,
+        "error": 0,
+        "purpose": "Disable command echo",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Exact non-identifying echo setting observed."
+      },
+      {
+        "family": "AT+CMEE",
+        "template": "AT+CMEE=1",
+        "count": 3,
+        "ok": 3,
+        "error": 0,
+        "purpose": "Enable numeric extended error reporting",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Observed setting; terminal OK does not expose a device identity."
+      },
+      {
+        "family": "ATI",
+        "template": "ATI",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Read modem identification",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Response identity text omitted; a query is not an acceptance comparison."
+      },
+      {
+        "family": "ATS0",
+        "template": "ATS0=0",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Disable automatic answering",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Observed non-identifying configuration value."
+      },
+      {
+        "family": "AT+QURCCFG",
+        "template": "AT+QURCCFG=<selector>,<port>",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Configure the unsolicited-result port",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Observed URC-port configuration; arguments summarized, not a replay recipe."
+      },
+      {
+        "family": "AT&D",
+        "template": "AT&D2",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Configure modem behavior when DTR changes",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "This AT command is not a captured USB SET_CONTROL_LINE_STATE transfer."
+      },
+      {
+        "family": "AT+CREG",
+        "template": "AT+CREG=<reporting-mode>",
+        "count": 2,
+        "ok": 2,
+        "error": 0,
+        "purpose": "Configure circuit-switched registration reporting",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Two reporting-mode commands were observed."
+      },
+      {
+        "family": "AT+CGREG",
+        "template": "AT+CGREG=<reporting-mode>",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Configure packet registration reporting",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Reporting configuration, not an attach operation."
+      },
+      {
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "count": 10,
+        "ok": 10,
+        "error": 0,
+        "purpose": "Configure or read EPS registration reporting",
+        "state_effect": "MIXED",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Initial configuration and later queries share this family."
+      },
+      {
+        "family": "AT+CFUN",
+        "template": "AT+CFUN?",
+        "count": 2,
+        "ok": 2,
+        "error": 0,
+        "purpose": "Read modem function state",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Only queries were observed; source-only CFUN changes are listed separately."
+      },
+      {
+        "family": "AT+CPIN",
+        "template": "AT+CPIN?",
+        "count": 4,
+        "ok": 4,
+        "error": 0,
+        "purpose": "Read SIM/PIN status",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "No PIN or identifier values are included."
+      },
+      {
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "count": 43,
+        "ok": 43,
+        "error": 0,
+        "purpose": "Read SIM file data or file metadata",
+        "state_effect": "SIM_READ",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Observed operation codes176,178,192; no SIM response bytes or file identifiers published."
+      },
+      {
+        "family": "AT+QCIMI",
+        "template": "AT+QCIMI",
+        "count": 1,
+        "ok": 0,
+        "error": 1,
+        "purpose": "Vendor subscriber-identity query",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Returned ERROR; identifier output is never published."
+      },
+      {
+        "family": "AT+CIMI",
+        "template": "AT+CIMI",
+        "count": 2,
+        "ok": 2,
+        "error": 0,
+        "purpose": "Subscriber-identity query",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Response omitted; successful reading does not prove identity-based acceptance."
+      },
+      {
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "count": 36,
+        "ok": 36,
+        "error": 0,
+        "purpose": "Read operator information while changing its output format",
+        "state_effect": "MIXED",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "A logged line can contain multiple subcommands; it is one catalog event, not an expanded command count."
+      },
+      {
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "count": 8,
+        "ok": 4,
+        "error": 4,
+        "purpose": "Vendor configuration/query family",
+        "state_effect": "UNKNOWN_VENDOR_EFFECT",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Both OK and ERROR occur; exact effects are not inferred solely from syntax."
+      },
+      {
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "count": 9,
+        "ok": 0,
+        "error": 9,
+        "purpose": "Query 5GS registration",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "ERROR is not proof that every hardware capability is absent."
+      },
+      {
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "count": 14,
+        "ok": 14,
+        "error": 0,
+        "purpose": "Vendor cell-information query",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Cell/operator/location data omitted."
+      },
+      {
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "count": 9,
+        "ok": 0,
+        "error": 9,
+        "purpose": "Vendor engineering/cell-information family",
+        "state_effect": "UNKNOWN_VENDOR_EFFECT",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "All observed requests returned ERROR; payload and selector values omitted."
+      },
+      {
+        "family": "AT+CSQ",
+        "template": "AT+CSQ",
+        "count": 6,
+        "ok": 6,
+        "error": 0,
+        "purpose": "Read signal quality",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Signal values omitted from the event catalog."
+      },
+      {
+        "family": "AT+QENDC",
+        "template": "AT+QENDC[?<or-arguments>]",
+        "count": 4,
+        "ok": 0,
+        "error": 4,
+        "purpose": "Vendor EN-DC-related family",
+        "state_effect": "UNKNOWN_VENDOR_EFFECT",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Name alone does not establish successful EN-DC operation or precise command effects."
+      },
+      {
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "count": 7,
+        "ok": 0,
+        "error": 7,
+        "purpose": "Vendor SIM-configuration/query family",
+        "state_effect": "UNKNOWN_VENDOR_EFFECT",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "All observed requests returned ERROR; do not classify all forms as read-only."
+      },
+      {
+        "family": "AT+CGMR",
+        "template": "AT+CGMR",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Read firmware revision",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Revision value omitted; no exact firmware allowlist established."
+      },
+      {
+        "family": "AT+CGSN",
+        "template": "AT+CGSN=<identity-selector>",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Read equipment identity",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Selector syntax is a query, not an identity write; result omitted."
+      },
+      {
+        "family": "AT+LCTSN",
+        "template": "AT+LCTSN=<selector>,<selector>",
+        "count": 1,
+        "ok": 0,
+        "error": 1,
+        "purpose": "Vendor serial query",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Returned ERROR without preventing the later native data session."
+      },
+      {
+        "family": "AT+CMGL",
+        "template": "AT+CMGL=<listing-selector>",
+        "count": 2,
+        "ok": 2,
+        "error": 0,
+        "purpose": "List message records",
+        "state_effect": "UNKNOWN_OTHER_EFFECT",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "No message content published; read/status side effects were not established in this review."
+      },
+      {
+        "family": "AT+CLCK",
+        "template": "AT+CLCK=<facility>,<mode>[,<arguments>]",
+        "count": 2,
+        "ok": 2,
+        "error": 0,
+        "purpose": "Facility-lock command family",
+        "state_effect": "UNKNOWN_OTHER_EFFECT",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Arguments omitted; terminal OK alone is not proof that every possible form is read-only."
+      },
+      {
+        "family": "AT+CGDCONT",
+        "template": "AT+CGDCONT?",
+        "count": 3,
+        "ok": 3,
+        "error": 0,
+        "purpose": "Read stored PDP contexts",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Three context reads; no context-write command observed in the bounded log."
+      },
+      {
+        "family": "AT$QCPDPP",
+        "template": "AT$QCPDPP?",
+        "count": 2,
+        "ok": 2,
+        "error": 0,
+        "purpose": "Read profile authentication settings",
+        "state_effect": "QUERY",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "Authentication/credential contents omitted."
+      },
+      {
+        "family": "AT+MGAUTH",
+        "template": "AT+MGAUTH=<context>,<auth-mode>,\"<username>\",\"<password>\"",
+        "count": 1,
+        "ok": 1,
+        "error": 0,
+        "purpose": "Configure profile authentication",
+        "state_effect": "CONFIGURATION",
+        "evidence_level": "MEASURED_RUNTIME",
+        "note": "A native configuration command was observed; values and lengths of credentials are withheld."
+      }
+    ],
+    "events": [
+      {
+        "ordinal": 1,
+        "elapsed_ms": 0,
+        "family": "ATE",
+        "template": "ATE0",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 8
+      },
+      {
+        "ordinal": 2,
+        "elapsed_ms": 8,
+        "family": "AT+CMEE",
+        "template": "AT+CMEE=1",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 9
+      },
+      {
+        "ordinal": 3,
+        "elapsed_ms": 9,
+        "family": "ATI",
+        "template": "ATI",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 11
+      },
+      {
+        "ordinal": 4,
+        "elapsed_ms": 12,
+        "family": "ATE",
+        "template": "ATE0",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 19
+      },
+      {
+        "ordinal": 5,
+        "elapsed_ms": 19,
+        "family": "AT+CMEE",
+        "template": "AT+CMEE=1",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 20
+      },
+      {
+        "ordinal": 6,
+        "elapsed_ms": 20,
+        "family": "ATS0",
+        "template": "ATS0=0",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 21
+      },
+      {
+        "ordinal": 7,
+        "elapsed_ms": 21,
+        "family": "AT+QURCCFG",
+        "template": "AT+QURCCFG=<selector>,<port>",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 22
+      },
+      {
+        "ordinal": 8,
+        "elapsed_ms": 22,
+        "family": "AT&D",
+        "template": "AT&D2",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 23
+      },
+      {
+        "ordinal": 9,
+        "elapsed_ms": 23,
+        "family": "AT+CMEE",
+        "template": "AT+CMEE=1",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 24
+      },
+      {
+        "ordinal": 10,
+        "elapsed_ms": 24,
+        "family": "AT+CREG",
+        "template": "AT+CREG=<reporting-mode>",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 25
+      },
+      {
+        "ordinal": 11,
+        "elapsed_ms": 25,
+        "family": "AT+CREG",
+        "template": "AT+CREG=<reporting-mode>",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 26
+      },
+      {
+        "ordinal": 12,
+        "elapsed_ms": 26,
+        "family": "AT+CGREG",
+        "template": "AT+CGREG=<reporting-mode>",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 27
+      },
+      {
+        "ordinal": 13,
+        "elapsed_ms": 27,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 29,
+        "observed_form": "reporting_configuration"
+      },
+      {
+        "ordinal": 14,
+        "elapsed_ms": 29,
+        "family": "AT+CFUN",
+        "template": "AT+CFUN?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 30
+      },
+      {
+        "ordinal": 15,
+        "elapsed_ms": 30,
+        "family": "AT+CPIN",
+        "template": "AT+CPIN?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 33
+      },
+      {
+        "ordinal": 16,
+        "elapsed_ms": 33,
+        "family": "AT+CFUN",
+        "template": "AT+CFUN?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 49
+      },
+      {
+        "ordinal": 17,
+        "elapsed_ms": 49,
+        "family": "AT+CPIN",
+        "template": "AT+CPIN?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 50
+      },
+      {
+        "ordinal": 18,
+        "elapsed_ms": 50,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 52,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 19,
+        "elapsed_ms": 53,
+        "family": "AT+QCIMI",
+        "template": "AT+QCIMI",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 54
+      },
+      {
+        "ordinal": 20,
+        "elapsed_ms": 54,
+        "family": "AT+CIMI",
+        "template": "AT+CIMI",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 56
+      },
+      {
+        "ordinal": 21,
+        "elapsed_ms": 56,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 59
+      },
+      {
+        "ordinal": 22,
+        "elapsed_ms": 59,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 69
+      },
+      {
+        "ordinal": 23,
+        "elapsed_ms": 69,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 70
+      },
+      {
+        "ordinal": 24,
+        "elapsed_ms": 70,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 78,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 25,
+        "elapsed_ms": 78,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 81
+      },
+      {
+        "ordinal": 26,
+        "elapsed_ms": 81,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 82
+      },
+      {
+        "ordinal": 27,
+        "elapsed_ms": 83,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 85
+      },
+      {
+        "ordinal": 28,
+        "elapsed_ms": 85,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 86
+      },
+      {
+        "ordinal": 29,
+        "elapsed_ms": 86,
+        "family": "AT+CSQ",
+        "template": "AT+CSQ",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 87
+      },
+      {
+        "ordinal": 30,
+        "elapsed_ms": 87,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 89
+      },
+      {
+        "ordinal": 31,
+        "elapsed_ms": 89,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 98
+      },
+      {
+        "ordinal": 32,
+        "elapsed_ms": 98,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 101
+      },
+      {
+        "ordinal": 33,
+        "elapsed_ms": 102,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 112
+      },
+      {
+        "ordinal": 34,
+        "elapsed_ms": 112,
+        "family": "AT+QENDC",
+        "template": "AT+QENDC[?<or-arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 113
+      },
+      {
+        "ordinal": 35,
+        "elapsed_ms": 118,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 119
+      },
+      {
+        "ordinal": 36,
+        "elapsed_ms": 119,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 122,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 37,
+        "elapsed_ms": 123,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 124
+      },
+      {
+        "ordinal": 38,
+        "elapsed_ms": 124,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 126
+      },
+      {
+        "ordinal": 39,
+        "elapsed_ms": 126,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 128
+      },
+      {
+        "ordinal": 40,
+        "elapsed_ms": 129,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 130
+      },
+      {
+        "ordinal": 41,
+        "elapsed_ms": 130,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 133
+      },
+      {
+        "ordinal": 42,
+        "elapsed_ms": 133,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 134
+      },
+      {
+        "ordinal": 43,
+        "elapsed_ms": 134,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 137
+      },
+      {
+        "ordinal": 44,
+        "elapsed_ms": 137,
+        "family": "AT+CSQ",
+        "template": "AT+CSQ",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 139
+      },
+      {
+        "ordinal": 45,
+        "elapsed_ms": 139,
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 141
+      },
+      {
+        "ordinal": 46,
+        "elapsed_ms": 141,
+        "family": "AT+CPIN",
+        "template": "AT+CPIN?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 152
+      },
+      {
+        "ordinal": 47,
+        "elapsed_ms": 152,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 155,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 48,
+        "elapsed_ms": 155,
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 156
+      },
+      {
+        "ordinal": 49,
+        "elapsed_ms": 156,
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 158
+      },
+      {
+        "ordinal": 50,
+        "elapsed_ms": 159,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 160,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 51,
+        "elapsed_ms": 160,
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 162
+      },
+      {
+        "ordinal": 52,
+        "elapsed_ms": 162,
+        "family": "AT+CGMR",
+        "template": "AT+CGMR",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 165
+      },
+      {
+        "ordinal": 53,
+        "elapsed_ms": 165,
+        "family": "AT+CGSN",
+        "template": "AT+CGSN=<identity-selector>",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 168
+      },
+      {
+        "ordinal": 54,
+        "elapsed_ms": 169,
+        "family": "AT+LCTSN",
+        "template": "AT+LCTSN=<selector>,<selector>",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 172
+      },
+      {
+        "ordinal": 55,
+        "elapsed_ms": 172,
+        "family": "AT+CMGL",
+        "template": "AT+CMGL=<listing-selector>",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 175
+      },
+      {
+        "ordinal": 56,
+        "elapsed_ms": 184,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 187
+      },
+      {
+        "ordinal": 57,
+        "elapsed_ms": 187,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 188
+      },
+      {
+        "ordinal": 58,
+        "elapsed_ms": 188,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 192,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 59,
+        "elapsed_ms": 192,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 194
+      },
+      {
+        "ordinal": 60,
+        "elapsed_ms": 194,
+        "family": "AT+CPIN",
+        "template": "AT+CPIN?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 195
+      },
+      {
+        "ordinal": 61,
+        "elapsed_ms": 196,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 197,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 62,
+        "elapsed_ms": 198,
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 199
+      },
+      {
+        "ordinal": 63,
+        "elapsed_ms": 199,
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 201
+      },
+      {
+        "ordinal": 64,
+        "elapsed_ms": 202,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 212,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 65,
+        "elapsed_ms": 212,
+        "family": "AT+QSIMCFG",
+        "template": "AT+QSIMCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 216
+      },
+      {
+        "ordinal": 66,
+        "elapsed_ms": 216,
+        "family": "AT+CLCK",
+        "template": "AT+CLCK=<facility>,<mode>[,<arguments>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 221
+      },
+      {
+        "ordinal": 67,
+        "elapsed_ms": 221,
+        "family": "AT+CLCK",
+        "template": "AT+CLCK=<facility>,<mode>[,<arguments>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 223
+      },
+      {
+        "ordinal": 68,
+        "elapsed_ms": 228,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 234
+      },
+      {
+        "ordinal": 69,
+        "elapsed_ms": 234,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 237
+      },
+      {
+        "ordinal": 70,
+        "elapsed_ms": 237,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 242
+      },
+      {
+        "ordinal": 71,
+        "elapsed_ms": 242,
+        "family": "AT+CSQ",
+        "template": "AT+CSQ",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 246
+      },
+      {
+        "ordinal": 72,
+        "elapsed_ms": 251,
+        "family": "AT+CIMI",
+        "template": "AT+CIMI",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 253
+      },
+      {
+        "ordinal": 73,
+        "elapsed_ms": 254,
+        "family": "AT+CGDCONT",
+        "template": "AT+CGDCONT?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 260
+      },
+      {
+        "ordinal": 74,
+        "elapsed_ms": 260,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 319,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 75,
+        "elapsed_ms": 319,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 337,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 76,
+        "elapsed_ms": 337,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 342,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 77,
+        "elapsed_ms": 342,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 346,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 78,
+        "elapsed_ms": 346,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 394,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 79,
+        "elapsed_ms": 394,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 441,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 80,
+        "elapsed_ms": 441,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 443,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 81,
+        "elapsed_ms": 444,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 446,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 82,
+        "elapsed_ms": 446,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 470,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 83,
+        "elapsed_ms": 471,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 472,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 84,
+        "elapsed_ms": 473,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 497,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 85,
+        "elapsed_ms": 498,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 500,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 86,
+        "elapsed_ms": 500,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 502,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 87,
+        "elapsed_ms": 502,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 546,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 88,
+        "elapsed_ms": 547,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 571,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 89,
+        "elapsed_ms": 572,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 596,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 90,
+        "elapsed_ms": 596,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 643,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 91,
+        "elapsed_ms": 644,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 688,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 92,
+        "elapsed_ms": 689,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 734,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 93,
+        "elapsed_ms": 735,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 739,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 94,
+        "elapsed_ms": 741,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 758,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 95,
+        "elapsed_ms": 759,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 803,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 96,
+        "elapsed_ms": 804,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 852,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 97,
+        "elapsed_ms": 852,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 870,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 98,
+        "elapsed_ms": 871,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 876
+      },
+      {
+        "ordinal": 99,
+        "elapsed_ms": 876,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 879
+      },
+      {
+        "ordinal": 100,
+        "elapsed_ms": 880,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 884,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 101,
+        "elapsed_ms": 884,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 885
+      },
+      {
+        "ordinal": 102,
+        "elapsed_ms": 885,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 887
+      },
+      {
+        "ordinal": 103,
+        "elapsed_ms": 887,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 889
+      },
+      {
+        "ordinal": 104,
+        "elapsed_ms": 889,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 894
+      },
+      {
+        "ordinal": 105,
+        "elapsed_ms": 894,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 897
+      },
+      {
+        "ordinal": 106,
+        "elapsed_ms": 897,
+        "family": "AT+QENDC",
+        "template": "AT+QENDC[?<or-arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 901
+      },
+      {
+        "ordinal": 107,
+        "elapsed_ms": 902,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 906
+      },
+      {
+        "ordinal": 108,
+        "elapsed_ms": 906,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 910,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 109,
+        "elapsed_ms": 910,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 914
+      },
+      {
+        "ordinal": 110,
+        "elapsed_ms": 914,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 920
+      },
+      {
+        "ordinal": 111,
+        "elapsed_ms": 920,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 923
+      },
+      {
+        "ordinal": 112,
+        "elapsed_ms": 923,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 928
+      },
+      {
+        "ordinal": 113,
+        "elapsed_ms": 929,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 933
+      },
+      {
+        "ordinal": 114,
+        "elapsed_ms": 933,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 937
+      },
+      {
+        "ordinal": 115,
+        "elapsed_ms": 938,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 942
+      },
+      {
+        "ordinal": 116,
+        "elapsed_ms": 942,
+        "family": "AT+CSQ",
+        "template": "AT+CSQ",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 945
+      },
+      {
+        "ordinal": 117,
+        "elapsed_ms": 946,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 950,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 118,
+        "elapsed_ms": 950,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 981,
+        "read_operation": 178
+      },
+      {
+        "ordinal": 119,
+        "elapsed_ms": 981,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 985,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 120,
+        "elapsed_ms": 986,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 990,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 121,
+        "elapsed_ms": 990,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1017,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 122,
+        "elapsed_ms": 1018,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1022,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 123,
+        "elapsed_ms": 1022,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1025,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 124,
+        "elapsed_ms": 1026,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1029,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 125,
+        "elapsed_ms": 1030,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1035,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 126,
+        "elapsed_ms": 1036,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1039,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 127,
+        "elapsed_ms": 1039,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1044,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 128,
+        "elapsed_ms": 1044,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1049,
+        "read_operation": 176
+      },
+      {
+        "ordinal": 129,
+        "elapsed_ms": 1052,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1077,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 130,
+        "elapsed_ms": 1082,
+        "family": "AT+CRSM",
+        "template": "AT+CRSM=<read-operation>,<file>,<p1>,<p2>,<length>[,<remaining-read-parameters>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1107,
+        "read_operation": 192
+      },
+      {
+        "ordinal": 131,
+        "elapsed_ms": 1304,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1305
+      },
+      {
+        "ordinal": 132,
+        "elapsed_ms": 1306,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1307
+      },
+      {
+        "ordinal": 133,
+        "elapsed_ms": 1307,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1311
+      },
+      {
+        "ordinal": 134,
+        "elapsed_ms": 1613,
+        "family": "AT+CMGL",
+        "template": "AT+CMGL=<listing-selector>",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1617
+      },
+      {
+        "ordinal": 135,
+        "elapsed_ms": 1636,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1641
+      },
+      {
+        "ordinal": 136,
+        "elapsed_ms": 1641,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1644
+      },
+      {
+        "ordinal": 137,
+        "elapsed_ms": 1644,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1650,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 138,
+        "elapsed_ms": 1650,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1653
+      },
+      {
+        "ordinal": 139,
+        "elapsed_ms": 1653,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1658
+      },
+      {
+        "ordinal": 140,
+        "elapsed_ms": 1658,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1662
+      },
+      {
+        "ordinal": 141,
+        "elapsed_ms": 1662,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1666
+      },
+      {
+        "ordinal": 142,
+        "elapsed_ms": 1667,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1670
+      },
+      {
+        "ordinal": 143,
+        "elapsed_ms": 1670,
+        "family": "AT+QENDC",
+        "template": "AT+QENDC[?<or-arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1673
+      },
+      {
+        "ordinal": 144,
+        "elapsed_ms": 1673,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1677
+      },
+      {
+        "ordinal": 145,
+        "elapsed_ms": 1677,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1679,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 146,
+        "elapsed_ms": 1679,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1683
+      },
+      {
+        "ordinal": 147,
+        "elapsed_ms": 1683,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1686
+      },
+      {
+        "ordinal": 148,
+        "elapsed_ms": 1686,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1690
+      },
+      {
+        "ordinal": 149,
+        "elapsed_ms": 1690,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1694
+      },
+      {
+        "ordinal": 150,
+        "elapsed_ms": 1694,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1698
+      },
+      {
+        "ordinal": 151,
+        "elapsed_ms": 1699,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1703
+      },
+      {
+        "ordinal": 152,
+        "elapsed_ms": 1703,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1707
+      },
+      {
+        "ordinal": 153,
+        "elapsed_ms": 1707,
+        "family": "AT+CSQ",
+        "template": "AT+CSQ",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1710
+      },
+      {
+        "ordinal": 154,
+        "elapsed_ms": 1710,
+        "family": "AT+CGDCONT",
+        "template": "AT+CGDCONT?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1715
+      },
+      {
+        "ordinal": 155,
+        "elapsed_ms": 1715,
+        "family": "AT$QCPDPP",
+        "template": "AT$QCPDPP?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1719
+      },
+      {
+        "ordinal": 156,
+        "elapsed_ms": 1719,
+        "family": "AT+MGAUTH",
+        "template": "AT+MGAUTH=<context>,<auth-mode>,\"<username>\",\"<password>\"",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1730
+      },
+      {
+        "ordinal": 157,
+        "elapsed_ms": 1731,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1732
+      },
+      {
+        "ordinal": 158,
+        "elapsed_ms": 1733,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1734
+      },
+      {
+        "ordinal": 159,
+        "elapsed_ms": 1734,
+        "family": "AT+QCFG",
+        "template": "AT+QCFG=<selector>[,<arguments>]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1735
+      },
+      {
+        "ordinal": 160,
+        "elapsed_ms": 1735,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1740
+      },
+      {
+        "ordinal": 161,
+        "elapsed_ms": 1742,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1746
+      },
+      {
+        "ordinal": 162,
+        "elapsed_ms": 1746,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1750,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 163,
+        "elapsed_ms": 1750,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1751
+      },
+      {
+        "ordinal": 164,
+        "elapsed_ms": 1751,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1753
+      },
+      {
+        "ordinal": 165,
+        "elapsed_ms": 1753,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1756
+      },
+      {
+        "ordinal": 166,
+        "elapsed_ms": 1756,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1759
+      },
+      {
+        "ordinal": 167,
+        "elapsed_ms": 1759,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1761
+      },
+      {
+        "ordinal": 168,
+        "elapsed_ms": 1761,
+        "family": "AT+QENDC",
+        "template": "AT+QENDC[?<or-arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1762
+      },
+      {
+        "ordinal": 169,
+        "elapsed_ms": 1763,
+        "family": "AT+C5GREG",
+        "template": "AT+C5GREG?",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1764
+      },
+      {
+        "ordinal": 170,
+        "elapsed_ms": 1765,
+        "family": "AT+CEREG",
+        "template": "AT+CEREG=<reporting-mode> or AT+CEREG?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1767,
+        "observed_form": "query"
+      },
+      {
+        "ordinal": 171,
+        "elapsed_ms": 1767,
+        "family": "AT+QENG",
+        "template": "AT+QENG=<selector>[,<arguments>]",
+        "terminal": "ERROR",
+        "terminal_elapsed_ms": 1768
+      },
+      {
+        "ordinal": 172,
+        "elapsed_ms": 1768,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1771
+      },
+      {
+        "ordinal": 173,
+        "elapsed_ms": 1771,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1773
+      },
+      {
+        "ordinal": 174,
+        "elapsed_ms": 1773,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1776
+      },
+      {
+        "ordinal": 175,
+        "elapsed_ms": 1776,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1778
+      },
+      {
+        "ordinal": 176,
+        "elapsed_ms": 1779,
+        "family": "AT+GTCCINFO",
+        "template": "AT+GTCCINFO?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1780
+      },
+      {
+        "ordinal": 177,
+        "elapsed_ms": 1780,
+        "family": "AT+COPS",
+        "template": "AT+COPS=3,<format>;+COPS?[;additional-format/query-pairs]",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1784
+      },
+      {
+        "ordinal": 178,
+        "elapsed_ms": 1784,
+        "family": "AT+CSQ",
+        "template": "AT+CSQ",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1785
+      },
+      {
+        "ordinal": 179,
+        "elapsed_ms": 1895,
+        "family": "AT+CGDCONT",
+        "template": "AT+CGDCONT?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1899
+      },
+      {
+        "ordinal": 180,
+        "elapsed_ms": 1899,
+        "family": "AT$QCPDPP",
+        "template": "AT$QCPDPP?",
+        "terminal": "OK",
+        "terminal_elapsed_ms": 1904
+      }
+    ],
+    "sim_read_operations": {
+      "176": "READ BINARY",
+      "178": "READ RECORD",
+      "192": "GET RESPONSE"
+    },
+    "identity_limit": "Identification queries are observed; no exact model, firmware, equipment-identity or serial acceptance predicate is proven by this catalog."
+  },
+  "qmi": {
+    "frames": 46,
+    "requests": 23,
+    "responses": 22,
+    "indications": 1,
+    "matched_pairs": 22,
+    "successful_responses": 21,
+    "nonzero_results": [
+      {
+        "service": "WDS",
+        "message_id": "0x0051",
+        "result": 1,
+        "error": 26,
+        "name": "NoEffect",
+        "later_initialization_continues": true
+      }
+    ],
+    "validation": [
+      "Two independent offline framing/TLV decoders agree",
+      "Every frame round-trips byte for byte in private validation",
+      "Every response matches service, client, transaction, message ID and response kind",
+      "All result TLVs are uniquely sized and interpreted; no malformed frame accepted"
+    ],
+    "catalog": [
+      {
+        "service": "CTL",
+        "service_id": 0,
+        "message_id": "0x0021",
+        "name": "CTL Get Version Info",
+        "requests": 1,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 1,
+        "error_responses": 0
+      },
+      {
+        "service": "CTL",
+        "service_id": 0,
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "requests": 5,
+        "responses": 5,
+        "indications": 0,
+        "success_responses": 5,
+        "error_responses": 0
+      },
+      {
+        "service": "CTL",
+        "service_id": 0,
+        "message_id": "0x0027",
+        "name": "CTL Sync",
+        "requests": 2,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 1,
+        "error_responses": 0
+      },
+      {
+        "service": "WDS",
+        "service_id": 1,
+        "message_id": "0x0020",
+        "name": "WDS Start Network",
+        "requests": 1,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 1,
+        "error_responses": 0
+      },
+      {
+        "service": "WDS",
+        "service_id": 1,
+        "message_id": "0x0022",
+        "name": "WDS Get Packet Service Status",
+        "requests": 2,
+        "responses": 2,
+        "indications": 1,
+        "success_responses": 2,
+        "error_responses": 0
+      },
+      {
+        "service": "WDS",
+        "service_id": 1,
+        "message_id": "0x002b",
+        "name": "WDS Get Profile Settings",
+        "requests": 1,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 1,
+        "error_responses": 0
+      },
+      {
+        "service": "WDS",
+        "service_id": 1,
+        "message_id": "0x002d",
+        "name": "WDS Get Current Settings",
+        "requests": 3,
+        "responses": 3,
+        "indications": 0,
+        "success_responses": 3,
+        "error_responses": 0
+      },
+      {
+        "service": "WDS",
+        "service_id": 1,
+        "message_id": "0x0051",
+        "name": "WDS Set Autoconnect Settings",
+        "requests": 1,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 0,
+        "error_responses": 1
+      },
+      {
+        "service": "DMS",
+        "service_id": 2,
+        "message_id": "0x0023",
+        "name": "DMS Get Revision",
+        "requests": 1,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 1,
+        "error_responses": 0
+      },
+      {
+        "service": "NAS",
+        "service_id": 3,
+        "message_id": "0x004d",
+        "name": "NAS Get System Info",
+        "requests": 2,
+        "responses": 2,
+        "indications": 0,
+        "success_responses": 2,
+        "error_responses": 0
+      },
+      {
+        "service": "UIM",
+        "service_id": 11,
+        "message_id": "0x0020",
+        "name": "UIM Read Transparent",
+        "requests": 2,
+        "responses": 2,
+        "indications": 0,
+        "success_responses": 2,
+        "error_responses": 0
+      },
+      {
+        "service": "UIM",
+        "service_id": 11,
+        "message_id": "0x002f",
+        "name": "UIM Get Card Status",
+        "requests": 1,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 1,
+        "error_responses": 0
+      },
+      {
+        "service": "WDA",
+        "service_id": 26,
+        "message_id": "0x0020",
+        "name": "WDA Set Data Format",
+        "requests": 1,
+        "responses": 1,
+        "indications": 0,
+        "success_responses": 1,
+        "error_responses": 0
+      }
+    ],
+    "events": [
+      {
+        "event_id": "Q01",
+        "elapsed_ms": 1948,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0027",
+        "name": "CTL Sync",
+        "direction": "request",
+        "transaction_id": 1,
+        "client_alias": "CTL",
+        "tlv_types": [],
+        "matched_response": null
+      },
+      {
+        "event_id": "Q02",
+        "elapsed_ms": 3948,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0027",
+        "name": "CTL Sync",
+        "direction": "request",
+        "transaction_id": 2,
+        "client_alias": "CTL",
+        "tlv_types": [],
+        "matched_response": "Q03"
+      },
+      {
+        "event_id": "Q03",
+        "elapsed_ms": 3978,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0027",
+        "name": "CTL Sync",
+        "direction": "response",
+        "transaction_id": 2,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x02"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q02",
+        "response_delta_ms": 30
+      },
+      {
+        "event_id": "Q04",
+        "elapsed_ms": 3978,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0021",
+        "name": "CTL Get Version Info",
+        "direction": "request",
+        "transaction_id": 3,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q05"
+      },
+      {
+        "event_id": "Q05",
+        "elapsed_ms": 4010,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0021",
+        "name": "CTL Get Version Info",
+        "direction": "response",
+        "transaction_id": 3,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q04",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q06",
+        "elapsed_ms": 4010,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "request",
+        "transaction_id": 4,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q07",
+        "allocated_service": "WDS"
+      },
+      {
+        "event_id": "Q07",
+        "elapsed_ms": 4042,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "response",
+        "transaction_id": 4,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q06",
+        "response_delta_ms": 32,
+        "allocated_service": "WDS"
+      },
+      {
+        "event_id": "Q08",
+        "elapsed_ms": 4043,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "request",
+        "transaction_id": 5,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q09",
+        "allocated_service": "DMS"
+      },
+      {
+        "event_id": "Q09",
+        "elapsed_ms": 4074,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "response",
+        "transaction_id": 5,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q08",
+        "response_delta_ms": 31,
+        "allocated_service": "DMS"
+      },
+      {
+        "event_id": "Q10",
+        "elapsed_ms": 4074,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "request",
+        "transaction_id": 6,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q11",
+        "allocated_service": "NAS"
+      },
+      {
+        "event_id": "Q11",
+        "elapsed_ms": 4106,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "response",
+        "transaction_id": 6,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q10",
+        "response_delta_ms": 32,
+        "allocated_service": "NAS"
+      },
+      {
+        "event_id": "Q12",
+        "elapsed_ms": 4106,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "request",
+        "transaction_id": 7,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q13",
+        "allocated_service": "UIM"
+      },
+      {
+        "event_id": "Q13",
+        "elapsed_ms": 4138,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "response",
+        "transaction_id": 7,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q12",
+        "response_delta_ms": 32,
+        "allocated_service": "UIM"
+      },
+      {
+        "event_id": "Q14",
+        "elapsed_ms": 4138,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "request",
+        "transaction_id": 8,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q15",
+        "allocated_service": "WDA"
+      },
+      {
+        "event_id": "Q15",
+        "elapsed_ms": 4171,
+        "service_id": 0,
+        "service": "CTL",
+        "message_id": "0x0022",
+        "name": "CTL Allocate CID",
+        "direction": "response",
+        "transaction_id": 8,
+        "client_alias": "CTL",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q14",
+        "response_delta_ms": 33,
+        "allocated_service": "WDA"
+      },
+      {
+        "event_id": "Q16",
+        "elapsed_ms": 4171,
+        "service_id": 2,
+        "service": "DMS",
+        "message_id": "0x0023",
+        "name": "DMS Get Revision",
+        "direction": "request",
+        "transaction_id": 1,
+        "client_alias": "DMS_CLIENT",
+        "tlv_types": [],
+        "matched_response": "Q17"
+      },
+      {
+        "event_id": "Q17",
+        "elapsed_ms": 4202,
+        "service_id": 2,
+        "service": "DMS",
+        "message_id": "0x0023",
+        "name": "DMS Get Revision",
+        "direction": "response",
+        "transaction_id": 1,
+        "client_alias": "DMS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q16",
+        "response_delta_ms": 31
+      },
+      {
+        "event_id": "Q18",
+        "elapsed_ms": 4202,
+        "service_id": 26,
+        "service": "WDA",
+        "message_id": "0x0020",
+        "name": "WDA Set Data Format",
+        "direction": "request",
+        "transaction_id": 2,
+        "client_alias": "WDA_CLIENT",
+        "tlv_types": [
+          "0x10",
+          "0x11",
+          "0x13"
+        ],
+        "matched_response": "Q19"
+      },
+      {
+        "event_id": "Q19",
+        "elapsed_ms": 4234,
+        "service_id": 26,
+        "service": "WDA",
+        "message_id": "0x0020",
+        "name": "WDA Set Data Format",
+        "direction": "response",
+        "transaction_id": 2,
+        "client_alias": "WDA_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x10",
+          "0x11",
+          "0x12",
+          "0x13",
+          "0x14",
+          "0x15",
+          "0x16",
+          "0x17",
+          "0x18",
+          "0x1a",
+          "0x1b"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q18",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q20",
+        "elapsed_ms": 4234,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0051",
+        "name": "WDS Set Autoconnect Settings",
+        "direction": "request",
+        "transaction_id": 3,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q21"
+      },
+      {
+        "event_id": "Q21",
+        "elapsed_ms": 4266,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0051",
+        "name": "WDS Set Autoconnect Settings",
+        "direction": "response",
+        "transaction_id": 3,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02"
+        ],
+        "result": 1,
+        "error": 26,
+        "matched_request": "Q20",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q22",
+        "elapsed_ms": 4266,
+        "service_id": 11,
+        "service": "UIM",
+        "message_id": "0x002f",
+        "name": "UIM Get Card Status",
+        "direction": "request",
+        "transaction_id": 4,
+        "client_alias": "UIM_CLIENT",
+        "tlv_types": [],
+        "matched_response": "Q23"
+      },
+      {
+        "event_id": "Q23",
+        "elapsed_ms": 4298,
+        "service_id": 11,
+        "service": "UIM",
+        "message_id": "0x002f",
+        "name": "UIM Get Card Status",
+        "direction": "response",
+        "transaction_id": 4,
+        "client_alias": "UIM_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x15",
+          "0x12",
+          "0x11",
+          "0x10"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q22",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q24",
+        "elapsed_ms": 4298,
+        "service_id": 11,
+        "service": "UIM",
+        "message_id": "0x0020",
+        "name": "UIM Read Transparent",
+        "direction": "request",
+        "transaction_id": 5,
+        "client_alias": "UIM_CLIENT",
+        "tlv_types": [
+          "0x01",
+          "0x02",
+          "0x03"
+        ],
+        "matched_response": "Q25"
+      },
+      {
+        "event_id": "Q25",
+        "elapsed_ms": 4330,
+        "service_id": 11,
+        "service": "UIM",
+        "message_id": "0x0020",
+        "name": "UIM Read Transparent",
+        "direction": "response",
+        "transaction_id": 5,
+        "client_alias": "UIM_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x11",
+          "0x10"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q24",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q26",
+        "elapsed_ms": 4331,
+        "service_id": 11,
+        "service": "UIM",
+        "message_id": "0x0020",
+        "name": "UIM Read Transparent",
+        "direction": "request",
+        "transaction_id": 6,
+        "client_alias": "UIM_CLIENT",
+        "tlv_types": [
+          "0x01",
+          "0x02",
+          "0x03"
+        ],
+        "matched_response": "Q27"
+      },
+      {
+        "event_id": "Q27",
+        "elapsed_ms": 4362,
+        "service_id": 11,
+        "service": "UIM",
+        "message_id": "0x0020",
+        "name": "UIM Read Transparent",
+        "direction": "response",
+        "transaction_id": 6,
+        "client_alias": "UIM_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x18",
+          "0x11",
+          "0x10"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q26",
+        "response_delta_ms": 31
+      },
+      {
+        "event_id": "Q28",
+        "elapsed_ms": 4362,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002b",
+        "name": "WDS Get Profile Settings",
+        "direction": "request",
+        "transaction_id": 7,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x01"
+        ],
+        "matched_response": "Q29"
+      },
+      {
+        "event_id": "Q29",
+        "elapsed_ms": 4394,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002b",
+        "name": "WDS Get Profile Settings",
+        "direction": "response",
+        "transaction_id": 7,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0xdf",
+          "0xde",
+          "0x46",
+          "0x45",
+          "0x42",
+          "0x41",
+          "0x40",
+          "0x3f",
+          "0x3e",
+          "0x3d",
+          "0x3c",
+          "0x3b",
+          "0x3a",
+          "0x39",
+          "0x38",
+          "0x37",
+          "0x36",
+          "0x35",
+          "0x31",
+          "0x30",
+          "0x2f",
+          "0x2d",
+          "0x28",
+          "0x27",
+          "0x26",
+          "0x25",
+          "0x22",
+          "0x21",
+          "0x20",
+          "0x1f",
+          "0x1e",
+          "0x1d",
+          "0x1c",
+          "0x1b",
+          "0x16",
+          "0x15",
+          "0x14",
+          "0x13",
+          "0x12",
+          "0x11",
+          "0x10"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q28",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q30",
+        "elapsed_ms": 4395,
+        "service_id": 3,
+        "service": "NAS",
+        "message_id": "0x004d",
+        "name": "NAS Get System Info",
+        "direction": "request",
+        "transaction_id": 8,
+        "client_alias": "NAS_CLIENT",
+        "tlv_types": [],
+        "matched_response": "Q31"
+      },
+      {
+        "event_id": "Q31",
+        "elapsed_ms": 4426,
+        "service_id": 3,
+        "service": "NAS",
+        "message_id": "0x004d",
+        "name": "NAS Get System Info",
+        "direction": "response",
+        "transaction_id": 8,
+        "client_alias": "NAS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x13",
+          "0x14",
+          "0x19",
+          "0x1e",
+          "0x21",
+          "0x26",
+          "0x27",
+          "0x29",
+          "0x2a",
+          "0x2f",
+          "0x31",
+          "0x34",
+          "0x38",
+          "0x39",
+          "0x3e",
+          "0x44",
+          "0x46"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q30",
+        "response_delta_ms": 31
+      },
+      {
+        "event_id": "Q32",
+        "elapsed_ms": 4427,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0022",
+        "name": "WDS Get Packet Service Status",
+        "direction": "request",
+        "transaction_id": 9,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [],
+        "matched_response": "Q33"
+      },
+      {
+        "event_id": "Q33",
+        "elapsed_ms": 4458,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0022",
+        "name": "WDS Get Packet Service Status",
+        "direction": "response",
+        "transaction_id": 9,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q32",
+        "response_delta_ms": 31,
+        "packet_status": "DISCONNECTED"
+      },
+      {
+        "event_id": "Q34",
+        "elapsed_ms": 4459,
+        "service_id": 3,
+        "service": "NAS",
+        "message_id": "0x004d",
+        "name": "NAS Get System Info",
+        "direction": "request",
+        "transaction_id": 10,
+        "client_alias": "NAS_CLIENT",
+        "tlv_types": [],
+        "matched_response": "Q35"
+      },
+      {
+        "event_id": "Q35",
+        "elapsed_ms": 4490,
+        "service_id": 3,
+        "service": "NAS",
+        "message_id": "0x004d",
+        "name": "NAS Get System Info",
+        "direction": "response",
+        "transaction_id": 10,
+        "client_alias": "NAS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x13",
+          "0x14",
+          "0x19",
+          "0x1e",
+          "0x21",
+          "0x26",
+          "0x27",
+          "0x29",
+          "0x2a",
+          "0x2f",
+          "0x31",
+          "0x34",
+          "0x38",
+          "0x39",
+          "0x3e",
+          "0x44",
+          "0x46"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q34",
+        "response_delta_ms": 31
+      },
+      {
+        "event_id": "Q36",
+        "elapsed_ms": 4490,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0020",
+        "name": "WDS Start Network",
+        "direction": "request",
+        "transaction_id": 11,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x30",
+          "0x19",
+          "0x31"
+        ],
+        "matched_response": "Q37"
+      },
+      {
+        "event_id": "Q37",
+        "elapsed_ms": 4522,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0020",
+        "name": "WDS Start Network",
+        "direction": "response",
+        "transaction_id": 11,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q36",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q38",
+        "elapsed_ms": 4522,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002d",
+        "name": "WDS Get Current Settings",
+        "direction": "request",
+        "transaction_id": 12,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x10"
+        ],
+        "matched_response": "Q40"
+      },
+      {
+        "event_id": "Q39",
+        "elapsed_ms": 4554,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0022",
+        "name": "WDS Get Packet Service Status",
+        "direction": "indication",
+        "transaction_id": 1,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x01",
+          "0x12",
+          "0x13",
+          "0x14"
+        ],
+        "packet_status": "CONNECTED"
+      },
+      {
+        "event_id": "Q40",
+        "elapsed_ms": 4586,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002d",
+        "name": "WDS Get Current Settings",
+        "direction": "response",
+        "transaction_id": 12,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x15",
+          "0x16",
+          "0x1e",
+          "0x20",
+          "0x21",
+          "0x29"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q38",
+        "response_delta_ms": 64
+      },
+      {
+        "event_id": "Q41",
+        "elapsed_ms": 4586,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0022",
+        "name": "WDS Get Packet Service Status",
+        "direction": "request",
+        "transaction_id": 13,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [],
+        "matched_response": "Q42"
+      },
+      {
+        "event_id": "Q42",
+        "elapsed_ms": 4618,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x0022",
+        "name": "WDS Get Packet Service Status",
+        "direction": "response",
+        "transaction_id": 13,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x01"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q41",
+        "response_delta_ms": 32,
+        "packet_status": "CONNECTED"
+      },
+      {
+        "event_id": "Q43",
+        "elapsed_ms": 4618,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002d",
+        "name": "WDS Get Current Settings",
+        "direction": "request",
+        "transaction_id": 14,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x10"
+        ],
+        "matched_response": "Q44"
+      },
+      {
+        "event_id": "Q44",
+        "elapsed_ms": 4650,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002d",
+        "name": "WDS Get Current Settings",
+        "direction": "response",
+        "transaction_id": 14,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x15",
+          "0x16",
+          "0x1e",
+          "0x20",
+          "0x21",
+          "0x29"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q43",
+        "response_delta_ms": 32
+      },
+      {
+        "event_id": "Q45",
+        "elapsed_ms": 4650,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002d",
+        "name": "WDS Get Current Settings",
+        "direction": "request",
+        "transaction_id": 15,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x10"
+        ],
+        "matched_response": "Q46"
+      },
+      {
+        "event_id": "Q46",
+        "elapsed_ms": 4682,
+        "service_id": 1,
+        "service": "WDS",
+        "message_id": "0x002d",
+        "name": "WDS Get Current Settings",
+        "direction": "response",
+        "transaction_id": 15,
+        "client_alias": "WDS_CLIENT",
+        "tlv_types": [
+          "0x02",
+          "0x15",
+          "0x16",
+          "0x1e",
+          "0x20",
+          "0x21",
+          "0x29"
+        ],
+        "result": 0,
+        "error": 0,
+        "matched_request": "Q45",
+        "response_delta_ms": 32
+      }
+    ],
+    "service_versions": [
+      {
+        "service_id": 0,
+        "service_id_hex": "0x00",
+        "service_name": "CTL",
+        "major": 1,
+        "minor": 5
+      },
+      {
+        "service_id": 1,
+        "service_id_hex": "0x01",
+        "service_name": "WDS",
+        "major": 1,
+        "minor": 67
+      },
+      {
+        "service_id": 2,
+        "service_id_hex": "0x02",
+        "service_name": "DMS",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 3,
+        "service_id_hex": "0x03",
+        "service_name": "NAS",
+        "major": 1,
+        "minor": 25
+      },
+      {
+        "service_id": 4,
+        "service_id_hex": "0x04",
+        "service_name": "QOS",
+        "major": 1,
+        "minor": 12
+      },
+      {
+        "service_id": 5,
+        "service_id_hex": "0x05",
+        "service_name": "WMS",
+        "major": 1,
+        "minor": 10
+      },
+      {
+        "service_id": 7,
+        "service_id_hex": "0x07",
+        "service_name": "AUTH",
+        "major": 1,
+        "minor": 3
+      },
+      {
+        "service_id": 8,
+        "service_id_hex": "0x08",
+        "service_name": "AT",
+        "major": 1,
+        "minor": 4
+      },
+      {
+        "service_id": 9,
+        "service_id_hex": "0x09",
+        "service_name": "VOICE",
+        "major": 2,
+        "minor": 1
+      },
+      {
+        "service_id": 10,
+        "service_id_hex": "0x0a",
+        "service_name": "CAT2",
+        "major": 2,
+        "minor": 24
+      },
+      {
+        "service_id": 11,
+        "service_id_hex": "0x0b",
+        "service_name": "UIM",
+        "major": 1,
+        "minor": 87
+      },
+      {
+        "service_id": 12,
+        "service_id_hex": "0x0c",
+        "service_name": "PBM",
+        "major": 1,
+        "minor": 4
+      },
+      {
+        "service_id": 15,
+        "service_id_hex": "0x0f",
+        "service_name": "TEST",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 16,
+        "service_id_hex": "0x10",
+        "service_name": "LOC",
+        "major": 2,
+        "minor": 0
+      },
+      {
+        "service_id": 17,
+        "service_id_hex": "0x11",
+        "service_name": "SAR",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 18,
+        "service_id_hex": "0x12",
+        "service_name": "IMS",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 23,
+        "service_id_hex": "0x17",
+        "service_name": "TS",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 24,
+        "service_id_hex": "0x18",
+        "service_name": "TMD",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 26,
+        "service_id_hex": "0x1a",
+        "service_name": "WDA",
+        "major": 1,
+        "minor": 16
+      },
+      {
+        "service_id": 29,
+        "service_id_hex": "0x1d",
+        "service_name": "CSVT",
+        "major": 1,
+        "minor": 1
+      },
+      {
+        "service_id": 31,
+        "service_id_hex": "0x1f",
+        "service_name": "IMSP",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 33,
+        "service_id_hex": "0x21",
+        "service_name": "IMSA",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 34,
+        "service_id_hex": "0x22",
+        "service_name": "COEX",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 36,
+        "service_id_hex": "0x24",
+        "service_name": "PDC",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 41,
+        "service_id_hex": "0x29",
+        "service_name": "RFRPE",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 42,
+        "service_id_hex": "0x2a",
+        "service_name": "DSD",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 45,
+        "service_id_hex": "0x2d",
+        "service_name": "UNASSIGNED_IN_PINNED_ENUM",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 48,
+        "service_id_hex": "0x30",
+        "service_name": "UNASSIGNED_IN_PINNED_ENUM",
+        "major": 1,
+        "minor": 0
+      },
+      {
+        "service_id": 54,
+        "service_id_hex": "0x36",
+        "service_name": "UNASSIGNED_IN_PINNED_ENUM",
+        "major": 1,
+        "minor": 0
+      }
+    ],
+    "service_version_count": 29,
+    "service_version_limit": "Advertisements describe this specimen and session. They are not library release versions, a required exact fingerprint, proof every service works, or proof of NR capability.",
+    "unanswered_logged_request": {
+      "event": "Q01",
+      "service": "CTL",
+      "message_id": "0x0027",
+      "transaction_id": 1
+    },
+    "only_captured_indication": "WDS packet-service state becomes CONNECTED; no unsolicited CTL Sync indication is captured"
+  },
+  "wda": {
+    "message_id": "0x0020",
+    "exchanges": [
+      {
+        "direction": "request",
+        "elapsed_ms": 4202,
+        "tlvs": [
+          {
+            "type": "0x10",
+            "length": 1,
+            "name": "QoS header",
+            "value": 0
+          },
+          {
+            "type": "0x11",
+            "length": 4,
+            "name": "Link-layer protocol",
+            "value": 1
+          },
+          {
+            "type": "0x13",
+            "length": 4,
+            "name": "Downlink aggregation protocol",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "direction": "response",
+        "elapsed_ms": 4234,
+        "tlvs": [
+          {
+            "type": "0x02",
+            "length": 4,
+            "name": "Operation result",
+            "result": 0,
+            "error": 0
+          },
+          {
+            "type": "0x10",
+            "length": 1,
+            "name": "QoS header",
+            "value": 0
+          },
+          {
+            "type": "0x11",
+            "length": 4,
+            "name": "Link-layer protocol",
+            "value": 2
+          },
+          {
+            "type": "0x12",
+            "length": 4,
+            "name": "Uplink aggregation protocol",
+            "value": 0
+          },
+          {
+            "type": "0x13",
+            "length": 4,
+            "name": "Downlink aggregation protocol",
+            "value": 0
+          },
+          {
+            "type": "0x14",
+            "length": 4,
+            "name": "NDP signature",
+            "value": 0
+          },
+          {
+            "type": "0x15",
+            "length": 4,
+            "name": "Downlink maximum datagrams",
+            "value": 0
+          },
+          {
+            "type": "0x16",
+            "length": 4,
+            "name": "Downlink maximum size",
+            "value": 0
+          },
+          {
+            "type": "0x17",
+            "length": 4,
+            "name": "Uplink maximum datagrams",
+            "value": 16
+          },
+          {
+            "type": "0x18",
+            "length": 4,
+            "name": "Uplink maximum size",
+            "value": 4096
+          },
+          {
+            "type": "0x1a",
+            "length": 4,
+            "name": "Download minimum padding",
+            "value": 0
+          },
+          {
+            "type": "0x1b",
+            "length": 1,
+            "name": "Flow control",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "request_link_layer": "Ethernet (1)",
+    "response_link_layer": "RAW_IP (2)",
+    "response_success": true,
+    "response_delta_ms": 32,
+    "request_uplink_aggregation_tlv_present": false,
+    "request_endpoint_selector_present": false,
+    "request_mux_id_present": false,
+    "consumer": "The selected native code tests the returned link-layer value for RAW_IP and stores its raw-IP state; it does not require response equality with the Ethernet request.",
+    "namespace_warning": "Request TLV0x17 is an8-byte endpoint selector; response0x17 is a4-byte uplink datagram limit. The response value16 is not an interface number.",
+    "source_only_other_branch": {
+      "observed_in_this_boot": false,
+      "request_link_layer": 2,
+      "aggregation_enum": 5,
+      "aggregation_meaning": "QMAP",
+      "not_qmap_v5_enum": 9,
+      "qos": 0,
+      "downlink_limits": "Derived from a nonzero input size, including input_size>>9",
+      "endpoint_selector": "Supplied in that unobserved branch"
+    },
+    "physical_frame_verification": "UNKNOWN; application QMI logs and driver policy do not reveal actual bulk framing."
+  },
+  "wds": {
+    "profile_read": {
+      "profile_type": 0,
+      "profile_index": 1,
+      "success": true,
+      "apn_field_present": true,
+      "credential_fields_present": true,
+      "values_or_lengths_published": false,
+      "apn_matches_native_context_1_reads": true,
+      "profile_authentication_numeric": 3,
+      "vendor_authentication_numeric_interpretation": "Not inferred beyond the recorded numeric mode."
+    },
+    "native_at_authentication_configuration": {
+      "observed": true,
+      "context": 1,
+      "numeric_mode": 3,
+      "credential_arguments_redacted": true,
+      "not_pure_readonly_initialization": true
+    },
+    "start": {
+      "message_id": "0x0020",
+      "count": 1,
+      "result": "SUCCESS",
+      "tlvs": [
+        {
+          "type": "0x30",
+          "length": 1,
+          "name": "Technology preference",
+          "value": 1,
+          "meaning": "3GPP allowed"
+        },
+        {
+          "type": "0x19",
+          "length": 1,
+          "name": "IP family",
+          "value": 4,
+          "meaning": "IPv4"
+        },
+        {
+          "type": "0x31",
+          "length": 1,
+          "name": "3GPP profile index",
+          "value": 1
+        }
+      ],
+      "explicit_apn_tlv_present": false,
+      "authentication_username_password_tlvs_present": false,
+      "packet_data_handle_returned": true,
+      "packet_data_handle_value_published": false
+    },
+    "current_settings": {
+      "requests": 3,
+      "requested_mask": "0x2310",
+      "fields": [
+        "DNS addresses",
+        "IP address",
+        "gateway information",
+        "MTU"
+      ],
+      "responses_success": 3,
+      "mtu": 1500,
+      "address_values_published": false
+    },
+    "state_sequence": [
+      "DISCONNECTED",
+      "successful Start with a returned handle",
+      "CONNECTED indication",
+      "CONNECTED status reply"
+    ],
+    "stop_observed": false,
+    "client_release_observed": false,
+    "absence_limit": "The bounded log covers native startup with the connection left in use. It is not a measured teardown attempt or a cleanup-failure claim.",
+    "roaming_requirement": "UNKNOWN: no explicit home-only gate proven by this scope."
+  },
+  "source_supported_lifecycle": {
+    "ctl_sync": "Selected native initializer can send up to ten Sync requests,1000ms response timeout with1-second delay after failure. Two requests separated2000ms were observed; second reply arrives30ms later. This is native policy, not a general QMI initialization requirement.",
+    "version_request": "Native Version request includes service-selection TLV0x01,one-byte value255.",
+    "version_tolerance": "Selected scan runs only with nonzero QMAP context, uses fixed result/count offsets and tests WDA minor>16 for a feature flag; the inspected comparison does not check the major version or all29entries for exact equality. With zero context this scan is skipped.",
+    "cid_allocation": "One client each for WDS,DMS,NAS,UIM,WDA; observed later requests use their allocated clients.",
+    "internal_ipv6_index": "A source-only internal index0x11 is rewritten to wire WDS service0x01. It is not a request to wire service0x11 for IPv6. No IPv6 Start was captured.",
+    "start_handle": "Separate family-specific packet-data handles are stored on successful Start; source Start timeout120000ms. Device-mandated necessity of this timeout is not proven.",
+    "stop_handle": "Source Stop sends only a nonzero stored family-specific handle using a30000ms timeout and clears the stored handle after successful result. No Stop was observed in this capture.",
+    "release": "Source deinitialization iterates nonzero client slots and emits CTLRelease, then clears local slots; local clearing alone must not be reported as an acknowledged remote release.",
+    "profile_changes": "Conditional code can create/modify a QMI profile or change AT context and cycle modem function state. These branches were not observed here; the observed MGAUTH configuration is separate.",
+    "reconnect": "Selected main-loop branches poll state, repeat setup/deactivation and can request operating-mode recovery. This does not license a proxy to reproduce mutations or unbounded retries.",
+    "dtr": "Native USB DTR assertion/value/clear timing is UNKNOWN. No application QMI frame or AT&D2 establishes the EP0 transfer."
+  },
+  "parser_constraints": {
+    "matching": "Selected native response matcher compares service,client,TID, using8-bit CTL transactions and16-bit service transactions; no explicit message-ID/response-flag gate is established in that selected match branch. Offline validation applies stronger matching.",
+    "unknown_tlvs": "Selected lookup loops skip unneeded well-formed TLVs by length+3. This is not universal arbitrary-TLV-order tolerance.",
+    "fixed_offsets": "Several result,version-count and handle readers use fixed offsets; preserve mandatory response semantics and do not infer a full schema-driven native parser.",
+    "bounds": "Selected TLV loops do not show an explicit value-length<=remaining check before16-bit remaining arithmetic. This is a bounded static observation, not a tested exploit, safety certification or permission to replay malformed input.",
+    "adapter_implication": "Use bounded framing and explicit response matching; preserve unknown well-formed TLVs without inventing success."
+  },
+  "unknowns": [
+    "Native USB DTR/EP0/IRQ timing",
+    "Native physical USB bulk framing",
+    "Natural Stop/Release completion",
+    "Global exact identity allowlist or firmware whitelist",
+    "Which observed AT commands are individually indispensable",
+    "All alternate provider/profile/candidate paths",
+    "Runtime application cache/control/entitlement acceptance",
+    "Actual5Gcandidate compatibility"
+  ],
+  "privacy": {
+    "excluded": [
+      "Raw AT or QMI dumps",
+      "Subscriber/equipment/serial/account identifiers",
+      "IP and operator/cell-location values",
+      "APN text and credentials",
+      "Sensitive field lengths",
+      "Absolute wall-clock timestamps",
+      "Private evidence hashes and local source paths",
+      "Proprietary binary or decompiled code"
+    ],
+    "templates": "Generic command templates; placeholders replace variable or sensitive arguments."
+  },
+  "public_protocol_references": [
+    {
+      "title": "libqmi pinned WDA schema",
+      "url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-wda.json"
+    },
+    {
+      "title": "libqmi pinned WDS schema",
+      "url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/data/qmi-service-wds.json"
+    },
+    {
+      "title": "libqmi pinned service-ID definitions",
+      "url": "https://github.com/linux-mobile-broadband/libqmi/blob/1c972b8ab901565f26b9f95e1705269277bbfa1b/src/libqmi-glib/qmi-enums.h"
+    }
+  ]
+}

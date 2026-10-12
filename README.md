@@ -6,7 +6,7 @@
 
 OpenIG831T is an independent interoperability research project for the DJI Cellular Dongle 2 (IG831T). It documents measured USB, AT and QMI behavior, the reported Fibocom NL668T-GL modem identity, and an experimental Linux FunctionFS bridge architecture.
 
-**CONFIRMED_TARGET_DEVICE:** USB composition, MI_02 AT, MI_04 QMI, QMI initialization/service discovery, and a WDA `RAW_IP` report. **UNKNOWN:** candidate 5G compatibility, physical gadget operation, DJI host acceptance, and whether any bridge is necessary.
+**CONFIRMED_TARGET_DEVICE:** USB composition, MI_02 AT, MI_04 QMI, QMI initialization/service discovery, and a WDA `RAW_IP` report. **CONFIRMED_NATIVE_HOST:** the original dongle supplies native cellular networking on DJI RC Pro 2 / RC520. **UNKNOWN:** candidate 5G compatibility, physical gadget operation, application/Enhanced Transmission acceptance, and whether any bridge is necessary.
 
 [![CI workflow](docs/assets/ci.svg)](.github/workflows/ci.yml)
 [![Documentation workflow](docs/assets/documentation.svg)](.github/workflows/documentation.yml)
@@ -27,11 +27,14 @@ The badges identify workflows and project status; they do not assert that remote
 | MI_02 AT transport | CONFIRMED_TARGET_DEVICE | Confirmed |
 | MI_04 QMI control | CONFIRMED_TARGET_DEVICE | Confirmed |
 | WDA RAW_IP | CONFIRMED_TARGET_DEVICE | Reported configuration |
-| Physical IP frame format | UNKNOWN | Not observed |
+| Physical native RC520 USB frame format | UNKNOWN | Not captured in this controller observation |
 | Candidate 5G modem | UNKNOWN | Not measured |
 | Physical UDC gadget | UNKNOWN | Not tested |
-| DJI host acceptance | UNKNOWN | Not demonstrated |
+| Original RC520 native networking | CONFIRMED_NATIVE_HOST | Kernel/RIL/network integration observed |
+| Replacement / Enhanced Transmission acceptance | UNKNOWN | Not demonstrated |
 | End-to-end 5G | UNKNOWN | Not demonstrated |
+
+The detailed [RC520 + IG831T golden reference](docs/native/README.md) documents native USB/kernel/RIL, 180 AT exchanges, QMI startup, WDA/WDS, Android networking and application acceptance limits.
 
 [Machine-readable status](RESEARCH_STATUS.json) keeps `final_verdict: null`. No candidate is a confirmed drop-in replacement.
 
@@ -70,8 +73,8 @@ Endpoint addresses are **CONFIRMED_TARGET_DEVICE**. Role uncertainty is retained
 | MI_00 | ff/ff/ff | — | 0x81 | 0x01 | UNKNOWN |
 | MI_01 | ff/00/00 | 0x83 | 0x82 | 0x02 | UNKNOWN |
 | MI_02 | ff/00/00 | 0x85 | 0x84 | 0x03 | Confirmed AT |
-| MI_03 | ff/00/00 | 0x87 | 0x86 | 0x04 | UNKNOWN |
-| MI_04 | ff/ff/ff | 0x89 | 0x88 | 0x05 | Confirmed QMI control; packet format unobserved |
+| MI_03 | ff/00/00 | 0x87 | 0x86 | 0x04 | Native RC520 AT selection and exchanges measured |
+| MI_04 | ff/ff/ff | 0x89 | 0x88 | 0x05 | QMI control and native network association; wire framing unobserved |
 
 **CONFIRMED_TARGET_DEVICE:** 9 IN + 5 OUT excludes EP0. [Descriptor and control details](docs/usb-interface-map.md).
 
@@ -81,15 +84,15 @@ Endpoint addresses are **CONFIRMED_TARGET_DEVICE**. Role uncertainty is retained
 
 ## 8. RAW_IP and data-plane status
 
-**CONFIRMED_TARGET_DEVICE:** inputless WDA Get Data Format reported RAW_IP and disabled uplink/downlink aggregation. **STRONG_INFERENCE:** non-QMAP raw IP for that reported channel. **UNKNOWN:** actual bulk frame format. No active data session was created by the prototype; a historical WDS DISCONNECTED result covered only the queried client/default port. [Data plane](docs/raw-ip-data-plane.md).
+**CONFIRMED_TARGET_DEVICE:** inputless WDA Get Data Format reported RAW_IP and disabled uplink/downlink aggregation. **STRONG_INFERENCE:** non-QMAP raw IP for that reported channel. **UNKNOWN:** actual bulk frame format. The RC520 native host separately performed its normal profile-based WDS Start; the collector did not inject it. Native WDA requested Ethernet and accepted RAW_IP, with aggregation disabled. No active data session was created by the prototype; a historical WDS DISCONNECTED result covered only the queried client/default port. [Data plane](docs/raw-ip-data-plane.md).
 
 ## 9. DJI host OLD/NEW/MULTI summary
 
-**SOURCE_SUPPORTED:** bounded static analysis of a specific SDK build identified three co-registered observers and distinct formats. The type-set predicate `{6,7,10}` belongs to MULTI, not NEW. **UNKNOWN:** active runtime path or actual host acceptance. No vendor binaries or full disassembly are included. [Host analysis](docs/dji-host-analysis.md) · [Corrected path table](docs/old-new-multi-paths.md).
+**SOURCE_SUPPORTED:** bounded static analysis of a specific SDK build identified three co-registered observers and distinct formats. The type-set predicate `{6,7,10}` belongs to MULTI, not NEW. **UNKNOWN:** active runtime path or actual host acceptance. The [exact native Fly build](docs/native/dji-application-contract.md) has its own generation/capability semantics; results from another SDK build must not be transplanted. No vendor binaries or full disassembly are included. [Host analysis](docs/dji-host-analysis.md) · [Corrected path table](docs/old-new-multi-paths.md).
 
 ## 10. Experimental bridge architecture
 
-**SOURCE_SUPPORTED:** the prototype separates host-visible addresses, FunctionFS local/physical addresses, and backend modem addresses. It implements bounded AT/QMI handling and offline RAW_IP/QMAP translation. MI_00/01/03 behavior and active packet forwarding are deliberately incomplete. **UNKNOWN:** whether these adaptations are needed by a real host. [FunctionFS bridge](docs/functionfs-bridge.md).
+**SOURCE_SUPPORTED:** the prototype separates host-visible addresses, FunctionFS local/physical addresses, and backend modem addresses. It implements bounded AT/QMI handling and offline RAW_IP/QMAP translation. The experimental bridge implementation for MI_00/01/03 and active packet forwarding remains incomplete; documenting native MI_03 AT does not implement that path. **UNKNOWN:** whether these adaptations are needed by a real host. [FunctionFS bridge](docs/functionfs-bridge.md).
 
 ## 11. Repository layout
 
@@ -136,7 +139,7 @@ The lint gate currently enables `E9` and the full Pyflakes `F` family. Formattin
 
 ## 14. Evidence levels
 
-Every research claim is scoped using the [ten evidence levels](docs/evidence-levels.md). `SOURCE_SUPPORTED` does not mean measured hardware; `UNKNOWN` is neither failure nor impossibility. A hash identifies a withheld artifact but does not make it reproducible from this repository.
+Every research claim is scoped using the [evidence levels](docs/evidence-levels.md). `SOURCE_SUPPORTED` does not mean measured hardware; `UNKNOWN` is neither failure nor impossibility. A hash identifies a withheld artifact but does not make it reproducible from this repository.
 
 ## 15. Hardware still required
 

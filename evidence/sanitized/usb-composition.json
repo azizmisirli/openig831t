@@ -135,8 +135,9 @@
         }
       ],
       "descriptor_evidence_level": "CONFIRMED_TARGET_DEVICE",
-      "role": "UNKNOWN",
-      "role_evidence_level": "UNKNOWN"
+      "role": "Native RC520 AT transport",
+      "role_evidence_level": "CONFIRMED_NATIVE_HOST",
+      "role_scope": "Exact RIL role table plus port-selection log and native AT exchanges; no open-syscall trace"
     },
     {
       "interface": 4,

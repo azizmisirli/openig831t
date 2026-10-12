@@ -1,6 +1,6 @@
 # Candidate modems
 
-**UNKNOWN:** no replacement candidate has been measured by this project. None is a confirmed drop-in replacement, and no winner or exact ordering code is established.
+**UNKNOWN:** no replacement candidate has been measured by this project. None is a confirmed drop-in replacement, and no confirmed winner is established. A source-supported first lab priority is explained below.
 
 | Candidate family | Available evidence | Missing link |
 | --- | --- | --- |
@@ -16,3 +16,7 @@
 **UNKNOWN:** whether candidate firmware supports the desired unaggregated RAW_IP mode. A QMAP default in a host driver does not prove that plain-IP firmware operation is impossible. QMI support also does not establish DJI identity or authorization acceptance.
 
 The next useful evidence is a single identified candidate, read-only profile and sanitized record: exact SKU/firmware, descriptor map, AT identity, QMI versions, WDA report and DTR/Sync behavior. The bounded candidate tool does not choose modes or start a session. [Primary references](references.md).
+
+## Native RC520 scope
+
+The [RC520 compatibility contract](native/compatibility-contract.md) adds a source-supported priority: RM520N-GL is the first laboratory candidate because the documented 2c7c:0801 / AT2 / QMI4 composition fits the native RIL 2c7c:0xxx / AT2 / NET4 rule. This is not installed-kernel binding, a purchase recommendation or a compatibility PASS; candidate service versions and app acceptance remain UNKNOWN.

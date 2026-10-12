@@ -4,6 +4,14 @@
 
 Start with [status](../STATUS.md), [evidence levels](evidence-levels.md), and [limitations](limitations.md). Original documentation and sanitized evidence summaries are licensed under CC BY 4.0; code and kernel-derived material have separate scopes in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 
+## Native controller golden reference
+
+- [RC520 + IG831T overview](native/README.md)
+- [USB, kernel, services and network](native/platform-usb-network.md)
+- [Native AT/QMI startup and WDA/WDS](native/at-qmi-startup.md)
+- [DJI application and identity contract](native/dji-application-contract.md)
+- [5G compatibility requirements and remaining gates](native/compatibility-contract.md)
+
 ## Measured original device
 
 - [IG831T hardware and identity](ig831t-hardware.md)

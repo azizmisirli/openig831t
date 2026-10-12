@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "license": "CC-BY-4.0",
+  "title": "RC520 DJI application contract",
+  "evidence_level": "SOURCE_SUPPORTED",
+  "research_date": "2026-10-12",
+  "summary_kind": "ORIGINAL_SANITIZED_STATIC_ANALYSIS",
+  "context": {
+    "host_metadata_evidence_level": "CONFIRMED_TARGET_HOST",
+    "implementation_evidence_level": "SOURCE_SUPPORTED",
+    "controller": "DJI RC Pro 2",
+    "model": "RC520",
+    "controller_firmware_reported": "01.00.07.00",
+    "android_build": "V55.31.01.39",
+    "android_version": "11",
+    "android_api_level": 30,
+    "modem": "DJI Cellular Dongle 2 / IG831T",
+    "application_package": "dji.go.v5",
+    "application_version": "1.21.2",
+    "application_version_code": 3114825,
+    "static_component_abi": "AArch64",
+    "embedded_sdk_semantic_version": "UNKNOWN",
+    "runtime_loaded_component_and_dispatch": "UNKNOWN",
+    "candidate_5g_hardware_in_this_application_analysis": false
+  },
+  "provenance": {
+    "method": "Bounded static inspection of the recorded application build and configuration; selected symbol, relocation, field-name and instruction-encoding cross-checks.",
+    "public_content": "Original technical explanation and protocol constants only.",
+    "proprietary_code_or_disassembly_included": false,
+    "binary_or_raw_payload_included": false,
+    "private_source_hashes_or_paths_included": false,
+    "personal_values_included": false,
+    "implementation_publicly_replayable_from_this_summary": false,
+    "device_activity_for_this_publication": false,
+    "coverage_is_complete_application_review": false
+  },
+  "wlm_configuration": {
+    "evidence_level": "SOURCE_SUPPORTED",
+    "product": "RC520",
+    "role": "master",
+    "configured_lte_enabled": true,
+    "loaded_route_selection": "UNKNOWN",
+    "logical_host_ids": {
+      "local_router": "0x0205",
+      "lte_agent": "0x0e06",
+      "local_wlm": "0x0e07",
+      "peer_wlm": "0x0907"
+    },
+    "link_switch_scenes": ["SDR_ONLY", "LTE_ONLY", "HYBRID_LTE_SDR"],
+    "reviewed_usb_channel_identity": "2ca3:1020",
+    "reviewed_usb_channel_roles": [
+      {"module": "dji_link", "interface": 3},
+      {"module": "dji_link", "interface": 0},
+      {"module": "dji_lte", "interface": 5}
+    ],
+    "observed_modem_identity_for_distinction": "2ca3:4009",
+    "local_socket_channel_names": ["dji_lte_v1", "wl_lte_v1"],
+    "init_service": "dji_wlm",
+    "init_property": "dji.wlm_service",
+    "init_start_value": "1",
+    "init_stop_value": "0",
+    "config_to_live_producer_join": "UNKNOWN",
+    "constraints": [
+      "These are WLM/DUML service-channel records, not a WWAN kernel binding table.",
+      "No transfer of interface or endpoint numbering from the configured 1020 device to the 4009 modem.",
+      "No 4009 entry in this configuration does not establish modem rejection.",
+      "Enable flags and scene definitions are not active-bearer or entitlement results.",
+      "A reviewed configuration file is not proof of runtime selection."
+    ]
+  },
+  "runtime_level_definitions": {
+    "L1": "Callback hit",
+    "L2": "Parser success for correlated input and context",
+    "L3": "State publication",
+    "L4": "Completed cache store",
+    "L5": "LTE or Enhanced Transmission control decision"
+  },
+  "families": [
+    {
+      "label": "OLD",
+      "numeric_id": "0x40180040",
+      "build_packet_name": "wlm_dongle_info_push",
+      "callback": "OnWlmDongleInfoPush",
+      "normalizer": "HandleOldDongleInfoLogic",
+      "evidence_level": "SOURCE_SUPPORTED",
+      "parser": {
+        "format": "Fixed records",
+        "record_bytes": 53,
+        "size_gate": "2 + record_count * 53 <= payload_length",
+        "source_selection": {"0": "UAV", "1": "remote controller"},
+        "complete_memory_safety_assessment": false
+      },
+      "direct_publication_keys": ["WlmUavDongleInfo", "WlmRcDongleInfo"],
+      "normalized_publication_keys": ["UavDongleInfo", "RcDongleInfo", "UavDongleNetcardInfo", "RcDongleNetcardInfo"],
+      "generation_mapping": [
+        {"input_types": [6, 7], "generation": 0},
+        {"input_types": [10], "generation": 1},
+        {"input_types": "OTHER", "generation": 65535}
+      ],
+      "runtime_levels": {
+        "L1": {"status": "UNKNOWN", "hit_count": null},
+        "L2": {"status": "UNKNOWN", "hit_count": null},
+        "L3": {"status": "UNKNOWN", "hit_count": null},
+        "L4": {"status": "UNKNOWN", "hit_count": null},
+        "L5": {"status": "UNKNOWN", "hit_count": null}
+      }
+    },
+    {
+      "label": "NEW",
+      "numeric_id": "0x4018004A",
+      "build_packet_name": "wlm_dongle_esim_info_push",
+      "callback": "OnWlmEsimInfoPush",
+      "normalizer": "HandleOldEsimInfoLogic",
+      "evidence_level": "SOURCE_SUPPORTED",
+      "parser": {
+        "format": "Fixed eSIM information records",
+        "record_bytes": 159,
+        "size_gate": "7 + record_count * 159 <= payload_length",
+        "source_selector_byte": 1,
+        "source_selection": {"0": "UAV", "1": "remote controller"},
+        "complete_memory_safety_assessment": false
+      },
+      "direct_publication_keys": ["WlmUavDongleEsimInfo", "WlmRcDongleEsimInfo"],
+      "normalized_publication_keys": ["UavDongleNetcardInfo", "RcDongleNetcardInfo"],
+      "normalizer_prerequisites": ["Existing nonempty netcard cache", "Nonempty nested collection"],
+      "modem_rejection_inferred_from_suppressed_normalization": false,
+      "observed_ig831t_esim_support_or_use": "UNKNOWN",
+      "runtime_levels": {
+        "L1": {"status": "UNKNOWN", "hit_count": null},
+        "L2": {"status": "UNKNOWN", "hit_count": null},
+        "L3": {"status": "UNKNOWN", "hit_count": null},
+        "L4": {"status": "UNKNOWN", "hit_count": null},
+        "L5": {"status": "UNKNOWN", "hit_count": null}
+      }
+    },
+    {
+      "label": "MULTI",
+      "numeric_id": "0x40180050",
+      "build_packet_name": "wlm_dongle_new_push",
+      "callback": "OnDongleInfoNewPush",
+      "parser_functions": ["ParseNewDongleDevice", "ParseNewDongleInfo"],
+      "evidence_level": "SOURCE_SUPPORTED",
+      "parser": {
+        "format": "TLVs applied to copied BasicInfo and Netcard state",
+        "accepted_source_selectors": [0, 1],
+        "publication_success_return": 0,
+        "clear_state_path": "Payload byte 2 equal to zero clears collections and can return success.",
+        "complete_memory_safety_assessment": false
+      },
+      "tlv_purposes": {"1": "Identifier", "2": "BasicInfo", "3": "Capabilities", "4": "Netcard", "9": "Display status"},
+      "basic_info_value_minimum_bytes_in_selected_parser": 41,
+      "publication_keys": ["UavDongleInfo", "RcDongleInfo", "UavDongleNetcardInfo", "RcDongleNetcardInfo"],
+      "generation_mapping": [
+        {"input_types": [10], "generation": 1},
+        {"input_types": [13], "generation": 2},
+        {"input_types": [15], "generation": 3},
+        {"input_types": "OTHER", "generation": 65535}
+      ],
+      "unknown_type_effect": "Continues into the shared BasicInfo parser tail; does not by itself reject the TLV.",
+      "runtime_levels": {
+        "L1": {"status": "UNKNOWN", "hit_count": null},
+        "L2": {"status": "UNKNOWN", "hit_count": null},
+        "L3": {"status": "UNKNOWN", "hit_count": null},
+        "L4": {"status": "UNKNOWN", "hit_count": null},
+        "L5": {"status": "UNKNOWN", "hit_count": null}
+      }
+    }
+  ],
+  "family_correlation_limits": [
+    "Build symbol new denotes numeric ID 0x40180050; research label NEW denotes 0x4018004A.",
+    "Registration paths exist for all three families; runtime registration success and active-family selection are UNKNOWN.",
+    "Shared normalized publication keys do not identify wire origin.",
+    "A successful parse can clear state and does not establish dongle presence, connection or authentication.",
+    "A copied cache object can retain information not regenerated by the latest message.",
+    "Missing log events are not zero hits or evidence of rejection."
+  ],
+  "typed_identity_fields": {
+    "evidence_level": "SOURCE_SUPPORTED",
+    "normalized_type_field": "generation",
+    "is_dji_device_is_name_of_this_field": false,
+    "is_dji_device_global_absence_claim": false,
+    "legacy_state_flag_names_complete": false,
+    "commercial_model_crosswalk": "UNKNOWN",
+    "capabilities": [
+      {"tlv": 3, "bit": 3, "transform": "DIRECT", "field": "isSupportIdentityVerification"},
+      {"tlv": 3, "bit": 4, "transform": "INVERT", "field": "isNeedSystemSetting"},
+      {"tlv": 3, "bit": 5, "transform": "DIRECT", "field": "isSupportPackageUpgrade"},
+      {"tlv": 3, "bit": 6, "transform": "DIRECT", "field": "isSupportDisplayControl"}
+    ],
+    "verification_required": "UNKNOWN",
+    "verification_invoked": "UNKNOWN",
+    "verification_result": "UNKNOWN",
+    "actual_identifier_values": "OMITTED"
+  },
+  "publication_and_cache": {
+    "evidence_level": "SOURCE_SUPPORTED",
+    "proxy_preconditions": ["Live weak owner", "Nonnull parent"],
+    "concrete_runtime_parent": "UNKNOWN",
+    "conditional_base_path": [
+      "Parameter exclusion and Characteristics validity checks",
+      "Typed cache access and SetEnable/PushEnable source precedence",
+      "Value equality and time/difference conditions",
+      "Cache interface dispatch",
+      "Concrete cache map store if that implementation is selected",
+      "Separate notification interface"
+    ],
+    "equality_is_brand_allowlist": false,
+    "publication_entry_proves_store": false,
+    "cache_set_entry_proves_completed_store": false,
+    "listener_entry_proves_connection": false,
+    "state_to_control_dataflow": "UNKNOWN"
+  },
+  "control_setter_scope": {
+    "evidence_level": "SOURCE_SUPPORTED",
+    "function_name": "SetWlmLinkMode",
+    "observed_static_preconditions": ["Nonnull input value", "Expected input type"],
+    "accepted_static_path": "Copies the mode value into a request and calls a sending proxy.",
+    "brand_generation_region_license_compare_in_selected_body": "NOT_ESTABLISHED",
+    "upper_caller_or_remote_service_gates": "UNKNOWN",
+    "control_command_executed_for_this_analysis": false
+  },
+  "authorization_matrix": [
+    {"question": "Identity verification capability", "evidence_level": "SOURCE_SUPPORTED", "result": "Capability transport only", "runtime_decision": "UNKNOWN"},
+    {"question": "Identifier and version fields", "evidence_level": "SOURCE_SUPPORTED", "result": "Storage/publication; no allowlist or cryptographic comparison established", "runtime_decision": "UNKNOWN"},
+    {"question": "isDjiDevice deciding consumer", "evidence_level": "UNKNOWN", "result": "No source-to-control decision established in this scope", "runtime_decision": "UNKNOWN"},
+    {"question": "USB, AT or firmware identity allowlist", "evidence_level": "UNKNOWN", "result": "No deciding branch established here; no global absence claim", "runtime_decision": "UNKNOWN"},
+    {"question": "Publication filtering", "evidence_level": "SOURCE_SUPPORTED", "result": "Conditional Base implementation filters state updates", "runtime_decision": "UNKNOWN"},
+    {"question": "canEnable and aircraft/product checks", "evidence_level": "UNKNOWN", "result": "Exact deciding branches unresolved", "runtime_decision": "UNKNOWN"},
+    {"question": "Region, account entitlement and server activation", "evidence_level": "UNKNOWN", "result": "Official conditions do not establish this setup's outcome", "runtime_decision": "UNKNOWN"},
+    {"question": "Cryptographic authenticity", "evidence_level": "UNKNOWN", "result": "No authentication result established", "runtime_decision": "UNKNOWN"}
+  ],
+  "official_document_context": {
+    "evidence_level": "SOURCE_SUPPORTED",
+    "archived_on": "2026-10-12",
+    "policy_scope": "Product and regional Enhanced Transmission conditions, separate from generic modem Internet connectivity.",
+    "observed_region_account_aircraft_entitlement": "UNKNOWN",
+    "controller_dongle_universally_required": "NOT_ESTABLISHED",
+    "references": [
+      {"id": "DJI_RC520_MODEL", "url": "https://dl.djicdn.com/downloads/DJI_RC_Pro_2/PI/DJI_RC_Pro_2_Product_Information.pdf", "location": "English specifications", "claim": "RC Pro 2 model is RC520."},
+      {"id": "DJI_RELEASE_CONTEXT", "url": "https://dl.djicdn.com/downloads/DJI_RC_Pro_2/RN/20260429/DJI_RC_Pro_2_Release_Notes_en.pdf", "location": "Page 1, 29 April 2026", "claim": "Lists firmware 01.00.0700 and Fly 1.21.2; not a minimum IG831T firmware rule."},
+      {"id": "DJI_CHINA_COMPATIBILITY", "url": "https://store.dji.com/cn/product/dji-cellular-2?set_region=CN", "location": "Compatible products", "claim": "Lists RC Pro 2; exact IG831T firmware behavior is not specified."},
+      {"id": "DJI_REGIONAL_SERVICE", "url": "https://store.dji.com/si/product/dji-cellular-2?from=site-nav&set_region=SI", "location": "Overview and tips", "claim": "Region/product restrictions and service conditions are distinct from other connectivity functions."},
+      {"id": "DJI_CONTROLLER_NETWORK_OPTIONS", "url": "https://dl.djicdn.com/downloads/DJI_RC_Pro_2/UM/20250515/DJI_RC_Pro_2_User_Manual_v1.0_zh-cn.pdf", "location": "Section 4.4, page 17", "claim": "Describes controller Internet via an installed module or a phone hotspot within that manual's product context."}
+    ]
+  },
+  "open_questions": [
+    {"id": "APP-1", "unknown": "Selected live producer and route", "needed": "Authorized selected-configuration and service-route metadata"},
+    {"id": "APP-2", "unknown": "Active message family or combination", "needed": "Numeric message IDs and callback outcomes for the same instance and window"},
+    {"id": "APP-3", "unknown": "Valid input and parser outcome", "needed": "Separate parser result, not callback entry alone"},
+    {"id": "APP-4", "unknown": "Final common-state source and cache commit", "needed": "Family lineage, publication key, concrete cache identity and completed store"},
+    {"id": "APP-5", "unknown": "Actual parent and cache implementation", "needed": "Private matched loaded-build and virtual-dispatch context"},
+    {"id": "APP-6", "unknown": "Identity-dependent control branch", "needed": "Specific comparison and outcome linked to the parsed state"},
+    {"id": "APP-7", "unknown": "Product, region and entitlement outcome", "needed": "Authorized coarse application/service status without personal values"}
+  ],
+  "observation_design_limits": {
+    "design_only": true,
+    "new_device_action_authorized_by_this_document": false,
+    "private_build_and_aslr_matching_required": true,
+    "same_instance_correlation_required": true,
+    "temporal_proximity_is_exact_correlation": false,
+    "status_page_alone_proves_runtime_levels": false,
+    "required_outcome_separation": ["Registration attempt versus completion", "Callback entry versus parser success", "Publication versus cache commit", "Cache entry versus finished store", "Listener entry versus network or control result"],
+    "excluded_public_values": ["Payload bodies", "Serial values", "Subscriber identifiers", "Account values", "Certificate contents", "Tokens"]
+  },
+  "coverage": {
+    "included": ["Three numeric registration/invocation paths", "Selected parsers and normalizers", "Typed BasicInfo field naming", "Conditional publication/cache implementation", "Selected link-mode setter"],
+    "not_established": ["Complete application consumer coverage", "Global identity policy", "Runtime dispatch and active abstraction", "Live parser outcomes", "Runtime cache precedence", "Authorization/control dataflow", "Enhanced Transmission acceptance"],
+    "parser_memory_safety_or_fuzz_certification": false,
+    "all_instructions_independently_crosschecked": false
+  },
+  "conclusions": {
+    "application_runtime_acceptance": "UNKNOWN",
+    "enhanced_transmission_entitlement": "UNKNOWN",
+    "5g_replacement_compatibility": "UNKNOWN",
+    "bridge_requirement": "UNKNOWN",
+    "identity_rewrite_requirement": "UNKNOWN",
+    "authentication_or_entitlement_bypass_proposed": false
+  }
+}

@@ -26,3 +26,7 @@ flowchart TD
 Do not select a bridge merely because source code exists. A direct candidate test may show no bridge is needed. Conversely, a successful generic QMI session does not establish DJI compatibility. Missing responses, unsupported commands or unregistered radio state do not alone establish hardware impossibility.
 
 Useful contributions close one bounded gap with primary sources or sanitized measurements. Repeating already exhausted model-name searches or introducing unmeasured identity rewriting does not advance these gates.
+
+## Native RC520 scope
+
+The [native RC520 golden reference](docs/native/README.md) closes the original stock kernel/RIL/network context and measures AT/QMI startup. Candidate hardware, native USB wire timing, application cache/control and entitlement remain independent gates.

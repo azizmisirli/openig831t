@@ -45,12 +45,51 @@
     "WEAK_INFERENCE",
     "UNKNOWN",
     "CONTRADICTED",
-    "SUPERSEDED"
+    "SUPERSEDED",
+    "CONFIRMED_NATIVE_HOST",
+    "MEASURED_RUNTIME"
   ],
   "privacy": {
     "usb_serial": "REDACTED_USB_SERIAL",
     "personal_identifiers_included": false,
     "private_raw_captures_included": false
   },
-  "disclaimer": "Independent interoperability research; no vendor affiliation, endorsement or sponsorship."
+  "disclaimer": "Independent interoperability research; no vendor affiliation, endorsement or sponsorship.",
+  "dji_host_acceptance_scope": "Replacement and application/Enhanced Transmission acceptance; original native networking recorded separately",
+  "native_controller_reference": {
+    "model": "DJI RC Pro 2",
+    "device": "RC520",
+    "controller_firmware": "01.00.07.00",
+    "android_build": "V55.31.01.39",
+    "android_version": 11,
+    "kernel": "5.4.210",
+    "app": "dji.go.v5 1.21.2",
+    "original_stock_network": true,
+    "driver": "qmi_wwan_f",
+    "netdev": "dji_mini_net",
+    "native_at_interface": 3,
+    "native_at_node": "ttyUSB3",
+    "native_at_request_terminal_pairs": 180,
+    "qmi_frames": 46,
+    "qmi_matched_pairs": 22,
+    "qmi_success_pairs": 21,
+    "qmi_nonfatal_no_effect_pairs": 1,
+    "service_versions_count": 29,
+    "wda_request": "ETHERNET",
+    "wda_response": "RAW_IP",
+    "ul_aggregation": "DISABLED",
+    "dl_aggregation": "DISABLED",
+    "wds_start_profile_index": 1,
+    "wds_start_ip_family": 4,
+    "explicit_apn_tlv_in_start": false,
+    "physical_native_wire_capture": false,
+    "native_dtr_usb_timing": "UNKNOWN",
+    "old_new_multi_runtime_levels": "UNKNOWN",
+    "entitlement": "UNKNOWN",
+    "candidate_ril_rule": "2c7c:0xxx AT2 NET4; SOURCE_SUPPORTED, not candidate measurement",
+    "private_raw_included": false,
+    "observer_custom_modem_requests": 0,
+    "observer_network_probes": 0
+  },
+  "physical_bulk_frame_format_scope": "Native RC520 USB wire capture; data-format policy and kernel association are recorded separately"
 }

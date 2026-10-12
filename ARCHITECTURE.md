@@ -45,3 +45,7 @@ flowchart LR
 ## Deliberate gaps
 
 **UNKNOWN:** exact host behavior on MI_00/01/03. Their protocol emulation is absent. **SOURCE_SUPPORTED:** active bulk data forwarding and WDS Start/Stop are blocked in the laboratory policy. The data-plane module operates on complete packets/aggregates; USB stream reassembly and live packet relay are not established. The prototype is therefore not a full behavioral clone.
+
+## Native RC520 scope
+
+The [RC520 native reference](docs/native/README.md) now documents the original stock USB-to-Android path. The experimental bridge is separate; observing native operation does not validate a candidate or prove the bridge necessary.

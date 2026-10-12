@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Publish a detailed English RC520 + IG831T native reference: USB/kernel/node/service mapping, AT/QMI startup, WDA/WDS, Android integration and exact-build application gates.
+- Document native MI_03 AT selection and the Ethernet-request/RAW_IP-response distinction; preserve candidate, physical-wire and entitlement UNKNOWNs.
+- Include only sanitized technical summaries and protocol metadata; exclude personal data, raw captures and proprietary artifacts.
+
 - Update all GitHub Actions to SHA-pinned Node.js 24 releases; keep read-only workflow permissions.
 - Add a development-dependency vulnerability audit and weekly dependency update proposals.
 - Enable the complete Ruff Pyflakes `F` rule family and remove unused imports.

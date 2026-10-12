@@ -15,3 +15,7 @@
 **UNKNOWN:** whether any exact candidate firmware can operate in the desired plain-IP format. A vendor driver's QMAP default does not prove plain-IP firmware support is absent. The codec is not a live USB packet relay; transfer-chunk to complete-frame reassembly remains an integration gate.
 
 [Sanitized WDA summary](../evidence/sanitized/wda-data-format.json) · [Linux rmnet sources](references.md)
+
+## Native RC520 scope
+
+The [native startup](native/at-qmi-startup.md) adds a distinct observation: WDA Set requested Ethernet but returned RAW_IP successfully. The native consumer accepted the result; driver QMAP parameters and UL/DL aggregation were zero. Native WDS connected and Android validated its network. Physical USB packet framing remains unmeasured in this controller scope.

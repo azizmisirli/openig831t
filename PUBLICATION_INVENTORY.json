@@ -155,7 +155,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "cf87fe1d54320814e568d81e6dadd1080fd5a1f59d294bd9290b08e04aa02d29",
+      "sha256": "5f87a9dac3e795706ad37b438c54b853899e34aab489445fb515848e78e697c2",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -166,7 +166,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "bd179dd7815033b8c966024d60e8a90f45f4021420f0f27853cfa55cc5e9e17e",
+      "sha256": "1c07f020f7334969d9b9d8e7e6890e5b421ebbf39aa34ef26d215a487840b7a0",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -309,7 +309,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "c72dd5094a0a0fc47702f35f7bc3c54b10264c5e34700e1ea353a91c812c0196",
+      "sha256": "e9a730dd4435563292ca7568c847d21e98a23912c73c55ca578cdd2df291d301",
       "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
     },
     {
@@ -342,7 +342,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "26f8f98f1eaf45c5c64980b6720a92056ae82bb91aee9c8f4b098d291a8cb97a",
+      "sha256": "ca0724b1010125fc3d24af13f44de7d8c672a4bf100e757da5ab827ba0f2ef23",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -375,7 +375,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "14f435b938d5b50cc3ff64291e9adbed71d1ac97ad6f63e41db93c61711ccc4b",
+      "sha256": "42d913943b2feca6717a1ad715fe58034d04bae085a8fc40cb83fc69451eed51",
       "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
     },
     {
@@ -386,7 +386,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "d7c7f9323679813e27ac0e6b158ddf85e421a2d25704313a46f88bcc73ec8840",
+      "sha256": "ceea25200ebf681348c0120d5a21bc60a8abd165fa1b09c0c0e2cc5db72bbea7",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -419,7 +419,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "f84bccccf01bbfecb27c8d29af0b07718fec572383e3553dffaa6a76c942842a",
+      "sha256": "65e2af17537a50342a8fd5d4222686b18c0fcdd21d538a365144ed4ab2dc208a",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -540,7 +540,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw vendor source or captures",
-      "sha256": "f7bd8b64e359a72688daf557ca14c50a60eee8cbbc3093c10cb02751deb396e6",
+      "sha256": "2819257cb8c9955055a38b0c23251d4f298bcdc2cd2aa2dd3c502c648941414d",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -562,7 +562,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw vendor source or captures",
-      "sha256": "7647b90c6f0d6bf965686d387b82054e8c7ab95e763da05994acce2289291ee2",
+      "sha256": "83e82b528a086990fe48747114f1a26284b4758c3feb04d6fdbfb64c04b0c320",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -606,7 +606,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw vendor source or captures",
-      "sha256": "9c77b61b65b1d783cb1b40d6684a2c6e4f5869a09902fc42697286f4e48beb46",
+      "sha256": "53fdda43bb6f64cc6d5e18c796365cab26132fcc0f3bb0a2b269c3f27a5d3ce7",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -629,6 +629,61 @@
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw vendor source or captures",
       "sha256": "e3a6d491cfdb7ff917717125f80a1d39e0015e345b7f1d8fe62fa6844a140f91",
+      "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "docs/native/README.md",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "8316e728ecd57cf67455750525351a67565c6b962ab5d3a0cc84c3972d3098a3",
+      "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "docs/native/at-qmi-startup.md",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "0789f8d3ead6a42f630593378143a11cb7049985b57d1549f984c920fefa9e40",
+      "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "docs/native/compatibility-contract.md",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "04d7ce0fa11948f14ac16ada271766f28714d92e5eecde5be1dc61eeccbdc34d",
+      "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "docs/native/dji-application-contract.md",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "3dee257f25e9ac4851f17bb0b5f2dfd31b344128c19fbd14a7aacc69505397eb",
+      "publication_decision": "PUBLIC_DOCUMENTATION"
+    },
+    {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "docs/native/platform-usb-network.md",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "84ae54352fa7463f792b1cc9333d953cf2cf9e649ffb7f225208d12e5b482e18",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -672,7 +727,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw vendor source or captures",
-      "sha256": "50e0624089b5d5854ff15c7f252472a0e27015bc04750ccddb9569c6e0371371",
+      "sha256": "3d5c8da4b7561a14f61238437b4aa16393afad7964f7dc454eb45d67804ec168",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -705,7 +760,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw vendor source or captures",
-      "sha256": "0dfefab442569a9be27417012fd1297d0202022cddd1af3b39cc15067651e6dc",
+      "sha256": "fb34446cff7226af0f7240e94688fe0f3e794eee45d69ce90b4b8f9f0e301dfd",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -716,7 +771,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw vendor source or captures",
-      "sha256": "efd611560366241196462a48cbb8ed2f5052aad15a4bfa7daeea9c82f6198602",
+      "sha256": "a7b4773fb2954ecfbf13063390775e8834e0ae521bdf77369aa6d69d2936cafe",
       "publication_decision": "PUBLIC_DOCUMENTATION"
     },
     {
@@ -738,7 +793,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "Apache-2.0",
       "redaction": "Reviewed English public content; no private identifiers, paths or vendor artifacts",
-      "sha256": "d7dcbe2a2b59d98f9ebdbd1c1aa77af5cd21a57202d15fa748ac920a31abf975",
+      "sha256": "67cb98d6ebe7df789026af72be210423c8516a045d9607952d6b10247d4e2fbd",
       "publication_decision": "PUBLIC_ORIGINAL_CODE"
     },
     {
@@ -764,6 +819,39 @@
       "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
     },
     {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "evidence/sanitized/native-at-qmi-startup.json",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "09fbcc813928ec87d88ed652b676d6240b3c08d4c16043163ba21b41decd98f8",
+      "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
+    },
+    {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "evidence/sanitized/native-dji-application-contract.json",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "33acb25ad977da8bbbf948ff36625065f5205342eae3bcb8bac38ffe7436e3e2",
+      "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
+    },
+    {
+      "source_path": "research-summary/rc520-native-reference",
+      "destination_path": "evidence/sanitized/native-platform-usb-network.json",
+      "purpose": "Detailed RC520 and original IG831T native integration findings; measured and source-supported facts separated from unresolved compatibility gates",
+      "origin": "Original English research synthesis with sanitized technical tables and metadata; no vendor artifacts reproduced",
+      "ownership": "OpenIG831T contributors; original project material authorized for publication",
+      "license": "CC-BY-4.0",
+      "redaction": "New-controller scope only; device/subscriber/account identifiers, addresses, APN, credentials, raw captures, private paths and personal wall-clock records excluded",
+      "sha256": "800fb2b1e7a42d074e663f2ab30d0e64aee1ad2ac484d408823d1524641c82be",
+      "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
+    },
+    {
       "source_path": "research-summary/target-qmi-version-export,target-qmi-service-name-correction",
       "destination_path": "evidence/sanitized/qmi-services.json",
       "purpose": "Original English publication documentation or sanitized metadata summary",
@@ -782,7 +870,7 @@
       "ownership": "OpenIG831T contributors; original project material authorized for publication",
       "license": "CC-BY-4.0",
       "redaction": "No private paths, personal identifiers, raw captures, proprietary binaries or disassembly",
-      "sha256": "35c64bfec78d16385b6ce0fc01fac651e06413876c363fb05a74a1a4384cb425",
+      "sha256": "b18fabbe92c59a886bb5c821e52fbea48f0622aedf968358043975c94be19e28",
       "publication_decision": "PUBLIC_SANITIZED_EVIDENCE"
     },
     {
